@@ -1,0 +1,26 @@
+thead td {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.validate{
+    z-index: 10;
+    position: fixed;
+    top: 90%;
+    left: 90%;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+}
+
+#reload{
+    position: absolute;
+    left: -9999px;
+}
+
+#gestion {
+    margin-bottom: 100px;
+}

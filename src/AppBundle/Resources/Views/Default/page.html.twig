@@ -1,0 +1,7 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <p>{{ array.jour }} {{ array.mois }}</p>
+    <a href="{{ path('hello_world') }}">Retour</a>
+{% endblock %}

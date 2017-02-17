@@ -9,10 +9,25 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="accueil")
+     * @Route("/hello", name="hello_world")
      */
-    public function indexAction()
+    public function helloAction()
     {
-        return $this->render('AppBundle:Default:index.html.twig');
+        return $this->render('AppBundle:Default:hello.html.twig');
+    }
+
+    /**
+     * @Route("/page", name="page")
+     */
+    public function pageAction()
+    {
+        $data = array(
+            'title' => 'title',
+            'array' => array(
+                'jour' => 'vendredi',
+                'mois' => 'février',
+            ),
+        );
+        return $this->render('AppBundle:Default:page.html.twig', $data);
     }
 }
