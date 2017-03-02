@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
+    <!DOCTYPE html>
+    <html lang="fr">
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title></title>
+        <title>{% block title %}Ichor - Gods are Coming{% endblock %}</title>
+        <meta charset="utf-8"/>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta name="content-language" content="fr"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="author" content="Virtual Board Game">
+        <meta description="Site d'attente du site de promotion">
+        <meta keywords="attente, promo, Virtual Board Game, Carte">
+
+        {% block stylesheets %}{% endblock %}
+        {% block script %}{% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
