@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Modele</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ modele.id }}</td>
+            </tr>
+            <tr>
+                <th>Modelenom</th>
+                <td>{{ modele.modeleNom }}</td>
+            </tr>
+            <tr>
+                <th>Modelecategorie</th>
+                <td>{{ modele.modeleCategorie }}</td>
+            </tr>
+            <tr>
+                <th>Modeleextra</th>
+                <td>{% if modele.modeleExtra %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Modeleimage</th>
+                <td>{{ modele.modeleImage }}</td>
+            </tr>
+            <tr>
+                <th>Modeledescription</th>
+                <td>{{ modele.modeleDescription }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('modeles_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('modeles_edit', { 'id': modele.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

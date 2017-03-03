@@ -32,6 +32,9 @@ class Users
         $this->parties = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    //TODO::Problème lors de la génrération de la base de données à cause du ManyToMany
+
+
     /**
      * Get id
      *
