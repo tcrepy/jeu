@@ -2,15 +2,16 @@
 
 namespace AppBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Users
  *
- * @ORM\Table(name="users")
+ * @ORM\Table(name="fos_users")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UsersRepository")
  */
-class Users
+class Users extends BaseUser
 {
     /**
      * @var int
@@ -19,16 +20,25 @@ class Users
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
+
+    /**
+     * Many Users have Many Chats.
+     * @ORM\ManyToMany(targetEntity="Chats", mappedBy="users")
+     */
+
+    private $chats;
 
     /**
      * Many Users have Many Groups.
      * @ORM\ManyToMany(targetEntity="Parties", mappedBy="users")
      */
+
     private $parties;
 
     public function __construct()
     {
+        parent::__construct();
         $this->parties = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

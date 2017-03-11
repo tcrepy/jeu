@@ -22,7 +22,7 @@ class Parties
     private $id;
 
     /**
-     * Many Users have Many Groups.
+     * Many Users have Many Parties.
      * @ORM\ManyToMany(targetEntity="Users", inversedBy="parties")
      * @ORM\JoinTable(name="users_parties")
      */

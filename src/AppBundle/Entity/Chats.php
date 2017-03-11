@@ -22,6 +22,13 @@ class Chats
     private $id;
 
     /**
+     * Many Chats have Many Users.
+     * @ORM\ManyToMany(targetEntity="Chats", mappedBy="users")
+     */
+
+    private $users;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="chat_message", type="text")
