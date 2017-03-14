@@ -3,7 +3,6 @@
     <!DOCTYPE html>
     <html lang="fr">
     <head>
-        <title></title>
         <title>{% block title %}Ichor - Gods are Coming{% endblock %}</title>
         <meta charset="utf-8"/>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -19,6 +18,6 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
     </body>
-</html>
+    {% block javascripts %}{% endblock %}
+    </html>
