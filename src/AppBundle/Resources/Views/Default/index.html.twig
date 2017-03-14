@@ -73,14 +73,16 @@
                             <li><a href="#">Règles</a></li>
                             <li class="active"><a href="#">Jouer<span class="sr-only">(current)</span></a></li>
                             <li><a href="#">Classement</a></li>
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                                <a href="{{ path('fos_user_security_logout') }}">
-                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                </a>
-                            {% else %}
-                                <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
-                            {% endif %}
+                            <li>
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                    <a href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                                {% endif %}
+                            </li>
                             <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
