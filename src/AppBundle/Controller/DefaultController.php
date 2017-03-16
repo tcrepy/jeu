@@ -17,7 +17,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/admin", name="backoffice")
+     * @Route("/back", name="backoffice")
      */
     public function backAction()
     {

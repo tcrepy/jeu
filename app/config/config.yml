@@ -77,3 +77,8 @@ fos_user:
     from_email:
             address: contact@tanguycrepy.fr
             sender_name: Tanguy Crepy
+
+easy_admin:
+    entities:
+        - AppBundle\Entity\Modeles
+        - AppBundle\Entity\Users
