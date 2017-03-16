@@ -27,7 +27,7 @@ class Users extends BaseUser
      * @ORM\ManyToMany(targetEntity="Chats", mappedBy="users")
      */
 
-    private $chats;
+    protected $chats;
 
     /**
      * Many Users have Many Groups.
