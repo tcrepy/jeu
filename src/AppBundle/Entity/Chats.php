@@ -22,14 +22,6 @@ class Chats
     private $id;
 
     /**
-     * Many Users have Many Parties.
-     * @ORM\ManyToMany(targetEntity="Users", inversedBy="chats")
-     * @ORM\JoinTable(name="users_chats")
-     */
-
-    private $users;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="chat_message", type="text")

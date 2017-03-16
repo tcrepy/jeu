@@ -23,13 +23,6 @@ class Users extends BaseUser
     protected $id;
 
     /**
-     * Many Users have Many Chats.
-     * @ORM\ManyToMany(targetEntity="Chats", mappedBy="users")
-     */
-
-    protected $chats;
-
-    /**
      * Many Users have Many Groups.
      * @ORM\ManyToMany(targetEntity="Parties", mappedBy="users")
      */
