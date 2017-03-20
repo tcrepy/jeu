@@ -82,3 +82,5 @@ easy_admin:
     entities:
         - AppBundle\Entity\Modeles
         - AppBundle\Entity\Users
+    site_name: 'Ichor'
+    
