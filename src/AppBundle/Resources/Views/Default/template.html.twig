@@ -1,0 +1,123 @@
+{% extends '::base.html.twig' %}
+
+{% block meta %}
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="content-language" content="fr"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Virtual Board Game">
+    <meta name="description" content="Site d'attente du site de promotion">
+    <meta name="keywords" content="attente, promo, Virtual Board Game, Carte">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href={{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('assets/css/animate.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('assets/css/style.css') }}>
+{% endblock %}
+
+{# block scripts head #}
+{% block script %}
+    <script src={{ asset('assets/js/jquery-3.1.1.js') }} type="text/javascript"></script>
+    <script src={{ asset('assets/js/bootstrap.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('assets/js/wow.min.js') }} type="text/javascript"></script>
+    <script src={{ asset('assets/js/jquery.fittext.js') }} type="text/javascript"></script>
+    <script src={{ asset('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js') }}></script>
+    <script src={{ asset('assets/js/jquery.fittext.js') }}></script>
+    <script src={{ asset('assets/js/jquery.lazylinepainter-1.7.0.min.js') }}></script>
+    <script src={{ asset('assets/js/jquery-2.1.1.min.js') }}></script>
+{% endblock %}
+
+{% block favicon %}
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/img/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navleft">
+                            <li class="left"><a href="#">Tutoriel</a></li>
+                            <li><a href="#">Règles</a></li>
+                            <li class="active"><a href="#">Jouer<span class="sr-only">(current)</span></a></li>
+                            <li class="right"><a href="#">Classement</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right navright">
+                            <li><a href="#">Connexion</a></li>
+                            <li class="right"><a href="#">Inscription</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="container-fluid containerzonejeu col-lg-12 col-md-12">
+            <div class="zonejeu col-lg-7 col-md-7">
+                <img class="plateau col-lg-10 col-md-10" src="assets/img/plateau.png" />
+                <div class="cartes col-lg-12">
+                    <img class="carteimg" src="assets/img/cartes/grec/aphrodite.png" />
+                    <img class="carteimg" src="assets/img/cartes/romains/bacchus.png" />
+                    <img class="carteimg" src="assets/img/cartes/grec/ares.png" />
+                    <img class="carteimg" src="assets/img/cartes/egyptiens/isis.png" />
+                    <img class="carteimg" src="assets/img/cartes/romains/vulcain.png" />
+                    <img class="carteimg" src="assets/img/cartes/grec/dionysos.png" />
+                    <img class="carteimg" src="assets/img/cartes/egyptiens/maat.png" />
+                    <img class="carteimg" src="assets/img/cartes/grec/hephaistos.png" />
+                </div>
+            </div>
+            <div id="affiche" class="tchat col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1">
+                <form action="assets/chat/formulaire.php" method="post" id="form" class="col-md-12 col-sm-12 col-xs-12">
+                        <span class="col-md-4 col-sm-4 col-xs-12" style="padding: 15px 0 15px 0;">
+                            <div class="wow fadeInLeft" data-wow-delay="0.3s" style="padding: 0;">
+                                <input placeholder="Pseudo" type="text" name="pseudo" id="pseudo" required>
+                            </div>
+                        </span>
+
+                        <span class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-12" style="padding: 15px 0 15px 0;">
+                            <div class="wow fadeInLeft" data-wow-delay="0.7s" style="padding: 0;">
+                                <input placeholder="Message" type="text" name="commentaire" id="commentaire" required>
+                            </div>
+                        </span>
+
+                        <span style="padding: 0; margin: 0; visibility: hidden; z-index: -900;">
+                            <input type="submit" value="Envoyer" />
+                        </span>
+                </form>
+            </div>
+        </div>
+        <!-- <footer><h1>Footer</h1></footer> -->
+    </div>
+{% endblock %}
+
+{# block scripts footer #}
+{% block javascripts %}{% endblock %}

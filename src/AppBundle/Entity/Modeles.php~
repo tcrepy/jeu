@@ -1,0 +1,189 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Modeles
+ *
+ * @ORM\Table(name="modeles")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ModelesRepository")
+ */
+class Modeles
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modele_nom", type="string", length=255)
+     */
+    private $modeleNom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modele_categorie", type="string", length=255)
+     */
+    private $modeleCategorie;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="modele_extra", type="boolean")
+     */
+    private $modeleExtra;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modele_image", type="string", length=255)
+     */
+    private $modeleImage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modele_description", type="text")
+     */
+    private $modeleDescription;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set modeleNom
+     *
+     * @param string $modeleNom
+     *
+     * @return Modeles
+     */
+    public function setModeleNom($modeleNom)
+    {
+        $this->modeleNom = $modeleNom;
+
+        return $this;
+    }
+
+    /**
+     * Get modeleNom
+     *
+     * @return string
+     */
+    public function getModeleNom()
+    {
+        return $this->modeleNom;
+    }
+
+    /**
+     * Set modeleCategorie
+     *
+     * @param string $modeleCategorie
+     *
+     * @return Modeles
+     */
+    public function setModeleCategorie($modeleCategorie)
+    {
+        $this->modeleCategorie = $modeleCategorie;
+
+        return $this;
+    }
+
+    /**
+     * Get modeleCategorie
+     *
+     * @return string
+     */
+    public function getModeleCategorie()
+    {
+        return $this->modeleCategorie;
+    }
+
+    /**
+     * Set modeleExtra
+     *
+     * @param boolean $modeleExtra
+     *
+     * @return Modeles
+     */
+    public function setModeleExtra($modeleExtra)
+    {
+        $this->modeleExtra = $modeleExtra;
+
+        return $this;
+    }
+
+    /**
+     * Get modeleExtra
+     *
+     * @return bool
+     */
+    public function getModeleExtra()
+    {
+        return $this->modeleExtra;
+    }
+
+    /**
+     * Set modeleImage
+     *
+     * @param string $modeleImage
+     *
+     * @return Modeles
+     */
+    public function setModeleImage($modeleImage)
+    {
+        $this->modeleImage = $modeleImage;
+
+        return $this;
+    }
+
+    /**
+     * Get modeleImage
+     *
+     * @return string
+     */
+    public function getModeleImage()
+    {
+        return $this->modeleImage;
+    }
+
+    /**
+     * Set modeleDescription
+     *
+     * @param string $modeleDescription
+     *
+     * @return Modeles
+     */
+    public function setModeleDescription($modeleDescription)
+    {
+        $this->modeleDescription = $modeleDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get modeleDescription
+     *
+     * @return string
+     */
+    public function getModeleDescription()
+    {
+        return $this->modeleDescription;
+    }
+}

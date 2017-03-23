@@ -1,0 +1,74 @@
+.nav {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+
+.navbar {
+    background-color: dimgrey;
+    border: 0;
+}
+
+.active {
+    background-color: darkslategrey;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+body {
+    background-color: darkgrey;
+}
+
+.zonejeu h1 {
+    color: white;
+    margin-top: 35vh;
+    transform: translateY(-50%);
+}
+
+.tchat h1 {
+    color: white;
+    margin-top: 35vh;
+    transform: translateY(-50%);
+}
+
+.zonejeu {
+    float: left;
+    background-color: slategrey;
+    width: 50%;
+    height: 70vh;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.tchat {
+    float: right;
+    background-color: slategrey;
+    width: 25%;
+    height: 70vh;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 40px;
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: dimgrey;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
