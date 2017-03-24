@@ -79,19 +79,19 @@ fos_user:
             sender_name: Tanguy Crepy
 
 easy_admin:
-    entities:
-        - AppBundle\Entity\Modeles
-        - AppBundle\Entity\Users
     site_name: 'Ichor'
     entities:
-            User:
-                class: AppBundle\Entity\User
-                form:
-                    fields:
-                        - username
-                        - email
-                        - enabled
-                        - lastLogin
-                        # if administrators are allowed to edit users' passwords and roles, add this:
-                        - { property: 'plainPassword', type: 'text', type_options: { required: false } }
-                        - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+        Users:
+            class: AppBundle\Entity\Users
+            label: 'Utilisateurs'
+            form:
+                fields:
+                    - 'username'
+                    - 'email'
+                    - 'enabled'
+                    - 'lastLogin'
+                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+        Modeles:
+            class: AppBundle\Entity\Modeles
+            label: 'Modèles'

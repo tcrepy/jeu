@@ -15,12 +15,4 @@ class DefaultController extends Controller
     {
         return $this->render('AppBundle:Default:index.html.twig');
     }
-
-    /**
-     * @Route("/back", name="backoffice")
-     */
-    public function backAction()
-    {
-        return $this->render('AppBundle:Default:hello.html.twig');
-    }
 }

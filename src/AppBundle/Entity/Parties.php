@@ -22,23 +22,13 @@ class Parties
     private $id;
 
     /**
-     * Many Users have Many Parties.
-     * @ORM\ManyToMany(targetEntity="Users", inversedBy="parties")
-     * @ORM\JoinTable(name="users_parties")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", inversedBy="parties_1")
      */
-    private $users;
-
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
+    private $users1;
     /**
-     * @var int
-     *
-     * @ORM\Column(name="partie_joueur_1", type="smallint")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", inversedBy="parties_2")
      */
-    private $partieJoueur1;
+    private $users2;
 
     /**
      * @var int
@@ -46,13 +36,6 @@ class Parties
      * @ORM\Column(name="partie_joueur_1_score", type="smallint")
      */
     private $partieJoueur1Score;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="partie_joueur_2", type="smallint")
-     */
-    private $partieJoueur2;
 
     /**
      * @var int
@@ -200,5 +183,109 @@ class Parties
     public function getUsers()
     {
         return $this->users;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users1 = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users2 = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add users1
+     *
+     * @param \AppBundle\Entity\Parties $users1
+     *
+     * @return Parties
+     */
+    public function addUsers1(\AppBundle\Entity\Parties $users1)
+    {
+        $this->users1[] = $users1;
+
+        return $this;
+    }
+
+    /**
+     * Remove users1
+     *
+     * @param \AppBundle\Entity\Parties $users1
+     */
+    public function removeUsers1(\AppBundle\Entity\Parties $users1)
+    {
+        $this->users1->removeElement($users1);
+    }
+
+    /**
+     * Get users1
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers1()
+    {
+        return $this->users1;
+    }
+
+    /**
+     * Add users2
+     *
+     * @param \AppBundle\Entity\Parties $users2
+     *
+     * @return Parties
+     */
+    public function addUsers2(\AppBundle\Entity\Parties $users2)
+    {
+        $this->users2[] = $users2;
+
+        return $this;
+    }
+
+    /**
+     * Remove users2
+     *
+     * @param \AppBundle\Entity\Parties $users2
+     */
+    public function removeUsers2(\AppBundle\Entity\Parties $users2)
+    {
+        $this->users2->removeElement($users2);
+    }
+
+    /**
+     * Get users2
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers2()
+    {
+        return $this->users2;
+    }
+
+    /**
+     * Set users1
+     *
+     * @param \AppBundle\Entity\Users $users1
+     *
+     * @return Parties
+     */
+    public function setUsers1(\AppBundle\Entity\Users $users1 = null)
+    {
+        $this->users1 = $users1;
+
+        return $this;
+    }
+
+    /**
+     * Set users2
+     *
+     * @param \AppBundle\Entity\Users $users2
+     *
+     * @return Parties
+     */
+    public function setUsers2(\AppBundle\Entity\Users $users2 = null)
+    {
+        $this->users2 = $users2;
+
+        return $this;
     }
 }

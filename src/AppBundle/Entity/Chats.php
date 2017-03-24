@@ -22,6 +22,13 @@ class Chats
     private $id;
 
     /**
+     * Many Chats have many Users
+     * @ORM\ManyToMany(targetEntity="Users", mappedBy="chats")
+     */
+
+    private $users;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="chat_message", type="text")
@@ -92,5 +99,46 @@ class Chats
     public function getChatDate()
     {
         return $this->chatDate;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\Users $user
+     *
+     * @return Chats
+     */
+    public function addUser(\AppBundle\Entity\Users $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\Users $user
+     */
+    public function removeUser(\AppBundle\Entity\Users $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }
