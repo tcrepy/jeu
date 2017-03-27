@@ -84,6 +84,21 @@ easy_admin:
         Users:
             class: AppBundle\Entity\Users
             label: 'Utilisateurs'
+            list:
+                actions:
+                    - { name: 'show', icon: 'search', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'times', label: 'Delete' }
+                title: "Liste d'utilisateur"
+                fields:
+                    - 'id'
+                    - 'username'
+                    - 'email'
+                    - 'enabled'
+                    - { property: 'last_login', type: 'datetime' }
+                    - 'score'
+                    - 'partie_gagnee'
+                    - 'partie_perdue'
             form:
                 fields:
                     - 'username'

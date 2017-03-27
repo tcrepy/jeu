@@ -41,6 +41,28 @@ class Users extends BaseUser
 
     private $chats;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="partie_gagnee", type="smallint")
+     */
+    private $partie_gagnee;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="partie_perdue", type="smallint")
+     */
+    private $partie_perdue;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="score", type="bigint")
+     */
+    private $score;
+
     public function __construct()
     {
         parent::__construct();
@@ -190,5 +212,77 @@ class Users extends BaseUser
     public function getChats()
     {
         return $this->chats;
+    }
+
+    /**
+     * Set partieGagnee
+     *
+     * @param integer $partieGagnee
+     *
+     * @return Users
+     */
+    public function setPartieGagnee($partieGagnee)
+    {
+        $this->partie_gagnee = $partieGagnee;
+
+        return $this;
+    }
+
+    /**
+     * Get partieGagnee
+     *
+     * @return integer
+     */
+    public function getPartieGagnee()
+    {
+        return $this->partie_gagnee;
+    }
+
+    /**
+     * Set partiePerdue
+     *
+     * @param integer $partiePerdue
+     *
+     * @return Users
+     */
+    public function setPartiePerdue($partiePerdue)
+    {
+        $this->partie_perdue = $partiePerdue;
+
+        return $this;
+    }
+
+    /**
+     * Get partiePerdue
+     *
+     * @return integer
+     */
+    public function getPartiePerdue()
+    {
+        return $this->partie_perdue;
+    }
+
+    /**
+     * Set score
+     *
+     * @param integer $score
+     *
+     * @return Users
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
+    /**
+     * Get score
+     *
+     * @return integer
+     */
+    public function getScore()
+    {
+        return $this->score;
     }
 }
