@@ -45,21 +45,21 @@ class Users extends BaseUser
     /**
      * @var int
      *
-     * @ORM\Column(name="partie_gagnee", type="smallint")
+     * @ORM\Column(name="partie_gagnee", type="smallint", nullable=true)
      */
     private $partie_gagnee;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="partie_perdue", type="smallint")
+     * @ORM\Column(name="partie_perdue", type="smallint", nullable=true)
      */
     private $partie_perdue;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="score", type="bigint")
+     * @ORM\Column(name="score", type="bigint", nullable=true)
      */
     private $score;
 
