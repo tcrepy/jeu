@@ -33,14 +33,14 @@ class Parties
     /**
      * @var int
      *
-     * @ORM\Column(name="partie_joueur_1_score", type="smallint")
+     * @ORM\Column(name="partie_joueur_1_score", type="smallint", nullable=true)
      */
     private $partieJoueur1Score;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="partie_joueur_2_score", type="smallint")
+     * @ORM\Column(name="partie_joueur_2_score", type="smallint", nullable=true)
      */
     private $partieJoueur2Score;
 

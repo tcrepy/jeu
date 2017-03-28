@@ -110,3 +110,5 @@ easy_admin:
         Modeles:
             class: AppBundle\Entity\Modeles
             label: 'Modèles'
+        Parties:
+                    class: AppBundle\Entity\Parties

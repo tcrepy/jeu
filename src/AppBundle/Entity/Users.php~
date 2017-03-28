@@ -41,6 +41,28 @@ class Users extends BaseUser
 
     private $chats;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="partie_gagnee", type="smallint")
+     */
+    private $partie_gagnee;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="partie_perdue", type="smallint")
+     */
+    private $partie_perdue;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="score", type="bigint")
+     */
+    private $score;
+
     public function __construct()
     {
         parent::__construct();

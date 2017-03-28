@@ -45,14 +45,14 @@ class Modeles
     /**
      * @var string
      *
-     * @ORM\Column(name="modele_image", type="string", length=255)
+     * @ORM\Column(name="modele_image", type="string", length=255, nullable=true)
      */
     private $modeleImage;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="modele_description", type="text")
+     * @ORM\Column(name="modele_description", type="text", nullable=true)
      */
     private $modeleDescription;
 

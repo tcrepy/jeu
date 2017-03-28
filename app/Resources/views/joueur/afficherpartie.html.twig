@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Partie entre {{ partie.joueur1.nom }} et {{ partie.joueur2.nom }}</h1>
+
+
+    <div>
+        <h2>Cartes du joueur 1</h2>
+        <ul>
+            {% for carte in plateau.mainJ1 %}
+                <li>{{ cartes[carte].categorie.libelle }} {{ cartes[carte].valeur }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Cartes du joueur 2</h2>
+        <ul>
+            {% for carte in plateau.mainJ2 %}
+                <li>{{ cartes[carte].categorie.libelle }} {{ cartes[carte].valeur }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

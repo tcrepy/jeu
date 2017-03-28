@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Espace joueur : {{ user.username }}</h1>
+    <h2>Mes parties en cours</h2>
+
+    <div>
+        <ul>
+            {% for partie in user.parties %}
+                <li>#{{ partie.id }}</li>
+            {% else %}
+                Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <a href="{{ path('joueur_homepage') }}">Retour</a>
+{% endblock %}
