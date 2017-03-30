@@ -1,155 +1,219 @@
-<<<<<<< HEAD
-.navbar {
-    background-color: dimgrey;
-    border: 0;
-}
-
-.active {
-    background-color: darkslategrey;
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: white;
+@font-face {
+    font-family: 'Romain';
+    src: url('../font/Roman.ttf');
+    src: local('x'),
+    url('../font/Roman.woff') format('woff');
 }
 
 body {
-    background-color: darkgrey;
+    background: url(../img/background.png);
 }
 
-.zonejeu h1 {
-    color: white;
-    margin-top: 35vh;
-    transform: translateY(-50%);
-}
-
-.tchat h1 {
-    color: white;
-    margin-top: 35vh;
-    transform: translateY(-50%);
-}
-
-.zonejeu {
-    float: left;
-    background-color: slategrey;
-    width: 50%;
-    height: 70vh;
-    text-align: center;
-    margin-top: 20px;
-    margin-left: 40px;
-}
-
-.tchat {
-    float: right;
-    background-color: slategrey;
-    width: 25%;
-    height: 70vh;
-    text-align: center;
-    margin-top: 20px;
-    margin-right: 40px;
-}
-
-footer {
-    width: 100%;
-    height: 100px;
-    background-color: dimgrey;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-}
-
-.row {
-    margin: 0;
-    padding: 0;
-}
-
-.container-fluid {
-    margin: 0;
-    padding: 0;
+/****************************NAVBAR*********************************/
+.navbar {
+    background: url(../img/fond_menu.png);
+    height: 83px;
 }
 
 .navbar-nav {
-    float:none;
-    margin:0 auto;
-    display: block;
-    text-align: center;
+    font-family: 'Romain', sans-serif;
+    font-size: 20px;
 }
 
-.navbar-nav > li {
-    display: inline-block;
-    float:none;
-=======
-.nav {
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
+.navleft {
+    padding-left: 5vh;
 }
 
-.navbar {
-    background-color: dimgrey;
-    border: 0;
+.navright {
+    padding-right: 4vh;
 }
 
 .active {
-    background-color: darkslategrey;
+    background-color: transparent;
 }
 
 .navbar-default .navbar-nav>li>a {
     color: white;
 }
 
-body {
-    background-color: darkgrey;
+.navleft > li {
+    padding: 15px 4vw 15px 4vw;
+    border-left: solid 3px #9e9e9f;
+    border-right: solid 0;
 }
 
-.zonejeu h1 {
-    color: white;
-    margin-top: 35vh;
-    transform: translateY(-50%);
+.navleft > .right {
+    border-left: solid 3px #9e9e9f;
+    border-right: solid 3px #9e9e9f;
 }
 
-.tchat h1 {
-    color: white;
-    margin-top: 35vh;
-    transform: translateY(-50%);
+.navright > li {
+    padding: 15px 1vw 15px 1vw;
+    border-left: solid 3px #9e9e9f;
+    border-right: solid 3px #9e9e9f;
 }
 
-.zonejeu {
+.navright > .right {
+    border-left: solid 0;
+    border-right: solid 3px #9e9e9f;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #555;
+    background-color: transparent;
+}
+
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+    margin: 0;
+}
+
+/************ Pour les tablettes retournées ***********************/
+
+@media screen and (max-width: 1550px) {
+    .navleft > li {
+        padding: 15px 2vw 15px 2vw;
+        border-left: solid 3px #9e9e9f;
+        border-right: solid 0;
+    }
+
+    .navleft > .right {
+        border-left: solid 3px #9e9e9f;
+        border-right: solid 3px #9e9e9f;
+    }
+
+    .navright > li {
+        padding: 15px 1vw 15px 1vw;
+        border-left: solid 3px #9e9e9f;
+        border-right: solid 3px #9e9e9f;
+    }
+
+    .navright > .right {
+        border-left: solid 0;
+        border-right: solid 3px #9e9e9f;
+    }
+
+    .zonejeu {
+        width: 100%;
+    }
+
+    .plateau {
+        width: 100%;
+        filter: drop-shadow(0px 0px 15px rgba(0,0,0,.5));
+    }
+    .lescartes {
+        position: absolute;
+    }
+
+    .ouvrirchat {
+        background-color: white;
+        width: 150px;
+        height: 30px;
+    }
+    #affichagecommentaire {
+        background-color: white;
+        width: 33%;
+        height: 60px;
+        color: black;
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-image: url(../img/fond_apparition_chat.png);
+        box-sizing: border-box;
+        border: solid 3px #e2c62c;
+    }
+
+    .tchat {
+        background: url(../img/fond_tchat.png);
+        background-repeat: no-repeat;
+        height: 68%;
+        position: absolute;
+        width: 33%;
+        right: 0;
+        bottom: 60px;
+        padding: 0
+    }
+}
+
+/************ Pour les tablettes  ***********************/
+
+@media screen and (max-width: 1250px) {
+    .navbar-nav {
+        font-family: 'Romain', sans-serif;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1085px) {
+    .navbar-nav {
+        font-family: 'Romain', sans-serif;
+        font-size: 1.4vw;
+    }
+    .navleft {
+         padding-left: 1vh;
+    }
+
+    .navright {
+        padding-right: 1vh;
+    }
+
+}
+
+
+.plateau {
+    width: 100%;
+    filter: drop-shadow(0px 0px 15px rgba(0,0,0,.5));
+}
+
+.carteimg {
+    filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
+}
+.cartes img {
+    height: 93px;
     float: left;
-    background-color: slategrey;
-    width: 50%;
-    height: 70vh;
-    text-align: center;
-    margin-top: 20px;
-    margin-left: 40px;
 }
 
 .tchat {
-    float: right;
-    background-color: slategrey;
-    width: 25%;
-    height: 70vh;
+    background: url(../img/fond_tchat.png);
+    background-repeat: no-repeat;
     text-align: center;
-    margin-top: 20px;
-    margin-right: 40px;
 }
 
-footer {
-    width: 100%;
-    height: 100px;
-    background-color: dimgrey;
+.containerzonejeu {
+    margin-top: 2%;
+}
+
+.ouvrirchat {
+    background-color: white;
+    width: 150px;
+    height: 30px;
+}
+#affichagecommentaire {
+    background-color: white;
+    width: 23.5%;
+    height: 60px;
+    color: black;
+    cursor: pointer;
     position: absolute;
     bottom: 0;
-    text-align: center;
+    right: 0;
+    background-image: url(../img/fond_apparition_chat.png);
+    box-sizing: border-box;
+    border: solid 3px #e2c62c;
 }
 
-.row {
-    margin: 0;
-    padding: 0;
+.tchat {
+    background: url(../img/fond_tchat.png);
+    background-repeat: no-repeat;
+    height: 68%;
+    position: absolute;
+    width: 23.5%;
+    right: 0;
+    bottom: 60px;
+    padding: 0
 }
 
-.container-fluid {
-    margin: 0;
-    padding: 0;
->>>>>>> 609f631ce15e51e43925ae3a57ee1e6ae09fe441
+.lescartes {
+    position: absolute;
+    margin-top: 50%;
 }

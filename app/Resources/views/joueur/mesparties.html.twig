@@ -6,10 +6,13 @@
 
     <div>
         <ul>
+            {#{{ dump(user) }}#}
             {% for partie in user.parties %}
-                <li>#{{ partie.id }}</li>
-            {% else %}
-                Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>
+                {{ dump(partie) }}
+                {#<li>#{{ partie.id }}</li>#}
+                <p>test</p>
+            {#{% else %}#}
+                {#Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>#}
             {% endfor %}
         </ul>
     </div>

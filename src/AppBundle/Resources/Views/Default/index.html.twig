@@ -1,15 +1,5 @@
 {% extends '::base.html.twig' %}
 
-{% block meta %}
-    <meta charset="utf-8"/>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="content-language" content="fr"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="Virtual Board Game">
-    <meta name="description" content="Site d'attente du site de promotion">
-    <meta name="keywords" content="attente, promo, Virtual Board Game, Carte">
-{% endblock %}
-
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href={{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('assets/css/animate.css') }}>
@@ -51,10 +41,39 @@
 {% block title %}{% endblock %}
 
 {% block body %}
+    <div class="container-fluid containerzonejeu col-lg-12 col-md-12">
+        <div class="zonejeu col-lg-offset-2 col-lg-8 col-md-8">
+            <img class="plateau col-lg-10 col-md-10" src="{{ asset('assets/img/plateau.png') }}"/>
+            <div class="lescartes col-lg-12 col-md-12 col-xs-12">
+                <div class="cartes col-lg-offset-3 col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                    <img class="carteimg" src="{{ asset('assets/img/cartes/grec/aphrodite.png') }}"/>
+                    <img class="carteimg" src="{{ asset('assets/img/cartes/romains/bacchus.png') }}"/>
+                    <img class="carteimg" src="{{ asset('assets/img/cartes/grec/ares.png') }}"/>
+                    <img class="carteimg" src="{{ asset('assets/img/cartes/egyptiens/isis.png') }}"/>
+                    <img class="carteimg" src="{{ asset('assets/img/cartes/romains/vulcain.png') }}"/>
+                    <img class="carteimg" src="{{ asset('assets/img/cartes/grec/dionysos.png') }}"/>
+                    <img class="carteimg" src="{{ asset('assets/img/cartes/egyptiens/maat.png') }}"/>
+                    <img class="carteimg" src="{{ asset('assets/img/cartes/grec/hephaistos.png') }}"/>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
 
-        <div class="zonejeu"><h1>Zone de jeu</h1></div>
-        <div class="tchat"><h1>Tchat</h1></div>
-        <footer><h1>Footer</h1></footer>
+            $(document).ready(function()
+            {
+                //hide the all of the element with class msg_body
+                $("#commentaires").hide();
+                //toggle the componenet with class msg_body
+                $("#affichagecommentaire").click(function()
+                {
+                    $(this).next("#commentaires").slideToggle(600);
+                });
+            });
+        </script>
+    </div>
+
+    <div id="affichagecommentaire" style="cursor: pointer;">Le chat</div>
+    <div id="commentaires" class="tchat col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1"></div>
     </div>
 {% endblock %}
 

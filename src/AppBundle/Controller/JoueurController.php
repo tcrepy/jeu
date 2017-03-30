@@ -37,7 +37,6 @@ class JoueurController extends Controller
         return $this->render("joueur/mesparties.html.twig", ['user' => $user]);
     }
 
-
     /**
      * @Route("/parties/add", name="joueur_parties_add")
      */
