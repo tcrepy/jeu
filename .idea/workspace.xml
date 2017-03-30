@@ -5,43 +5,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/hello.html.twig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/page.html.twig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/template.html.twig" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/joueur/mesparties.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/joueur/mesparties.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/Views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/Views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/.editorconfig" afterPath="$PROJECT_DIR$/web/assets/bootstrap/.editorconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/.gitattributes" afterPath="$PROJECT_DIR$/web/assets/bootstrap/.gitattributes" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/.gitignore" afterPath="$PROJECT_DIR$/web/assets/bootstrap/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/CNAME" afterPath="$PROJECT_DIR$/web/assets/bootstrap/CNAME" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/Gemfile" afterPath="$PROJECT_DIR$/web/assets/bootstrap/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/LICENSE" afterPath="$PROJECT_DIR$/web/assets/bootstrap/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/docs/LICENSE" afterPath="$PROJECT_DIR$/web/assets/bootstrap/docs/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/docs/robots.txt" afterPath="$PROJECT_DIR$/web/assets/bootstrap/docs/robots.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/grunt/.jshintrc" afterPath="$PROJECT_DIR$/web/assets/bootstrap/grunt/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/js/.jscsrc" afterPath="$PROJECT_DIR$/web/assets/bootstrap/js/.jscsrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/js/.jshintrc" afterPath="$PROJECT_DIR$/web/assets/bootstrap/js/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/js/tests/unit/.jshintrc" afterPath="$PROJECT_DIR$/web/assets/bootstrap/js/tests/unit/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/bootstrap/less/.csslintrc" afterPath="$PROJECT_DIR$/web/assets/bootstrap/less/.csslintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/web/assets/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/web/assets/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/main.css" afterPath="$PROJECT_DIR$/web/assets/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/metisMenu.min.css" afterPath="$PROJECT_DIR$/web/assets/css/metisMenu.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/morris.css" afterPath="$PROJECT_DIR$/web/assets/css/morris.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/startmin.css" afterPath="$PROJECT_DIR$/web/assets/css/startmin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/style.css" afterPath="$PROJECT_DIR$/web/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/timeline.css" afterPath="$PROJECT_DIR$/web/assets/css/timeline.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/img/browserconfig.xml" afterPath="$PROJECT_DIR$/web/assets/img/browserconfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/img/qr-code.svg" afterPath="$PROJECT_DIR$/web/assets/img/qr-code.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/web/assets/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/jquery-2.1.1.min.js" afterPath="$PROJECT_DIR$/web/assets/js/jquery-2.1.1.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/jquery.fittext.js" afterPath="$PROJECT_DIR$/web/assets/js/jquery.fittext.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/jquery.lazylinepainter-1.7.0.min.js" afterPath="$PROJECT_DIR$/web/assets/js/jquery.lazylinepainter-1.7.0.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/jquery.min.js" afterPath="$PROJECT_DIR$/web/assets/js/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/lightbox.min.js" afterPath="$PROJECT_DIR$/web/assets/js/lightbox.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/metisMenu.min.js" afterPath="$PROJECT_DIR$/web/assets/js/metisMenu.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/npm.js" afterPath="$PROJECT_DIR$/web/assets/js/npm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/startmin.js" afterPath="$PROJECT_DIR$/web/assets/js/startmin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" />
     </list>
     <ignored path="prjt_s4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JoueurController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JoueurController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            <state relative-caret-position="525">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="51" selection-end-column="0" />
               <folding>
                 <element signature="e#40#67#0#PHP" expanded="true" />
               </folding>
@@ -94,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/Views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+            <state relative-caret-position="311">
+              <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
               </folding>
@@ -214,9 +178,9 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Modeles.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/joueur/mesparties.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/Views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/Views/Default/index.html.twig" />
       </list>
     </option>
   </component>
@@ -664,7 +628,7 @@
       <workItem from="1490716605092" duration="1588000" />
       <workItem from="1490774922176" duration="757000" />
       <workItem from="1490789461633" duration="214000" />
-      <workItem from="1490860171865" duration="7526000" />
+      <workItem from="1490860171865" duration="8136000" />
     </task>
     <task id="LOCAL-00001" summary="Configuration de EasyAdmin et ajout de variables pour FosUser">
       <created>1490604240165</created>
@@ -677,7 +641,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59152000" />
+    <option name="totallyTimeSpent" value="59762000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1033,16 +997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/Views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1064,10 +1018,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        <state relative-caret-position="525">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="51" selection-end-column="0" />
           <folding>
             <element signature="e#40#67#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/Views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
