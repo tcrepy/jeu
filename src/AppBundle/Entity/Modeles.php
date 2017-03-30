@@ -31,6 +31,13 @@ class Modeles
     /**
      * @var string
      *
+     * @ORM\Column(name="modele_valeur", type="smallint", nullable=true)
+     */
+    private $modeleValeur;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="modele_categorie", type="string", length=255)
      */
     private $modeleCategorie;
@@ -185,5 +192,29 @@ class Modeles
     public function getModeleDescription()
     {
         return $this->modeleDescription;
+    }
+
+    /**
+     * Set modeleValeur
+     *
+     * @param integer $modeleValeur
+     *
+     * @return Modeles
+     */
+    public function setModeleValeur($modeleValeur)
+    {
+        $this->modeleValeur = $modeleValeur;
+
+        return $this;
+    }
+
+    /**
+     * Get modeleValeur
+     *
+     * @return integer
+     */
+    public function getModeleValeur()
+    {
+        return $this->modeleValeur;
     }
 }

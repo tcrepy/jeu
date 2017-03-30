@@ -80,6 +80,9 @@ fos_user:
 
 easy_admin:
     site_name: 'Ichor'
+#    design:
+#        assets:
+#            favicon: '/assets/backend/favicon.png'
     entities:
         Users:
             class: AppBundle\Entity\Users
@@ -113,4 +116,6 @@ easy_admin:
             class: AppBundle\Entity\Modeles
             label: 'Modèles'
         Parties:
-                    class: AppBundle\Entity\Parties
+            class: AppBundle\Entity\Parties
+        Cartes:
+            class: AppBundle\Entity\Cartes

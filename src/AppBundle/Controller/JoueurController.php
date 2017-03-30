@@ -110,4 +110,17 @@ class JoueurController extends Controller
 
         return $this->render('joueur/partie.html.twig', ['partie' => $partie, 'user' => $user]);
     }
+
+    /**
+     * @param Parties $id
+     * @Route("/afficher/{id}", name="afficher_partie")
+     */
+    public function afficherPartieAction(Parties $id)
+    {
+        $cartes = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findAll();
+        $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->findBy(['id' => $id]);
+        $user = $this->getUser();
+
+        return $this->render(':joueur:afficherpartie.html.twig', ['cartes' => $cartes, 'parties' => $partie, 'user' => $user]);
+    }
 }

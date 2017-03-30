@@ -45,7 +45,7 @@ class Cartes
     /**
      * @var int
      *
-     * @ORM\Column(name="carte_ordre", type="smallint", nullable=true)
+     * @ORM\Column(name="carte_ordre", type="smallint", nullable=true   )
      */
     private $carteOrdre;
 

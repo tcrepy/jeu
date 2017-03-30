@@ -22,11 +22,11 @@ class Parties
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", inversedBy="parties_1")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", inversedBy="parties_1", fetch="EAGER")
      */
     private $users1;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", inversedBy="parties_2")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", inversedBy="parties_2", fetch="EAGER")
      */
     private $users2;
 

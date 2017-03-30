@@ -1,23 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Partie entre {{ partie.joueur1.nom }} et {{ partie.joueur2.nom }}</h1>
+
+    <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
 
 
     <div>
-        <h2>Cartes du joueur 1</h2>
-        <ul>
-            {% for carte in plateau.mainJ1 %}
-                <li>{{ cartes[carte].categorie.libelle }} {{ cartes[carte].valeur }}</li>
-            {% endfor %}
-        </ul>
+    <h2>Cartes du joueur 1</h2>
+    <ul>
+        {% for carte in cartes %}
+            {% if carte.parties.id == parties[0].id %}
+                {% if carte.carteSituation == 'mainJ1' %}
+                    <li>{{ carte.modeles.modeleNom }}</li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
     </div>
 
     <div>
         <h2>Cartes du joueur 2</h2>
         <ul>
-            {% for carte in plateau.mainJ2 %}
-                <li>{{ cartes[carte].categorie.libelle }} {{ cartes[carte].valeur }}</li>
+            {#{% set t = 0 %}#}
+            {% for carte in cartes %}
+                {% if carte.parties.id == parties[0].id %}
+                    {% if carte.carteSituation == 'mainJ2' %}
+                        <li>{{ carte.modeles.modeleNom }}</li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Pioche</h2>
+        <ul>
+            {% for carte in cartes %}
+                {% if carte.parties.id == parties[0].id %}
+                    {% if carte.carteSituation == 'pioche' %}
+                        <li>{{ carte.modeles.modeleNom }}</li>
+                    {% endif %}
+                {% endif %}
             {% endfor %}
         </ul>
     </div>
