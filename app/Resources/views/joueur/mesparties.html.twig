@@ -6,14 +6,19 @@
 
     <div>
         <ul>
+            {% set i = 0 %}
             {% for parties in user.parties %}
                 {% for partie in parties %}
-                    <li><a href="{{ path('afficher_partie') }}"></a>{{ partie.id }}</li>
-            {% else %}
-                Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>
+                    {% if partie is not empty %}
+                        <li><a href="{{ path('afficher_partie', {'id': partie.id}) }}">{{ partie.id }}</a></li>
+                        {% set i = i + 1 %}
+                    {% endif %}
                 {% endfor %}
-
             {% endfor %}
+
+            {% if i == 0 %}
+                Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>
+            {% endif %}
         </ul>
     </div>
 
