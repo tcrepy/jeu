@@ -73,9 +73,16 @@ class Users extends BaseUser
 
     public function getParties()
     {
-        $this->parties[] = $this->parties_1;
-        $this->parties[] = $this->parties_2;
-        return $this->parties;
+        if (!is_null($this->parties_1) || !is_null($this->parties_2)){
+            if (!is_null($this->parties_1)){
+                $this->parties[] = $this->parties_1;
+            }
+            if (!is_null($this->parties_2)){
+                $this->parties[] = $this->parties_2;
+            }
+            return $this->parties;
+        }
+
     }
 
     /**

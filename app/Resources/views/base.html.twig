@@ -51,7 +51,7 @@
                     <ul class="nav navbar-nav navleft">
                         <li class="left"><a href="#">Tutoriel</a></li>
                         <li><a href="#">Règles</a></li>
-                        <li class="active"><a href="{{ path('index') }}">Jouer<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="#">Jouer<span class="sr-only">(current)</span></a></li>
                         <li class="right"><a href="#">Classement</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right navright">
@@ -69,13 +69,12 @@
                             <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                             <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
                         {% endif %}
-
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
     </div>
-
+</div>
     {% block body %}{% endblock %}
 </body>
 {% block javascripts %}{% endblock %}

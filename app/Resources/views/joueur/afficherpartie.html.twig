@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_dev.html.twig' %}
 
 {% block body %}
 
@@ -11,7 +11,10 @@
         {% for carte in cartes %}
             {% if carte.parties.id == parties[0].id %}
                 {% if carte.carteSituation == 'mainJ1' %}
-                    <li>{{ carte.modeles.modeleNom }}</li>
+                    <li>
+                        {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                        <a href="">Jouer</a>
+                    </li>
                 {% endif %}
             {% endif %}
         {% endfor %}
@@ -21,11 +24,13 @@
     <div>
         <h2>Cartes du joueur 2</h2>
         <ul>
-            {#{% set t = 0 %}#}
             {% for carte in cartes %}
                 {% if carte.parties.id == parties[0].id %}
                     {% if carte.carteSituation == 'mainJ2' %}
-                        <li>{{ carte.modeles.modeleNom }}</li>
+                        <li>
+                            {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                            <a href="">Jouer</a>
+                        </li>
                     {% endif %}
                 {% endif %}
             {% endfor %}
@@ -38,11 +43,39 @@
             {% for carte in cartes %}
                 {% if carte.parties.id == parties[0].id %}
                     {% if carte.carteSituation == 'pioche' %}
-                        <li>{{ carte.modeles.modeleNom }}</li>
+                        <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
                     {% endif %}
                 {% endif %}
             {% endfor %}
         </ul>
     </div>
+    <div>
+        <h2>Défausse</h2>
+        <ul>
+            {% for carte in cartes %}
+                {% if carte.parties.id == parties[0].id %}
+                    {% if carte.carteSituation == 'defausse' %}
+                        <li>
+                            {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }} - {{ carte.carteOrdre }}
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Sur le plateau</h2>
+        <ul>
+            {% for carte in cartes %}
+                {% if carte.parties.id == parties[0].id %}
+                    {% if carte.carteSituation == 'plateau' %}
+                        <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
 
 {% endblock %}

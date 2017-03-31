@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_dev.html.twig' %}
 
 {% block body %}
     <h1>Espace joueur : {{ user.username }}</h1>
@@ -6,13 +6,13 @@
 
     <div>
         <ul>
-            {#{{ dump(user) }}#}
-            {% for partie in user.parties %}
-                {{ dump(partie) }}
-                {#<li>#{{ partie.id }}</li>#}
-                <p>test</p>
-            {#{% else %}#}
-                {#Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>#}
+            {% for parties in user.parties %}
+                {% for partie in parties %}
+                    <li><a href="{{ path('afficher_partie') }}"></a>{{ partie.id }}</li>
+            {% else %}
+                Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>
+                {% endfor %}
+
             {% endfor %}
         </ul>
     </div>
