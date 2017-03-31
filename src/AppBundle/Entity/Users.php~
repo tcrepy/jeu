@@ -73,9 +73,16 @@ class Users extends BaseUser
 
     public function getParties()
     {
-        $this->parties[] = $this->parties_1;
-        $this->parties[] = $this->parties_2;
-        return $this->parties;
+        if (!is_null($this->parties_1) || !is_null($this->parties_2)){
+            if (!is_null($this->parties_1)){
+                $this->parties[] = $this->parties_1;
+            }
+            if (!is_null($this->parties_2)){
+                $this->parties[] = $this->parties_2;
+            }
+            return $this->parties;
+        }
+
     }
 
     /**
@@ -284,5 +291,39 @@ class Users extends BaseUser
     public function getScore()
     {
         return $this->score;
+    }
+
+    /**
+     * Add tour
+     *
+     * @param \AppBundle\Entity\Parties $tour
+     *
+     * @return Users
+     */
+    public function addTour(\AppBundle\Entity\Parties $tour)
+    {
+        $this->tour[] = $tour;
+
+        return $this;
+    }
+
+    /**
+     * Remove tour
+     *
+     * @param \AppBundle\Entity\Parties $tour
+     */
+    public function removeTour(\AppBundle\Entity\Parties $tour)
+    {
+        $this->tour->removeElement($tour);
+    }
+
+    /**
+     * Get tour
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTour()
+    {
+        return $this->tour;
     }
 }

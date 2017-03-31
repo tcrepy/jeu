@@ -10,7 +10,14 @@
             {% for parties in user.parties %}
                 {% for partie in parties %}
                     {% if partie is not empty %}
-                        <li><a href="{{ path('afficher_partie', {'id': partie.id}) }}">{{ partie.id }}</a></li>
+                        <li>Partie avec : <a href="{{ path('afficher_partie', {'id': partie.id}) }}">
+                                {% if partie.users1.username != user.username %}
+                                    {{ partie.users1.username }}
+                                {% else %}
+                                    {{ partie.users2.username }}
+                                {% endif %}
+
+                            </a> - tour de : {{ partie.partieTour }}</li>
                         {% set i = i + 1 %}
                     {% endif %}
                 {% endfor %}

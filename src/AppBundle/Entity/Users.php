@@ -292,4 +292,38 @@ class Users extends BaseUser
     {
         return $this->score;
     }
+
+    /**
+     * Add tour
+     *
+     * @param \AppBundle\Entity\Parties $tour
+     *
+     * @return Users
+     */
+    public function addTour(\AppBundle\Entity\Parties $tour)
+    {
+        $this->tour[] = $tour;
+
+        return $this;
+    }
+
+    /**
+     * Remove tour
+     *
+     * @param \AppBundle\Entity\Parties $tour
+     */
+    public function removeTour(\AppBundle\Entity\Parties $tour)
+    {
+        $this->tour->removeElement($tour);
+    }
+
+    /**
+     * Get tour
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTour()
+    {
+        return $this->tour;
+    }
 }

@@ -31,6 +31,11 @@ class Parties
     private $users2;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users", fetch="EAGER")
+     */
+    private $partieTour;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="partie_joueur_1_score", type="smallint", nullable=true)
@@ -184,6 +189,7 @@ class Parties
     {
         return $this->users;
     }
+
     /**
      * Constructor
      */
@@ -287,5 +293,29 @@ class Parties
         $this->users2 = $users2;
 
         return $this;
+    }
+
+    /**
+     * Set partieTour
+     *
+     * @param integer $partieTour
+     *
+     * @return Parties
+     */
+    public function setPartieTour($partieTour)
+    {
+        $this->partieTour = $partieTour;
+
+        return $this;
+    }
+
+    /**
+     * Get partieTour
+     *
+     * @return integer
+     */
+    public function getPartieTour()
+    {
+        return $this->partieTour;
     }
 }

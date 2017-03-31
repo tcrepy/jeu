@@ -193,4 +193,28 @@ class Modeles
     {
         return $this->modeleDescription;
     }
+
+    /**
+     * Set modeleValeur
+     *
+     * @param integer $modeleValeur
+     *
+     * @return Modeles
+     */
+    public function setModeleValeur($modeleValeur)
+    {
+        $this->modeleValeur = $modeleValeur;
+
+        return $this;
+    }
+
+    /**
+     * Get modeleValeur
+     *
+     * @return integer
+     */
+    public function getModeleValeur()
+    {
+        return $this->modeleValeur;
+    }
 }

@@ -6,60 +6,64 @@
 
 
     <div>
-    <h2>Cartes du joueur 1</h2>
-    <ul>
-        {% for carte in cartes %}
-            {% if carte.parties.id == parties[0].id %}
-                {% if carte.carteSituation == 'mainJ1' %}
-                    <li>
-                        {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
-                        <a href="">Jouer</a>
-                    </li>
-                {% endif %}
+        <h2>Cartes du joueur 1</h2>
+        <ul>
+            {% set i = 0 %}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ1' %}
+                {% set i = i + 1 %}
+                <li>
+                    {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                    <a href="">Jouer</a> -
+                    <a href="">Défausser</a>
+                </li>
+            {% endfor %}
+            {% if i < 8 %}
+                <a href="">piocher</a>
             {% endif %}
-        {% endfor %}
-    </ul>
+        </ul>
     </div>
 
     <div>
         <h2>Cartes du joueur 2</h2>
         <ul>
-            {% for carte in cartes %}
-                {% if carte.parties.id == parties[0].id %}
-                    {% if carte.carteSituation == 'mainJ2' %}
-                        <li>
-                            {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
-                            <a href="">Jouer</a>
-                        </li>
-                    {% endif %}
-                {% endif %}
+            {% set t = 0 %}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ2' %}
+                {% set t = t + 1 %}
+                <li>
+                    {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                    <a href="">Jouer</a> -
+                    <a href="">Défausser</a>
+                </li>
             {% endfor %}
+            {% if t < 8 %}
+                <a href="">piocher</a>
+            {% endif %}
         </ul>
     </div>
 
     <div>
         <h2>Pioche</h2>
         <ul>
-            {% for carte in cartes %}
-                {% if carte.parties.id == parties[0].id %}
-                    {% if carte.carteSituation == 'pioche' %}
-                        <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
-                    {% endif %}
-                {% endif %}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'pioche' %}
+
+                <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
             {% endfor %}
         </ul>
     </div>
     <div>
         <h2>Défausse</h2>
         <ul>
-            {% for carte in cartes %}
-                {% if carte.parties.id == parties[0].id %}
-                    {% if carte.carteSituation == 'defausse' %}
-                        <li>
-                            {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }} - {{ carte.carteOrdre }}
-                        </li>
-                    {% endif %}
-                {% endif %}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' %}
+
+                <li>
+                    {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                    - {{ carte.carteOrdre }} -
+                    <a href="">Récuperer</a>
+                </li>
             {% endfor %}
         </ul>
     </div>
@@ -67,12 +71,10 @@
     <div>
         <h2>Sur le plateau</h2>
         <ul>
-            {% for carte in cartes %}
-                {% if carte.parties.id == parties[0].id %}
-                    {% if carte.carteSituation == 'plateau' %}
-                        <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }} - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
-                    {% endif %}
-                {% endif %}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' %}
+
+                <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
             {% endfor %}
         </ul>
     </div>

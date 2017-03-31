@@ -63,6 +63,8 @@ class JoueurController extends Controller
         $partie->setUsers1($user);
         $partie->setUsers2($joueur);
 
+        $partie->setPartieTour($user);
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($partie);
         $em->flush();
@@ -72,8 +74,7 @@ class JoueurController extends Controller
         //on mélange les cartes
         shuffle($modeles);
 
-        for($i = 0; $i<8; $i++)
-        {
+        for ($i = 0; $i < 8; $i++) {
             $cartes = new Cartes();
             $cartes->setParties($partie);
 
@@ -83,8 +84,7 @@ class JoueurController extends Controller
             $em->persist($cartes);
         }
 
-        for($i = 8; $i<16; $i++)
-        {
+        for ($i = 8; $i < 16; $i++) {
             $cartes = new Cartes();
             $cartes->setParties($partie);
 
@@ -94,8 +94,7 @@ class JoueurController extends Controller
             $em->persist($cartes);
         }
 
-        for($i = 16; $i<count($modeles); $i++)
-        {
+        for ($i = 16; $i < count($modeles); $i++) {
             $cartes = new Cartes();
             $cartes->setParties($partie);
 
@@ -121,5 +120,14 @@ class JoueurController extends Controller
         $user = $this->getUser();
 
         return $this->render(':joueur:afficherpartie.html.twig', ['cartes' => $cartes, 'parties' => $partie, 'user' => $user]);
+    }
+
+    /**
+     * @param Partie $partieid, Cartes $carteid, Users $joueurid
+     * @Route("/piocher/{partieid}/{carteid}/{joueurid", name="piocher")
+     */
+    public function piocherAction(Parties $id, Cartes $id, Users $id)
+    {
+
     }
 }
