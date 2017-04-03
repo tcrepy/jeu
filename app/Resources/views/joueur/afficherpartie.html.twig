@@ -19,7 +19,7 @@
                 </li>
             {% endfor %}
             {% if i < 8 %}
-                <a href="">piocher</a>
+                <a href="{{ path('piocherj1', {'partieid': parties[0].id}) }}">piocher</a>
             {% endif %}
         </ul>
     </div>
@@ -38,7 +38,7 @@
                 </li>
             {% endfor %}
             {% if t < 8 %}
-                <a href="">piocher</a>
+                <a href="{{ path('piocherj2', {'partieid': parties[0].id}) }}">piocher</a>
             {% endif %}
         </ul>
     </div>
@@ -71,7 +71,8 @@
     <div>
         <h2>Sur le plateau</h2>
         <ul>
-            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' %}
+            <h3>Azteque :</h3>
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'azteque' %}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>

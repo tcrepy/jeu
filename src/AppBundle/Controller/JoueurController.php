@@ -8,6 +8,7 @@ use AppBundle\Entity\Cartes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -123,11 +124,39 @@ class JoueurController extends Controller
     }
 
     /**
-     * @param Partie $partieid, Cartes $carteid, Users $joueurid
-     * @Route("/piocher/{partieid}/{carteid}/{joueurid", name="piocher")
+     * @param Parties $partieid
+     * @Route("/piocherj1/{partieid}", name="piocherj1")
      */
-    public function piocherAction(Parties $id, Cartes $id, Users $id)
+    public function piocherj1Action($partieid)
     {
+        $cartesPioche = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['carteSituation' => 'pioche', 'parties' => $partieid]);
+        $em = $this->getDoctrine()->getManager();
+        $cartesPioche->setCarteSituation('mainJ1');
+        $em->flush();
+        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
+    }
 
+    /**
+     * @param Parties $partieid
+     * @Route("/piocherj2/{partieid}", name="piocherj2")
+     */
+    public function piocherj2Action($partieid)
+    {
+        $cartesPioche = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['carteSituation' => 'pioche', 'parties' => $partieid]);
+        $em = $this->getDoctrine()->getManager();
+        $cartesPioche->setCarteSituation('mainJ2');
+        $em->flush();
+        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
+    }
+
+    /**
+     * @Route("/toutmodeles", name="tout")
+     */
+
+    public function toutmodeleAction()
+    {
+        $modeles = $this->getDoctrine()->getRepository('AppBundle:Modeles')->findAll();
+        $modeles = json_encode($modeles);
+        return new JsonResponse($modeles);
     }
 }
