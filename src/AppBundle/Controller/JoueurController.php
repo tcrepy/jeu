@@ -148,4 +148,18 @@ class JoueurController extends Controller
         $em->flush();
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
+
+    /**
+     * @param Parties $partieid Cartes $carteid
+     * @Route("/jouer/{partieid}/{carteid}", name="jouerCarte")
+     **/
+
+    public function jouerCarteAction($partieid, $carteid)
+    {
+        $carte = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id'=>$carteid]);
+        $em = $this->getDoctrine()->getManager();
+        $carte->setCarteSituation('plateau');
+        $em->flush();
+        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
+    }
 }
