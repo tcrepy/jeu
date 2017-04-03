@@ -148,15 +148,4 @@ class JoueurController extends Controller
         $em->flush();
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
-
-    /**
-     * @Route("/toutmodeles", name="tout")
-     */
-
-    public function toutmodeleAction()
-    {
-        $modeles = $this->getDoctrine()->getRepository('AppBundle:Modeles')->findAll();
-        $modeles = json_encode($modeles);
-        return new JsonResponse($modeles);
-    }
 }
