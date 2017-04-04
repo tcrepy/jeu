@@ -107,7 +107,8 @@ class JoueurController extends Controller
 
         $em->flush();
 
-        return $this->render('joueur/partie.html.twig', ['partie' => $partie, 'user' => $user]);
+//        return $this->render('joueur/partie.html.twig', ['partie' => $partie, 'user' => $user]);
+        return $this->redirectToRoute('afficher_partie', ['id' => $partie->getId()]);
     }
 
     /**
@@ -156,10 +157,45 @@ class JoueurController extends Controller
 
     public function jouerCarteAction($partieid, $carteid)
     {
-        $carte = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id'=>$carteid]);
-        $em = $this->getDoctrine()->getManager();
-        $carte->setCarteSituation('plateau');
-        $em->flush();
-        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
+
+        //recup de la carte à jouer, et de sa catégorie
+        $carteAJouer = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id' => $carteid]);
+        $categorie = $carteAJouer->getModeles()->getModeleCategorie();
+        $valeur = $carteAJouer->getModeles()->getModeleValeur();
+
+        //recup des cartes sur le plateau
+        $cartesSurPlateau = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'plateau']);
+
+        $test = 0;
+        //si il y a des cartes sur le plateau
+        if (!empty($cartesSurPlateau)){
+            foreach ($cartesSurPlateau as $val) {
+                //si les catégories sont les mêmes et que la valeur de la carte jouée est supérieure à celle du plateau
+                if ($val->getModeles()->getModeleCategorie() == $categorie) {
+                    if ($val->getModeles()->getModeleValeur() < $valeur){
+                        //on joue la carte
+                        $em = $this->getDoctrine()->getManager();
+                        $carteAJouer->setCarteSituation('plateau');
+                        $em->flush();
+                        $message = 'La carte a été jouée';
+                    } else {
+                        $message = 'La carte n\'a pas pu être jouée';
+                    }
+                } else {
+                    $message = 'La carte n\'a pas pu être jouée';
+                    //TODO::gerer le cas ou il n'y a pas de cartes de la catégorie jouée sur le plateau
+                }
+            }
+        } else {
+            //sinon on joue la carte
+            $em = $this->getDoctrine()->getManager();
+            $carteAJouer->setCarteSituation('plateau');
+            $em->flush();
+            $message = 'La carte a été jouée';
+        }
+
+
+//        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
+        return $this->render('joueur/test.html.twig', ['message' => $message]);
     }
 }

@@ -14,7 +14,7 @@
                 <li>
                     {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
-                    <a href="">Jouer</a> -
+                    <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a> -
                     <a href="">Défausser</a>
                 </li>
             {% endfor %}

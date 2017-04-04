@@ -18,29 +18,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/parties/", name="joueur_parties")
+     * @Route("/classement", name="classement")
      */
-    public function mesPartiesAction()
+    public function classementAction()
     {
-        $user = $this->getUser();
-        return $this->render("joueur/mesparties.html.twig", ['user' => $user]);
-    }
+        $classement = $this->getDoctrine()
+            ->getRepository('AppBundle:Users')
+            ->findBy(
+                array(),
+                array('score' => 'desc')
+            );
 
-    /**
-     * @Route("/partie/add", name="jouer")
-     */
-    public function addPartieAction()
-    {
-        $user = $this->getUser();
-
-        // récupérer tous les joueurs existants
-        $joueurs = $this->getDoctrine()->getRepository('AppBundle:Joueurs')->findAll();
-
-        return $this->render("joueur/addPartie.html.twig", ['user' => $user, 'joueurs' => $joueurs]);
-    }
-
-    public function afficherPartieAction(Partie $id)
-    {
-
+        return $this->render('AppBundle:Default:classement.html.twig', ['classement' => $classement]);
     }
 }
