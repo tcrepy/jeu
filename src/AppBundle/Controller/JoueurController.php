@@ -41,7 +41,6 @@ class JoueurController extends Controller
     /**
      * @Route("/parties/add", name="joueur_parties_add")
      */
-
     public function addPartieAction()
     {
         $user = $this->getUser();
@@ -154,12 +153,12 @@ class JoueurController extends Controller
      * @param Parties $partieid Cartes $carteid
      * @Route("/jouer/{partieid}/{carteid}", name="jouerCarte")
      **/
-
     public function jouerCarteAction($partieid, $carteid)
     {
 
         //recup de la carte à jouer, et de sa catégorie
         $carteAJouer = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id' => $carteid]);
+        $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
         $categorie = $carteAJouer->getModeles()->getModeleCategorie();
         $valeur = $carteAJouer->getModeles()->getModeleValeur();
 
@@ -186,6 +185,19 @@ class JoueurController extends Controller
                 //on joue la carte
                 $em = $this->getDoctrine()->getManager();
                 $carteAJouer->setCarteSituation('plateau');
+                if ($partie->getPartieTour() == $partie->getUsers1()) {
+                    $partie->setPartieTour($partie->getUsers2());
+
+                    //TODO::Si jouerPar dans la table cartes, setJouerPar() ici
+
+                    //TODO::Mettre le score du J1 ici
+
+                } else {
+                    $partie->setPartieTour($partie->getUsers1());
+
+                    //TODO::Mettre le score du J2 ici
+
+                }
                 $em->flush();
                 $message = 'La carte a été jouée';
             } else {
@@ -195,12 +207,39 @@ class JoueurController extends Controller
             //sinon on joue la carte
             $em = $this->getDoctrine()->getManager();
             $carteAJouer->setCarteSituation('plateau');
+            if ($partie->getPartieTour() == $partie->getUsers1()) {
+                $partie->setPartieTour($partie->getUsers2());
+
+                //TODO::Si jouerPar dans la table cartes, setJouerPar() ici
+
+                //TODO::Mettre le score du J1 ici
+
+            } else {
+                $partie->setPartieTour($partie->getUsers1());
+
+                //TODO::Mettre le score du J2 ici
+
+            }
             $em->flush();
             $message = 'La carte a été jouée';
         }
 
+        //TODO::faire une verification de fin de parite, et rediriger vers une fonction fin de partie
 
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
 //        return $this->render('joueur/test.html.twig', ['message' => $message]);
     }
+
+    /**
+     * @param Parties $partieid Cartes $carteid
+     * @Route("/defausse/{partieid}/{carteid}", name="defausserCarte")
+     */
+    public function defausseAction($partieid, $carteid)
+    {
+        $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
+        $carteADefausser = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id' => $carteid]);
+
+        $carteDansDefausse = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['situation' => 'defausse', 'parties' => $partieid]);
+    }
+
 }

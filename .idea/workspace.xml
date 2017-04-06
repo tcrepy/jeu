@@ -5,7 +5,9 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/hello.html.twig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/page.html.twig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/template.html.twig" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" />
     </list>
     <ignored path="prjt_s4.iws" />
@@ -36,14 +38,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="JoueurController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JoueurController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="187" column="59" lean-forward="false" selection-start-line="187" selection-start-column="59" selection-end-line="187" selection-end-column="59" />
+            <state relative-caret-position="414">
+              <caret line="235" column="7" lean-forward="true" selection-start-line="235" selection-start-column="7" selection-end-line="235" selection-end-column="7" />
               <folding>
-                <element signature="e#40#67#0#PHP" expanded="true" />
-                <marker date="1491468073632" expanded="false" signature="6580:6595" ph="joueur/afficher/{id}" />
+                <element signature="e#405#492#0#PHP" expanded="false" />
+                <element signature="e#542#596#0#PHP" expanded="false" />
+                <element signature="e#601#751#0#PHP" expanded="false" />
+                <element signature="e#757#818#0#PHP" expanded="false" />
+                <element signature="e#823#983#0#PHP" expanded="false" />
+                <element signature="e#989#1057#0#PHP" expanded="false" />
+                <element signature="e#1062#1377#0#PHP" expanded="false" />
+                <element signature="e#1383#1474#0#PHP" expanded="false" />
+                <element signature="e#1479#3010#0#PHP" expanded="false" />
+                <element signature="e#3016#3109#0#PHP" expanded="false" />
+                <element signature="e#3114#3523#0#PHP" expanded="false" />
+                <element signature="e#3529#3629#0#PHP" expanded="false" />
+                <element signature="e#3634#4039#0#PHP" expanded="false" />
+                <element signature="e#4045#4145#0#PHP" expanded="false" />
+                <element signature="e#4150#4555#0#PHP" expanded="false" />
+                <element signature="e#4561#4685#0#PHP" expanded="false" />
+                <element signature="e#4690#7748#0#PHP" expanded="false" />
+                <element signature="e#4972#4991#1#PHP" expanded="true" />
+                <element signature="e#7754#7884#0#PHP" expanded="false" />
+                <element signature="e#8001#8020#1#PHP" expanded="true" />
+                <element signature="e#8221#8239#1#PHP" expanded="true" />
+                <marker date="1491474269132" expanded="false" signature="7621:7636" ph="joueur/afficher/{id}" />
               </folding>
             </state>
           </provider>
@@ -127,22 +149,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="afficherpartie.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="afficherpartie.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-              <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-              <folding>
-                <element signature="e#12#30#0#Twig" expanded="true" />
-                <element signature="e#604#614#0#Twig" expanded="true" />
-                <element signature="e#836#845#0#Twig" expanded="true" />
-                <element signature="e#1414#1424#0#Twig" expanded="true" />
-                <element signature="e#1646#1655#0#Twig" expanded="true" />
-              </folding>
+            <state relative-caret-position="470">
+              <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -209,8 +221,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/Views/Default/classement.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" />
       </list>
     </option>
   </component>
@@ -657,7 +669,7 @@
       <workItem from="1490940326940" duration="6255000" />
       <workItem from="1490947093390" duration="4135000" />
       <workItem from="1491308464300" duration="13002000" />
-      <workItem from="1491464617987" duration="4014000" />
+      <workItem from="1491464617987" duration="8700000" />
     </task>
     <task id="LOCAL-00001" summary="Configuration de EasyAdmin et ajout de variables pour FosUser">
       <created>1490604240165</created>
@@ -670,7 +682,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95310000" />
+    <option name="totallyTimeSpent" value="99996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1082,31 +1094,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="187" column="59" lean-forward="false" selection-start-line="187" selection-start-column="59" selection-end-line="187" selection-end-column="59" />
-          <folding>
-            <element signature="e#40#67#0#PHP" expanded="true" />
-            <marker date="1491468073632" expanded="false" signature="6580:6595" ph="joueur/afficher/{id}" />
-          </folding>
+        <state relative-caret-position="470">
+          <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        <state relative-caret-position="414">
+          <caret line="235" column="7" lean-forward="true" selection-start-line="235" selection-start-column="7" selection-end-line="235" selection-end-column="7" />
           <folding>
-            <element signature="e#12#30#0#Twig" expanded="true" />
-            <element signature="e#604#614#0#Twig" expanded="true" />
-            <element signature="e#836#845#0#Twig" expanded="true" />
-            <element signature="e#1414#1424#0#Twig" expanded="true" />
-            <element signature="e#1646#1655#0#Twig" expanded="true" />
+            <element signature="e#405#492#0#PHP" expanded="false" />
+            <element signature="e#542#596#0#PHP" expanded="false" />
+            <element signature="e#601#751#0#PHP" expanded="false" />
+            <element signature="e#757#818#0#PHP" expanded="false" />
+            <element signature="e#823#983#0#PHP" expanded="false" />
+            <element signature="e#989#1057#0#PHP" expanded="false" />
+            <element signature="e#1062#1377#0#PHP" expanded="false" />
+            <element signature="e#1383#1474#0#PHP" expanded="false" />
+            <element signature="e#1479#3010#0#PHP" expanded="false" />
+            <element signature="e#3016#3109#0#PHP" expanded="false" />
+            <element signature="e#3114#3523#0#PHP" expanded="false" />
+            <element signature="e#3529#3629#0#PHP" expanded="false" />
+            <element signature="e#3634#4039#0#PHP" expanded="false" />
+            <element signature="e#4045#4145#0#PHP" expanded="false" />
+            <element signature="e#4150#4555#0#PHP" expanded="false" />
+            <element signature="e#4561#4685#0#PHP" expanded="false" />
+            <element signature="e#4690#7748#0#PHP" expanded="false" />
+            <element signature="e#4972#4991#1#PHP" expanded="true" />
+            <element signature="e#7754#7884#0#PHP" expanded="false" />
+            <element signature="e#8001#8020#1#PHP" expanded="true" />
+            <element signature="e#8221#8239#1#PHP" expanded="true" />
+            <marker date="1491474269132" expanded="false" signature="7621:7636" ph="joueur/afficher/{id}" />
           </folding>
         </state>
       </provider>
