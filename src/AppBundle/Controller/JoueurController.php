@@ -164,27 +164,32 @@ class JoueurController extends Controller
         $valeur = $carteAJouer->getModeles()->getModeleValeur();
 
         //recup des cartes sur le plateau
-        $cartesSurPlateau = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'plateau']);
+        $cartesSurPlateau = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'plateau', 'parties' => $partieid]);
 
-        $test = 0;
         //si il y a des cartes sur le plateau
-        if (!empty($cartesSurPlateau)){
+        if (!empty($cartesSurPlateau)) {
+            $test = 0;
+            $aEteJouee = 0;
             foreach ($cartesSurPlateau as $val) {
                 //si les catégories sont les mêmes et que la valeur de la carte jouée est supérieure à celle du plateau
                 if ($val->getModeles()->getModeleCategorie() == $categorie) {
-                    if ($val->getModeles()->getModeleValeur() < $valeur){
-                        //on joue la carte
-                        $em = $this->getDoctrine()->getManager();
-                        $carteAJouer->setCarteSituation('plateau');
-                        $em->flush();
-                        $message = 'La carte a été jouée';
+                    if ($val->getModeles()->getModeleValeur() < $valeur) {
+                        $aEteJouee = 1;
                     } else {
-                        $message = 'La carte n\'a pas pu être jouée';
+
                     }
                 } else {
-                    $message = 'La carte n\'a pas pu être jouée';
-                    //TODO::gerer le cas ou il n'y a pas de cartes de la catégorie jouée sur le plateau
+                    $test++;
                 }
+            }
+            if ($test == count($cartesSurPlateau) || $aEteJouee == 1) {
+                //on joue la carte
+                $em = $this->getDoctrine()->getManager();
+                $carteAJouer->setCarteSituation('plateau');
+                $em->flush();
+                $message = 'La carte a été jouée';
+            } else {
+                $message = 'La carte n\'a pas pu être jouée';
             }
         } else {
             //sinon on joue la carte
@@ -195,7 +200,7 @@ class JoueurController extends Controller
         }
 
 
-//        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
-        return $this->render('joueur/test.html.twig', ['message' => $message]);
+        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
+//        return $this->render('joueur/test.html.twig', ['message' => $message]);
     }
 }
