@@ -5,9 +5,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/hello.html.twig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/page.html.twig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/template.html.twig" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/JoueurController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/index.html.twig" />
     </list>
     <ignored path="prjt_s4.iws" />
@@ -132,8 +130,12 @@
       <file leaf-file-name="afficherpartie.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="35" column="100" lean-forward="false" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
+            <state relative-caret-position="424">
+              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+              <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding>
                 <element signature="e#12#30#0#Twig" expanded="true" />
                 <element signature="e#604#614#0#Twig" expanded="true" />
@@ -655,7 +657,7 @@
       <workItem from="1490940326940" duration="6255000" />
       <workItem from="1490947093390" duration="4135000" />
       <workItem from="1491308464300" duration="13002000" />
-      <workItem from="1491464617987" duration="3528000" />
+      <workItem from="1491464617987" duration="4014000" />
     </task>
     <task id="LOCAL-00001" summary="Configuration de EasyAdmin et ajout de variables pour FosUser">
       <created>1490604240165</created>
@@ -668,7 +670,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94824000" />
+    <option name="totallyTimeSpent" value="95310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1093,8 +1095,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/joueur/afficherpartie.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="35" column="100" lean-forward="false" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
+        <state relative-caret-position="424">
+          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
             <element signature="e#12#30#0#Twig" expanded="true" />
             <element signature="e#604#614#0#Twig" expanded="true" />
