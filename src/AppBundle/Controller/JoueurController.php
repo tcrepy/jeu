@@ -155,7 +155,6 @@ class JoueurController extends Controller
      **/
     public function jouerCarteAction($partieid, $carteid)
     {
-
         //recup de la carte à jouer, et de sa catégorie
         $carteAJouer = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id' => $carteid]);
         $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
@@ -178,6 +177,7 @@ class JoueurController extends Controller
 
                     }
                 } else {
+                    //on incrémente si les catégories ne sont pas les mêmes
                     $test++;
                 }
             }
@@ -236,10 +236,35 @@ class JoueurController extends Controller
      */
     public function defausseAction($partieid, $carteid)
     {
+        //on recupere la partie, la carte à défausser, sa categorie et les cartes deja dans la défausse
         $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
         $carteADefausser = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id' => $carteid]);
+        $carteDansDefausse = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'defausse', 'parties' => $partieid]);
 
-        $carteDansDefausse = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['situation' => 'defausse', 'parties' => $partieid]);
+        $em = $this->getDoctrine()->getManager();
+
+        //si la défausse n'est pas vide
+        if (!empty($carteDansDefausse)) {
+            $ordre = count($carteDansDefausse) + 1;
+            $carteADefausser->setCarteSituation('defausse');
+            $carteADefausser->setCarteOrdre($ordre);
+            if ($partie->getPartieTour() == $partie->getUsers1()) {
+                $partie->setPartieTour($partie->getUsers2());
+            } else {
+                $partie->setPartieTour($partie->getUsers1());
+            }
+        } else {
+            $carteADefausser->setCarteSituation('defausse');
+            $carteADefausser->setCarteOrdre(1);
+            if ($partie->getPartieTour() == $partie->getUsers1()) {
+                $partie->setPartieTour($partie->getUsers2());
+            } else {
+                $partie->setPartieTour($partie->getUsers1());
+            }
+        }
+
+        $em->flush();
+
+        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
-
 }
