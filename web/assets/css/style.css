@@ -1,207 +1,307 @@
 @font-face {
-    font-family: 'Romain';
-    src: url('../font/Roman.ttf');
-    src: local('x'),
-    url('../font/Roman.woff') format('woff');
+	font-family : 'Romain';
+	src         : url('../font/Roman.ttf');
+	src         : local('x'),
+	url('../font/Roman.woff') format('woff');
 }
-
 body {
-    background: url(../img/background.png);
+	background : url(../img/background.png);
 }
-
 /****************************NAVBAR*********************************/
 .navbar {
-    background: url(../img/fond_menu.png);
-    height: 83px;
+	background : url(../img/fond_menu.png);
+	height     : 83px;
 }
-
 .navbar-nav {
-    font-family: 'Romain', sans-serif;
-    font-size: 20px;
+	font-family : 'Romain', sans-serif;
+	font-size   : 20px;
 }
-
 .active {
-    background-color: transparent;
+	background-color : transparent;
 }
-
-.navbar-default .navbar-nav>li>a {
-    color: white;
+.navbar-default .navbar-nav > li > a {
+	color : white;
 }
-
 .navleft > li {
-    padding: 15px 4vw 15px 4vw;
-    border-left: solid 3px #9e9e9f;
-    border-right: solid 0;
+	padding      : 15px 4vw 15px 4vw;
+	border-left  : solid 3px #9e9e9f;
+	border-right : solid 0;
 }
-
 .navleft > .right {
-    border-left: solid 3px #9e9e9f;
-    border-right: solid 3px #9e9e9f;
+	border-left  : solid 3px #9e9e9f;
+	border-right : solid 3px #9e9e9f;
 }
-
 .navright > li {
-    padding: 15px 1vw 15px 1vw;
-    border-left: solid 3px #9e9e9f;
-    border-right: solid 3px #9e9e9f;
+	padding      : 15px 1vw 15px 1vw;
+	border-left  : solid 3px #9e9e9f;
+	border-right : solid 3px #9e9e9f;
 }
-
 .navright > .right {
-    border-left: solid 0;
-    border-right: solid 3px #9e9e9f;
+	border-left  : solid 0;
+	border-right : solid 3px #9e9e9f;
 }
-
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-    color: #555;
-    background-color: transparent;
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+	color            : #555;
+	background-color : transparent;
 }
-
-.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
-    margin: 0;
+.container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+	margin : 0;
 }
-
 /************ Pour les tablettes retournées ***********************/
 
-@media screen and (max-width: 1550px) {
-    .navleft > li {
-        padding: 15px 2vw 15px 2vw;
-        border-left: solid 3px #9e9e9f;
-        border-right: solid 0;
-    }
-
-    .navleft > .right {
-        border-left: solid 3px #9e9e9f;
-        border-right: solid 3px #9e9e9f;
-    }
-
-    .navright > li {
-        padding: 15px 1vw 15px 1vw;
-        border-left: solid 3px #9e9e9f;
-        border-right: solid 3px #9e9e9f;
-    }
-
-    .navright > .right {
-        border-left: solid 0;
-        border-right: solid 3px #9e9e9f;
-    }
-
-    .plateau {
-        filter: drop-shadow(0px 0px 15px rgba(0,0,0,.5));
-    }
-    .lescartes {
-        position: absolute;
-    }
-
-    .ouvrirchat {
-        background-color: white;
-        width: 150px;
-        height: 30px;
-    }
-    #affichagecommentaire {
-        background-color: white;
-        width: 33%;
-        height: 60px;
-        color: black;
-        cursor: pointer;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background-image: url(../img/fond_apparition_chat.png);
-        box-sizing: border-box;
-        border: solid 3px #e2c62c;
-    }
-
-    .tchat {
-        background: url(../img/fond_tchat.png);
-        background-repeat: no-repeat;
-        height: 68%;
-        position: absolute;
-        width: 33%;
-        right: 0;
-        bottom: 60px;
-        padding: 0
-    }
+@media screen and (max-width : 1550px) {
+	.navleft > li {
+		padding      : 15px 2vw 15px 2vw;
+		border-left  : solid 3px #9e9e9f;
+		border-right : solid 0;
+	}
+	.navleft > .right {
+		border-left  : solid 3px #9e9e9f;
+		border-right : solid 3px #9e9e9f;
+	}
+	.navright > li {
+		padding      : 15px 1vw 15px 1vw;
+		border-left  : solid 3px #9e9e9f;
+		border-right : solid 3px #9e9e9f;
+	}
+	.navright > .right {
+		border-left  : solid 0;
+		border-right : solid 3px #9e9e9f;
+	}
+	.plateau {
+		filter : drop-shadow(0px 0px 15px rgba(0, 0, 0, .5));
+	}
+	.lescartes {
+		position : absolute;
+	}
+	.ouvrirchat {
+		background-color : white;
+		width            : 150px;
+		height           : 30px;
+	}
+	#affichagecommentaire {
+		background-color : white;
+		width            : 33%;
+		height           : 60px;
+		color            : black;
+		cursor           : pointer;
+		position         : absolute;
+		bottom           : 0;
+		right            : 0;
+		background-image : url(../img/fond_apparition_chat.png);
+		box-sizing       : border-box;
+		border           : solid 3px #e2c62c;
+	}
+	.tchat {
+		background        : url(../img/fond_tchat.png);
+		background-repeat : no-repeat;
+		height            : 68%;
+		position          : absolute;
+		width             : 33%;
+		right             : 0;
+		bottom            : 60px;
+		padding           : 0
+	}
 }
-
 /************ Pour les tablettes  ***********************/
 
-@media screen and (max-width: 1250px) {
-    .navbar-nav {
-        font-family: 'Romain', sans-serif;
-        font-size: 16px;
-    }
+@media screen and (max-width : 1250px) {
+	.navbar-nav {
+		font-family : 'Romain', sans-serif;
+		font-size   : 16px;
+	}
 }
-
-@media screen and (max-width: 1085px) {
-    .navbar-nav {
-        font-family: 'Romain', sans-serif;
-        font-size: 1.4vw;
-    }
-    .navleft {
-        padding-left: 1vh;
-    }
-
-    .navright {
-        padding-right: 1vh;
-    }
+@media screen and (max-width : 1085px) {
+	.navbar-nav {
+		font-family : 'Romain', sans-serif;
+		font-size   : 1.4vw;
+	}
+	.navleft {
+		padding-left : 1vh;
+	}
+	.navright {
+		padding-right : 1vh;
+	}
 
 }
-
-
 .plateau {
-    width: 100%;
-    filter: drop-shadow(0px 0px 15px rgba(0,0,0,.5));
+	width  : 100%;
+	filter : drop-shadow(0px 0px 15px rgba(0, 0, 0, .5));
 }
-
 .carteimg {
-    filter: drop-shadow(0px 0px 3px rgba(0,0,0,.5));
+	filter : drop-shadow(0px 0px 3px rgba(0, 0, 0, .5));
+	height : 6.5vw;
+	float  : left;
 }
-.cartes img {
-    height: 6.5vw;
-    float: left;
-}
-
 .tchat {
-    background: url(../img/fond_tchat.png);
-    background-repeat: no-repeat;
-    text-align: center;
+	background        : url(../img/fond_tchat.png);
+	background-repeat : no-repeat;
+	text-align        : center;
 }
-
 .containerzonejeu {
-    margin-top: 2%;
+	margin-top : 2%;
 }
-
 .ouvrirchat {
-    background-color: white;
-    width: 150px;
-    height: 30px;
+	background-color : white;
+	width            : 150px;
+	height           : 30px;
 }
 #affichagecommentaire {
-    background-color: white;
-    width: 23.5%;
-    height: 60px;
-    color: black;
-    cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-image: url(../img/fond_apparition_chat.png);
-    box-sizing: border-box;
-    border: solid 3px #e2c62c;
+	background-color : white;
+	width            : 23.5%;
+	height           : 60px;
+	color            : black;
+	cursor           : pointer;
+	position         : absolute;
+	bottom           : 0;
+	right            : 0;
+	background-image : url(../img/fond_apparition_chat.png);
+	box-sizing       : border-box;
+	border           : solid 3px #e2c62c;
 }
-
 .tchat {
-    background: url(../img/fond_tchat.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    height: 68%;
-    position: absolute;
-    width: 23.5%;
-    right: 0;
-    bottom: 60px;
-    padding: 0
+	background        : url(../img/fond_tchat.png);
+	background-repeat : no-repeat;
+	background-size   : 100%;
+	height            : 68%;
+	position          : absolute;
+	width             : 23.5%;
+	right             : 0;
+	bottom            : 60px;
+	padding           : 0
 }
-
 .lescartes {
-    position: absolute;
-    margin-top: 46%;
+	position   : absolute;
+	margin-top : 46%;
+}
+.carteimg:hover {
+	animation           : bounce 0.2s linear;
+	animation-fill-mode : forwards;
+}
+@keyframes bounce {
+	0% {
+		margin-top : 0px;
+	}
+	100% {
+		margin-top : -20px;
+		height     : 7vw;
+	}
+}
+body.dragging, body.dragging * {
+	cursor : move !important;
+}
+.dragged {
+	position : absolute;
+	opacity  : 0.5;
+	z-index  : 2000;
+}
+ul.example li.placeholder {
+	position : relative;
+	/** More li styles **/
+}
+ul.example li.placeholder:before {
+	position : absolute;
+	/** Define arrowhead **/
+}
+ul {
+	display         : inline-flex;
+	list-style-type : none;
+	margin-left     : 10px;
+	padding         : 0;
+}
+.zones {
+	position : absolute;
+	padding  : 15px;
+	width    : 100%;
+}
+.zone {
+	border              : 4px solid #e3c702;
+	width               : calc(100% / 5 - 6px);
+	background-size     : cover;
+	height              : 45vh;
+	background-position : 50% 50%;
+	float               : left;
+	margin-top          : 9%;
+	border-left         : none;
+	display             : block;
+	margin-left         : 0;
+	padding             : 0;
+}
+.bleu {
+	background-image : url(../img/bleu.png);
+	border-left      : 4px solid #e3c702;
+}
+.rouge {
+	background-image : url(../img/rouge.png);
+}
+.jaune {
+	background-image : url(../img/jaune.png);
+}
+.vert {
+	background-image : url(../img/gris.png);
+}
+.gris {
+	background-image : url(../img/vert.png);
+}
+.zone .carteimg:hover {
+	animation : stop 2s infinite;
+}
+@keyframes stop {
+	0% {
+		height : 6.5vw;
+	}
+	100% {
+		height : 6.5vw;
+	}
+}
+.zone li {
+	position : absolute !important;
+}
+.zone li:nth-child(2) {
+	margin-left : 10%;
+	margin-top  : 1%;
+}
+.zone li:nth-child(3) {
+	margin-left : 20%;
+	margin-top  : 2%;
+}
+.zone li:nth-child(4) {
+	margin-left : 30%;
+	margin-top  : 3%;
+}
+.zone li:nth-child(5) {
+	margin-left : 40%;
+	margin-top  : 4%;
+}
+.zone li:nth-child(6) {
+	margin-left : 50%;
+	margin-top  : 5%;
+}
+.zone li:nth-child(7) {
+	margin-left : 60%;
+	margin-top  : 6%;
+}
+.zone li:nth-child(8) {
+	margin-left : 60%;
+	margin-top  : 15%;
+}
+.zone li:nth-child(9) {
+	margin-left : 50%;
+	margin-top  : 16%;
+}
+.zone li:nth-child(10) {
+	margin-left : 40%;
+	margin-top  : 17%;
+}
+.zone li:nth-child(11) {
+	margin-left : 30%;
+	margin-top  : 18%;
+}
+.zone li:nth-child(12) {
+	margin-left : 20%;
+	margin-top  : 19%;
+}
+.cartes .main .ui-sortable-handle {
+	position : relative !important;
+	float    : left;
 }
