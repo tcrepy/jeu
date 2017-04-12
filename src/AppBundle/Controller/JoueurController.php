@@ -267,4 +267,13 @@ class JoueurController extends Controller
 
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
+
+    /**
+     * @param Partie $partieid Modeles $cartecategorie
+     * @Route("/recuperer/{partieid}/{cartecategorie}", name="recupererDefausse")
+     */
+    public function recupererAction($partieid, $cartecategorie)
+    {
+        
+    }
 }
