@@ -60,12 +60,11 @@
         <h2>Défausse</h2>
         <ul>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' %}
-
                 <li>
                     {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
                     - {{ carte.carteOrdre }} -
-                    <a href="">Récuperer</a>
+                    <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'cartecategorie': carte.modeles.modeleCategorie}) }}">Récuperer</a>
                 </li>
             {% endfor %}
         </ul>

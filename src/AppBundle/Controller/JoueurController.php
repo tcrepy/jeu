@@ -274,6 +274,7 @@ class JoueurController extends Controller
      */
     public function recupererAction($partieid, $cartecategorie)
     {
-        
+        $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
+        $carteARecuperer = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findByCategorie($cartecategorie);
     }
 }
