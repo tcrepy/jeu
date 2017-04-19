@@ -26,10 +26,11 @@
         <script src="{{ asset('assets/js/jquery.fittext.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.lazylinepainter-1.7.0.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery-2.1.1.min.js') }}"></script>
+        <script src="{{ asset('assets/sortable/sortable.js') }}"></script>
+        <script src="{{ asset('assets/sortable/jquery-ui.js') }}"></script>
     {% endblock %}
 </head>
-<body style="background: none">
-
+<body>
 <div class="container-fluid">
     <div class="row">
         <nav class="navbar navbar-default">
@@ -59,12 +60,19 @@
                             <li><a href="{{ path('easyadmin') }}">Admin</a></li>
                         {% endif %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <li>
-                                <a href="{{ path('fos_user_profile_edit') }}">{{ app.user.username }}</a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"> {{ app.user.username }} <span
+                                            class="caret"></span></a>
+                                <ul id="menu" class="dropdown-menu">
+                                    <li><a href="{{ path('joueur_parties') }}">Mes parties</a></li>
+                                    <li><a href="{{ path('joueur_parties_add') }}">Nouvelle Partie</a></li>
+                                    <li><a href="{{ path('fos_user_profile_edit') }}">Editer le profil</a></li>
+                                    <li>
+                                        <a href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">
-                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                </a></li>
                         {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                             <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
@@ -75,7 +83,20 @@
             </div><!-- /.container-fluid -->
         </nav>
     </div>
-
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                    function () {
+                        $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("fast");
+                        $(this).toggleClass('open');
+                    },
+                    function () {
+                        $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("fast");
+                        $(this).toggleClass('open');
+                    }
+            );
+        });
+    </script>
     {% block body %}{% endblock %}
 </body>
 {% block javascripts %}{% endblock %}

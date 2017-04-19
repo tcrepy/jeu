@@ -9,8 +9,10 @@ body {
 }
 /****************************NAVBAR*********************************/
 .navbar {
-	background : url(../img/fond_menu.png);
-	height     : 83px;
+	background    : url(../img/fond_menu.png);
+	height        : 83px;
+	border        : 0;
+	border-radius : 0;
 }
 .navbar-nav {
 	font-family : 'Romain', sans-serif;
@@ -203,11 +205,16 @@ ul.example li.placeholder:before {
 	position : absolute;
 	/** Define arrowhead **/
 }
-ul {
-	display         : inline-flex;
+.main {
+	display: flex;
 	list-style-type : none;
 	margin-left     : 10px;
 	padding         : 0;
+}
+.zones {
+	position : absolute;
+	padding  : 15px;
+	width    : 100%;
 }
 .zone {
 	border              : 4px solid #e3c702;
@@ -299,4 +306,29 @@ ul {
 .cartes .main .ui-sortable-handle {
 	position : relative !important;
 	float    : left;
+}
+.pioche {
+	position    : absolute;
+	margin-left : 47%;
+	margin-top  : -1%;
+}
+.cartepioche {
+	position : absolute;
+	height   : 6.5vw;
+}
+p, h1, h2, h3, h4, h5, li {
+	color : white;
+}
+.dropdown-menu {
+	background          : url(../img/fond_menu.png);
+	background-size     : cover;
+	background-position : 20%;
+	border-top          : 0;
+	border-radius       : 0;
+	border-left         : 3px solid #e0c229;
+	border-right        : 3px solid #e0c229;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+	color            : white;
+	background-color : transparent;
 }

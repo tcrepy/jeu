@@ -2,29 +2,57 @@
 
 {% block body %}
 
-    <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
+    <!-- <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
 
-    <h2>Tour de : {{ parties[0].partieTour }}</h2>
+    <h2>Tour de : {{ parties[0].partieTour }}</h2> -->
 
     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
         <div>
-            <h2>Cartes du joueur 1 : {{ parties[0].users1 }}</h2>
-            <ul>
-                {% set i = 0 %}
-                {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ1' %}
-                    {% set i = i + 1 %}
-                    <li>
-                        {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
-                        - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
-                        <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a> -
-                        <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
-                    </li>
-                {% endfor %}
-                {% if i < 8 %}
-                    <a href="{{ path('piocherj1', {'partieid': parties[0].id}) }}">piocher</a>
-                {% endif %}
-            </ul>
+            <!-- <h2>Cartes du joueur 1 : {{ parties[0].users1 }}</h2> -->
+            <div class="container-fluid containerzonejeu col-lg-12 col-md-12">
+                <div id="dropper" class="zonejeu col-lg-offset-2 col-lg-8 col-md-8">
+                    <img class="plateau col-lg-10 col-md-10" src="{{ asset('assets/img/plateau.png') }}"
+                         draggable="false"/>
+                    <div class="zones">
+                        <ul id="example1" class="col-lg-2 bleu zone sortable"></ul>
+                        <ul id="example2" class="col-lg-2 rouge zone sortable"></ul>
+                        <ul id="example3" class="col-lg-2 jaune zone sortable"></ul>
+                        <ul id="example4" class="col-lg-2 vert zone sortable"></ul>
+                        <ul id="example5" class="col-lg-2 gris zone sortable"></ul>
+                    </div>
+                    <div class="lescartes col-lg-12 col-md-12 col-xs-12">
+                        <div class="cartes col-lg-offset-2 col-lg-8 col-md-8 col-xs-8 col-sm-8">
+                            <ul class='main'>
+                                {% set i = 0 %}
+                                {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ1' %}
+                                    {% set i = i + 1 %}
+                                    <li class="where">
+                                        <img class="carteimg"
+                                             src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                                        <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
+                                        -
+                                        <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                    </li><br/>
+                                {% endfor %}
+                                {% if i < 8 %}
+                                    <a href="{{ path('piocherj1', {'partieid': parties[0].id}) }}">piocher</a>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <script>
+            $(function () {
+                $("ul.main").sortable({
+                    connectWith: ".jaune, .bleu, .rouge, .gris, .vert",
+                });
+                $("ul.zone").sortable({
+                    connectWith: ".main",
+                });
+            });
+        </script>
     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
         <div>
             <h2>Cartes du joueur 2 : {{ parties[0].users2 }}</h2>
@@ -46,28 +74,19 @@
         </div>
     {% endif %}
 
-    <div>
-        <h2>Pioche</h2>
-        <ul>
-            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'pioche' %}
+    <div class="pioche">
+        {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'pioche' %}
 
-                <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
-                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
-            {% endfor %}
-        </ul>
+            <img class="cartepioche" src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+        {% endfor %}
     </div>
     <div>
-        <h2>Défausse</h2>
-        <ul>
-            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' %}
-                <li>
-                    {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
-                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
-                    - {{ carte.carteOrdre }} -
-                    <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'cartecategorie': carte.modeles.modeleCategorie}) }}">Récuperer</a>
-                </li>
-            {% endfor %}
-        </ul>
+        {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' %}
+            <img class="cartedefausse" src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+            <li>
+                <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'cartecategorie': carte.modeles.modeleCategorie}) }}">Récuperer</a>
+            </li>
+        {% endfor %}
     </div>
 
     <div>
