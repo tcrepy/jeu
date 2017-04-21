@@ -58,16 +58,64 @@
     </div>
     <div>
         <h2>Défausse</h2>
+
         <ul>
-            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' %}
-                <li>
-                    {{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+            <h3>Azteque :</h3>
+            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'azteque' %}#}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '1' %}
+
+                <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
-                    - {{ carte.carteOrdre }} -
-                    <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'cartecategorie': carte.modeles.modeleCategorie}) }}">Récuperer</a>
+                    <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+
                 </li>
             {% endfor %}
         </ul>
+        <ul>
+            <h3>Scandinave :</h3>
+            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'scandinave' %}#}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '2' %}
+
+                <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                    <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <ul>
+            <h3>Egyptien :</h3>
+            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'egyptien' %}#}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}
+
+                <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                    <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <ul>
+            <h3>Romains :</h3>
+            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'romain' %}#}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '4' %}
+
+                <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                    <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <ul>
+            <h3>Grec :</h3>
+            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'grecque' %}#}
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '5' %}
+
+                <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
+                    - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
+                    <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                </li>
+            {% endfor %}
+        </ul>
+
     </div>
 
     <div>

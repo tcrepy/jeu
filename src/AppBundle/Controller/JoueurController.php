@@ -268,13 +268,23 @@ class JoueurController extends Controller
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
 
+
     /**
-     * @param Partie $partieid Modeles $cartecategorie
-     * @Route("/recuperer/{partieid}/{cartecategorie}", name="recupererDefausse")
+     * @param Parties $partieid Cartes $carteid
+     * @Route("/recup/{partieid}/{carteid}", name="recupererDefausse")
      */
-    public function recupererAction($partieid, $cartecategorie)
+    public function recupAction($partieid, $carteid)
     {
         $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
-        $carteARecuperer = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findByCategorie($cartecategorie);
+        $cartesrecup = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id' => $carteid]);
+        $em = $this->getDoctrine()->getManager();
+        if ($partie->getPartieTour() == $partie->getUsers1()) {
+            $cartesrecup->setCarteSituation('mainJ1');
+        } else {
+            $cartesrecup->setCarteSituation('mainJ2');
+        }
+//        $score= $this->calculerscore($partieid);
+        $em->flush();
+        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
 }
