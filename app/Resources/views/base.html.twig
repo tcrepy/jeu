@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html>
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <title>{% block title %}Ichor - Gods are Coming{% endblock %}</title>
@@ -10,8 +8,8 @@
     <meta name="content-language" content="fr"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Virtual Board Game">
-    <meta description="Site d'attente du site de promotion">
-    <meta keywords="attente, promo, Virtual Board Game, Carte">
+    <meta name="description" content="Site d'attente du site de promotion">
+    <meta name="keywords" content="attente, promo, Virtual Board Game, Carte">
 
 
     {% block stylesheets %}
@@ -28,17 +26,19 @@
         <script src="{{ asset('assets/js/jquery.fittext.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.lazylinepainter-1.7.0.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery-2.1.1.min.js') }}"></script>
+        <script src="{{ asset('assets/sortable/sortable.js') }}"></script>
+        <script src="{{ asset('assets/sortable/jquery-ui.js') }}"></script>
     {% endblock %}
 </head>
 <body>
-
 <div class="container-fluid">
     <div class="row">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -51,30 +51,52 @@
                     <ul class="nav navbar-nav navleft">
                         <li class="left"><a href="#">Tutoriel</a></li>
                         <li><a href="#">Règles</a></li>
-                        <li class="active"><a href="{{ path('index') }}">Jouer<span class="sr-only">(current)</span></a></li>
-                        <li class="right"><a href="{{ path('classement') }}">Classement</a></li>
+                        <li class="active"><a href="{{ path('index') }}">Jouer<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="right"><a href="#">Classement</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right navright">
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="{{ path('easyadmin') }}">Admin</a></li>
                         {% endif %}
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <li>
-                                <a href="{{ path('joueur_homepage') }}">{{ app.user.username }}</a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"> {{ app.user.username }} <span
+                                            class="caret"></span></a>
+                                <ul id="menu" class="dropdown-menu">
+                                    <li><a href="{{ path('joueur_parties') }}">Mes parties</a></li>
+                                    <li><a href="{{ path('joueur_parties_add') }}">Nouvelle Partie</a></li>
+                                    <li><a href="{{ path('fos_user_profile_edit') }}">Editer le profil</a></li>
+                                    <li>
+                                        <a href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">
-                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                </a></li>
                         {% else %}
                             <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                             <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
                         {% endif %}
+
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
     </div>
-</div>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                    function () {
+                        $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("fast");
+                        $(this).toggleClass('open');
+                    },
+                    function () {
+                        $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("fast");
+                        $(this).toggleClass('open');
+                    }
+            );
+        });
+    </script>
     {% block body %}{% endblock %}
 </body>
 {% block javascripts %}{% endblock %}
