@@ -62,6 +62,8 @@ class JoueurController extends Controller
 
         $partie->setUsers1($user);
         $partie->setUsers2($joueur);
+        $partie->setPartieJoueur1Score(0);
+        $partie->setPartieJoueur2Score(0);
 
         $partie->setPartieTour($user);
 
@@ -161,6 +163,12 @@ class JoueurController extends Controller
         $categorie = $carteAJouer->getModeles()->getModeleCategorie();
         $valeur = $carteAJouer->getModeles()->getModeleValeur();
 
+        if ($partie->getPartieTour() == $partie->getUsers1()) {
+            $score = $partie->getPartieJoueur1Score();
+        } else {
+            $score = $partie->getPartieJoueur2Score();
+        }
+
         //recup des cartes sur le plateau
         $cartesSurPlateau = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'plateau', 'parties' => $partieid]);
 
@@ -185,17 +193,32 @@ class JoueurController extends Controller
                 //on joue la carte
                 $em = $this->getDoctrine()->getManager();
                 $carteAJouer->setCarteSituation('plateau');
+
+                if ($test == count($cartesSurPlateau)) {
+                    $score += -20;
+                    $score += $carteAJouer->getModeles()->getModeleValeur();
+                }
+
+                //on créer un multiplicateur egal à 1
+                $multiplicateur = 1;
+                //on l'incremente si il y a deja des extra de la même catégorie sur la table
+                foreach ($cartesSurPlateau as $val){
+                    if ($val->getModeles()->getModeleCategorie() == $categorie && $val->getModeles()->getModeleExtra() == 1){
+                        $multiplicateur++;
+                    }
+                }
+
+                $score += $carteAJouer->getModeles()->getModeleValeur() * $multiplicateur;
+
                 if ($partie->getPartieTour() == $partie->getUsers1()) {
                     $partie->setPartieTour($partie->getUsers2());
 
-                    //TODO::Si jouerPar dans la table cartes, setJouerPar() ici
-
-                    //TODO::Mettre le score du J1 ici
+                    $partie->setPartieJoueur1Score($score);
 
                 } else {
                     $partie->setPartieTour($partie->getUsers1());
 
-                    //TODO::Mettre le score du J2 ici
+                    $partie->setPartieJoueur2Score($score);
 
                 }
                 $em->flush();
@@ -207,17 +230,23 @@ class JoueurController extends Controller
             //sinon on joue la carte
             $em = $this->getDoctrine()->getManager();
             $carteAJouer->setCarteSituation('plateau');
+
+            //on active une catégorie : -20
+            $score += -20;
+            //on ajoute la valeur de la carte
+            $score += $carteAJouer->getModeles()->getModeleValeur();
+
             if ($partie->getPartieTour() == $partie->getUsers1()) {
+
+                $partie->setPartieJoueur1Score($score);
+
                 $partie->setPartieTour($partie->getUsers2());
 
-                //TODO::Si jouerPar dans la table cartes, setJouerPar() ici
-
-                //TODO::Mettre le score du J1 ici
-
             } else {
-                $partie->setPartieTour($partie->getUsers1());
 
-                //TODO::Mettre le score du J2 ici
+                $partie->setPartieJoueur2Score($score);
+
+                $partie->setPartieTour($partie->getUsers1());
 
             }
             $em->flush();
@@ -267,7 +296,6 @@ class JoueurController extends Controller
 
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
-
 
     /**
      * @param Parties $partieid Cartes $carteid
