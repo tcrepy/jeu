@@ -257,8 +257,8 @@ ul.example li.placeholder:before {
 	}
 }
 .zone li {
-	position : absolute !important;
-	list-style-type: none;
+	position        : absolute !important;
+	list-style-type : none;
 }
 .zone li:nth-child(2) {
 	margin-left : 10%;
@@ -343,4 +343,7 @@ label {
 .form_insc {
 	margin-top : 40vh;
 	transform  : translateY(-50%);
+}
+.table {
+	color : #FFF;
 }
