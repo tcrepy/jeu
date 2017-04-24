@@ -189,17 +189,20 @@ class JoueurController extends Controller
                     //on joue la carte
                     $em = $this->getDoctrine()->getManager();
                     $carteAJouer->setCarteSituation('plateauj1');
-                    if ($test == count($cartesSurPlateau)) {
-                        $score += -20;
-                        $score += $carteAJouer->getModeles()->getModeleValeur();
-                    }
+
                     //on créer un multiplicateur egal à 1
                     $multiplicateur = 1;
+                    if ($carteAJouer->getModeles()->getModeleExtra() == 1) {
+                        $multiplicateur++;
+                    }
                     //on l'incremente si il y a deja des extra de la même catégorie sur la table
                     foreach ($cartesSurPlateau as $val) {
                         if ($val->getModeles()->getModeleCategorie() == $categorie && $val->getModeles()->getModeleExtra() == 1) {
                             $multiplicateur++;
                         }
+                    }
+                    if ($test == count($cartesSurPlateau)) {
+                        $score += -20 * $multiplicateur;
                     }
 
                     $score += $carteAJouer->getModeles()->getModeleValeur() * $multiplicateur;
@@ -217,10 +220,15 @@ class JoueurController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $carteAJouer->setCarteSituation('plateauj1');
 
+                $multiplicateur = 1;
+
+                if ($carteAJouer->getModeles()->getModeleExtra() == 1){
+                    $multiplicateur++;
+                }
                 //on active une catégorie : -20
-                $score += -20;
                 //on ajoute la valeur de la carte
-                $score += $carteAJouer->getModeles()->getModeleValeur();
+                $score += $carteAJouer->getModeles()->getModeleValeur() - 20;
+                $score *=  $multiplicateur;
 
 
                 $partie->setPartieJoueur1Score($score);
@@ -254,18 +262,24 @@ class JoueurController extends Controller
                     //on joue la carte
                     $em = $this->getDoctrine()->getManager();
                     $carteAJouer->setCarteSituation('plateauj2');
-                    if ($test == count($cartesSurPlateau)) {
-                        $score += -20;
-                        $score += $carteAJouer->getModeles()->getModeleValeur();
-                    }
+
                     //on créer un multiplicateur egal à 1
                     $multiplicateur = 1;
+                    if ($carteAJouer->getModeles()->getModeleExtra() == 1) {
+                        $multiplicateur++;
+                    }
                     //on l'incremente si il y a deja des extra de la même catégorie sur la table
                     foreach ($cartesSurPlateau as $val) {
                         if ($val->getModeles()->getModeleCategorie() == $categorie && $val->getModeles()->getModeleExtra() == 1) {
                             $multiplicateur++;
                         }
                     }
+                    if ($test == count($cartesSurPlateau)) {
+                        $score += -20 * $multiplicateur;
+                    }
+
+                    $score += $carteAJouer->getModeles()->getModeleValeur() * $multiplicateur;
+
 
                     $score += $carteAJouer->getModeles()->getModeleValeur() * $multiplicateur;
 
@@ -280,10 +294,15 @@ class JoueurController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $carteAJouer->setCarteSituation('plateauj2');
 
+                $multiplicateur = 1;
+
+                if ($carteAJouer->getModeles()->getModeleExtra() == 1){
+                    $multiplicateur++;
+                }
                 //on active une catégorie : -20
-                $score += -20;
                 //on ajoute la valeur de la carte
-                $score += $carteAJouer->getModeles()->getModeleValeur();
+                $score += $carteAJouer->getModeles()->getModeleValeur() - 20;
+                $score *=  $multiplicateur;
 
                 $partie->setPartieJoueur2Score($score);
                 $partie->setPartieTour($partie->getUsers1());

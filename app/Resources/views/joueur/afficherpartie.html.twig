@@ -1,7 +1,8 @@
 {% extends 'base_dev.html.twig' %}
 
 {% block body %}
-    <p>Score du J1 : {{ parties[0].partieJoueur1Score }}</p>
+    <p>Score de {{ parties[0].users1 }} : {{ parties[0].partieJoueur1Score }}</p>
+    <p>Score du {{ parties[0].users2 }}: {{ parties[0].partieJoueur2Score }}</p>
     <!-- <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
 
     <h2>Tour de : {{ parties[0].partieTour }}</h2> -->
