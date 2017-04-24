@@ -359,6 +359,6 @@ class JoueurController extends Controller
 
     function finPartie($partieid)
     {
-        
+
     }
 }
