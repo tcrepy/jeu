@@ -166,86 +166,134 @@ class JoueurController extends Controller
 
         if ($partie->getPartieTour() == $partie->getUsers1()) {
             $score = $partie->getPartieJoueur1Score();
-        } else {
-            $score = $partie->getPartieJoueur2Score();
-        }
 
-        //recup des cartes sur le plateau
-        $cartesSurPlateau = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'plateau', 'parties' => $partieid]);
+            //recup des cartes sur le plateau
+            $cartesSurPlateau = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'plateauj1', 'parties' => $partieid]);
 
-        //si il y a des cartes sur le plateau
-        if (!empty($cartesSurPlateau)) {
-            $test = 0;
-            $aEteJouee = 0;
-            foreach ($cartesSurPlateau as $val) {
-                //si les catégories sont les mêmes et que la valeur de la carte jouée est supérieure à celle du plateau
-                if ($val->getModeles()->getModeleCategorie() == $categorie) {
-                    if ($val->getModeles()->getModeleValeur() <= $valeur) {
-                        $aEteJouee = 1;
-                    }
-                } else {
-                    //on incrémente si les catégories ne sont pas les mêmes
-                    $test++;
-                }
-            }
-            if ($test == count($cartesSurPlateau) || $aEteJouee == 1) {
-                //on joue la carte
-                $em = $this->getDoctrine()->getManager();
-                $carteAJouer->setCarteSituation('plateau');
-                if ($test == count($cartesSurPlateau)) {
-                    $score += -20;
-                    $score += $carteAJouer->getModeles()->getModeleValeur();
-                }
-                //on créer un multiplicateur egal à 1
-                $multiplicateur = 1;
-                //on l'incremente si il y a deja des extra de la même catégorie sur la table
-                foreach ($cartesSurPlateau as $val){
-                    if ($val->getModeles()->getModeleCategorie() == $categorie && $val->getModeles()->getModeleExtra() == 1){
-                        $multiplicateur++;
+            //si il y a des cartes sur le plateau
+            if (!empty($cartesSurPlateau)) {
+                $test = 0;
+                $aEteJouee = 0;
+                foreach ($cartesSurPlateau as $val) {
+                    //si les catégories sont les mêmes et que la valeur de la carte jouée est supérieure à celle du plateau
+                    if ($val->getModeles()->getModeleCategorie() == $categorie) {
+                        if ($val->getModeles()->getModeleValeur() <= $valeur) {
+                            $aEteJouee = 1;
+                        }
+                    } else {
+                        //on incrémente si les catégories ne sont pas les mêmes
+                        $test++;
                     }
                 }
+                if ($test == count($cartesSurPlateau) || $aEteJouee == 1) {
+                    //on joue la carte
+                    $em = $this->getDoctrine()->getManager();
+                    $carteAJouer->setCarteSituation('plateauj1');
+                    if ($test == count($cartesSurPlateau)) {
+                        $score += -20;
+                        $score += $carteAJouer->getModeles()->getModeleValeur();
+                    }
+                    //on créer un multiplicateur egal à 1
+                    $multiplicateur = 1;
+                    //on l'incremente si il y a deja des extra de la même catégorie sur la table
+                    foreach ($cartesSurPlateau as $val) {
+                        if ($val->getModeles()->getModeleCategorie() == $categorie && $val->getModeles()->getModeleExtra() == 1) {
+                            $multiplicateur++;
+                        }
+                    }
 
-                $score += $carteAJouer->getModeles()->getModeleValeur() * $multiplicateur;
+                    $score += $carteAJouer->getModeles()->getModeleValeur() * $multiplicateur;
 
-                if ($partie->getPartieTour() == $partie->getUsers1()) {
+
                     $partie->setPartieTour($partie->getUsers2());
 
                     $partie->setPartieJoueur1Score($score);
 
-                } else {
-                    $partie->setPartieTour($partie->getUsers1());
-
-                    $partie->setPartieJoueur2Score($score);
-
+                    $em->persist($partie, $carteAJouer);
+                    $em->flush();
                 }
-                $em->flush();
-            }
-        } else {
-            //sinon on joue la carte
-            $em = $this->getDoctrine()->getManager();
-            $carteAJouer->setCarteSituation('plateau');
+            } else {
+                //sinon on joue la carte
+                $em = $this->getDoctrine()->getManager();
+                $carteAJouer->setCarteSituation('plateauj1');
 
-            //on active une catégorie : -20
-            $score += -20;
-            //on ajoute la valeur de la carte
-            $score += $carteAJouer->getModeles()->getModeleValeur();
+                //on active une catégorie : -20
+                $score += -20;
+                //on ajoute la valeur de la carte
+                $score += $carteAJouer->getModeles()->getModeleValeur();
 
-            if ($partie->getPartieTour() == $partie->getUsers1()) {
 
                 $partie->setPartieJoueur1Score($score);
                 $partie->setPartieTour($partie->getUsers2());
 
+                $em->persist($partie, $carteAJouer);
+                $em->flush();
+            }
+
+        } else {
+            $score = $partie->getPartieJoueur2Score();
+            //recup des cartes sur le plateau
+            $cartesSurPlateau = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'plateauj2', 'parties' => $partieid]);
+
+            //si il y a des cartes sur le plateau
+            if (!empty($cartesSurPlateau)) {
+                $test = 0;
+                $aEteJouee = 0;
+                foreach ($cartesSurPlateau as $val) {
+                    //si les catégories sont les mêmes et que la valeur de la carte jouée est supérieure à celle du plateau
+                    if ($val->getModeles()->getModeleCategorie() == $categorie) {
+                        if ($val->getModeles()->getModeleValeur() <= $valeur) {
+                            $aEteJouee = 1;
+                        }
+                    } else {
+                        //on incrémente si les catégories ne sont pas les mêmes
+                        $test++;
+                    }
+                }
+                if ($test == count($cartesSurPlateau) || $aEteJouee == 1) {
+                    //on joue la carte
+                    $em = $this->getDoctrine()->getManager();
+                    $carteAJouer->setCarteSituation('plateauj2');
+                    if ($test == count($cartesSurPlateau)) {
+                        $score += -20;
+                        $score += $carteAJouer->getModeles()->getModeleValeur();
+                    }
+                    //on créer un multiplicateur egal à 1
+                    $multiplicateur = 1;
+                    //on l'incremente si il y a deja des extra de la même catégorie sur la table
+                    foreach ($cartesSurPlateau as $val) {
+                        if ($val->getModeles()->getModeleCategorie() == $categorie && $val->getModeles()->getModeleExtra() == 1) {
+                            $multiplicateur++;
+                        }
+                    }
+
+                    $score += $carteAJouer->getModeles()->getModeleValeur() * $multiplicateur;
+
+                    $partie->setPartieTour($partie->getUsers1());
+                    $partie->setPartieJoueur2Score($score);
+
+                    $em->persist($partie, $carteAJouer);
+                    $em->flush();
+                }
             } else {
+                //sinon on joue la carte
+                $em = $this->getDoctrine()->getManager();
+                $carteAJouer->setCarteSituation('plateauj2');
+
+                //on active une catégorie : -20
+                $score += -20;
+                //on ajoute la valeur de la carte
+                $score += $carteAJouer->getModeles()->getModeleValeur();
 
                 $partie->setPartieJoueur2Score($score);
                 $partie->setPartieTour($partie->getUsers1());
 
+                $em->persist($partie, $carteAJouer);
+                $em->flush();
             }
-            $em->persist($partie, $carteAJouer);
-            $em->flush();
         }
 
-        //TODO::faire une verification de fin de parite, et rediriger vers une fonction fin de partie
+//TODO::faire une verification de fin de parite, et rediriger vers une fonction fin de partie
 
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
@@ -254,7 +302,8 @@ class JoueurController extends Controller
      * @param Parties $partieid Cartes $carteid
      * @Route("/defausse/{partieid}/{carteid}", name="defausserCarte")
      */
-    public function defausseAction($partieid, $carteid)
+    public
+    function defausseAction($partieid, $carteid)
     {
         //on recupere la partie, la carte à défausser, sa categorie et les cartes deja dans la défausse
         $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
@@ -292,18 +341,24 @@ class JoueurController extends Controller
      * @param Parties $partieid Cartes $carteid
      * @Route("/recup/{partieid}/{carteid}", name="recupererDefausse")
      */
-    public function recupAction($partieid, $carteid)
+    public
+    function recupAction($partieid, $carteid)
     {
         $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
         $cartesrecup = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id' => $carteid]);
         $em = $this->getDoctrine()->getManager();
+        $cartesrecup->setCarteOrdre(NULL);
         if ($partie->getPartieTour() == $partie->getUsers1()) {
             $cartesrecup->setCarteSituation('mainJ1');
         } else {
             $cartesrecup->setCarteSituation('mainJ2');
         }
-//        $score= $this->calculerscore($partieid);
         $em->flush();
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
+    }
+
+    function finPartie($partieid)
+    {
+        
     }
 }
