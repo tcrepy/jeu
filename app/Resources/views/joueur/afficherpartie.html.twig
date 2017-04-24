@@ -76,7 +76,6 @@
 
     <div class="pioche">
         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'pioche' %}
-
             <img class="cartepioche" src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
         {% endfor %}
     </div>

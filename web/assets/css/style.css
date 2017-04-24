@@ -44,7 +44,7 @@ body {
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
 	color            : #555;
-	background-color : transparent;
+	background-color : transparent !important;
 }
 .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
 	margin : 0;
@@ -206,7 +206,7 @@ ul.example li.placeholder:before {
 	/** Define arrowhead **/
 }
 .main {
-	display: flex;
+	display         : flex;
 	list-style-type : none;
 	margin-left     : 10px;
 	padding         : 0;
@@ -258,6 +258,7 @@ ul.example li.placeholder:before {
 }
 .zone li {
 	position : absolute !important;
+	list-style-type: none;
 }
 .zone li:nth-child(2) {
 	margin-left : 10%;
@@ -331,4 +332,15 @@ p, h1, h2, h3, h4, h5, li {
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
 	color            : white;
 	background-color : transparent;
+}
+.form_co {
+	margin-top : 45vh;
+	transform  : translateY(-75%);
+}
+label {
+	color : #FFF;
+}
+.form_insc {
+	margin-top : 40vh;
+	transform  : translateY(-50%);
 }
