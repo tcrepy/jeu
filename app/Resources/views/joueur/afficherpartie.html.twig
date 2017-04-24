@@ -8,7 +8,7 @@
 
     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
         <div>
-            <h2>Cartes du joueur 2 : {{ parties[0].users2 }}</h2>
+            <h2>Cartes du joueur 1 : {{ user.username }}</h2>
             <ul>
                 {% set t = 0 %}
                 {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ1' %}
@@ -21,13 +21,13 @@
                     </li>
                 {% endfor %}
                 {% if t < 8 %}
-                    <a href="{{ path('piocherj2', {'partieid': parties[0].id}) }}">piocher</a>
+                    <a href="{{ path('piocherj1', {'partieid': parties[0].id}) }}">piocher</a>
                 {% endif %}
             </ul>
         </div>
     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
         <div>
-            <h2>Cartes du joueur 2 : {{ parties[0].users2 }}</h2>
+            <h2>Cartes du joueur 2 : {{ user.username }}</h2>
             <ul>
                 {% set t = 0 %}
                 {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ2' %}
