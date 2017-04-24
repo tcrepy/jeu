@@ -159,9 +159,10 @@ class JoueurController extends Controller
     {
         //recup de la carte à jouer, et de sa catégorie
         $carteAJouer = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['id' => $carteid]);
-        $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
         $categorie = $carteAJouer->getModeles()->getModeleCategorie();
         $valeur = $carteAJouer->getModeles()->getModeleValeur();
+
+        $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
 
         if ($partie->getPartieTour() == $partie->getUsers1()) {
             $score = $partie->getPartieJoueur1Score();
@@ -179,10 +180,8 @@ class JoueurController extends Controller
             foreach ($cartesSurPlateau as $val) {
                 //si les catégories sont les mêmes et que la valeur de la carte jouée est supérieure à celle du plateau
                 if ($val->getModeles()->getModeleCategorie() == $categorie) {
-                    if ($val->getModeles()->getModeleValeur() < $valeur) {
+                    if ($val->getModeles()->getModeleValeur() <= $valeur) {
                         $aEteJouee = 1;
-                    } else {
-
                     }
                 } else {
                     //on incrémente si les catégories ne sont pas les mêmes
@@ -193,12 +192,10 @@ class JoueurController extends Controller
                 //on joue la carte
                 $em = $this->getDoctrine()->getManager();
                 $carteAJouer->setCarteSituation('plateau');
-
                 if ($test == count($cartesSurPlateau)) {
                     $score += -20;
                     $score += $carteAJouer->getModeles()->getModeleValeur();
                 }
-
                 //on créer un multiplicateur egal à 1
                 $multiplicateur = 1;
                 //on l'incremente si il y a deja des extra de la même catégorie sur la table
@@ -222,9 +219,6 @@ class JoueurController extends Controller
 
                 }
                 $em->flush();
-                $message = 'La carte a été jouée';
-            } else {
-                $message = 'La carte n\'a pas pu être jouée';
             }
         } else {
             //sinon on joue la carte
@@ -239,24 +233,21 @@ class JoueurController extends Controller
             if ($partie->getPartieTour() == $partie->getUsers1()) {
 
                 $partie->setPartieJoueur1Score($score);
-
                 $partie->setPartieTour($partie->getUsers2());
 
             } else {
 
                 $partie->setPartieJoueur2Score($score);
-
                 $partie->setPartieTour($partie->getUsers1());
 
             }
+            $em->persist($partie, $carteAJouer);
             $em->flush();
-            $message = 'La carte a été jouée';
         }
 
         //TODO::faire une verification de fin de parite, et rediriger vers une fonction fin de partie
 
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
-//        return $this->render('joueur/test.html.twig', ['message' => $message]);
     }
 
     /**
