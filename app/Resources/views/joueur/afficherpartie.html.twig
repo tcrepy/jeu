@@ -183,7 +183,7 @@
                                 <li class="where">
                                     <img class="carteimg"
                                          src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                                    {% if parties[0].j1CarteJouer == 0 and parties[0].partieTour == user.username %}
+                                    {% if parties[0].j1CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users1 == user.username %}
                                         <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
                                         -
                                         <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
@@ -197,7 +197,7 @@
                                 <li class="where">
                                     <img class="carteimg"
                                          src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                                    {% if parties[0].j2CarteJouer == 0 and parties[0].partieTour == user.username %}
+                                    {% if parties[0].j2CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users2 == user.username %}
                                         <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
                                         -
                                         <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
