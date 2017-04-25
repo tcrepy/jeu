@@ -14,11 +14,11 @@
                 <div class="zones">
                     <ul id="example1" class="col-lg-2 bleu zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'grecque' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minibleu">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'grecque' %}
                                 <div>
@@ -37,11 +37,11 @@
                     </ul>
                     <ul id="example2" class="col-lg-2 rouge zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'romain' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minirouge">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'romain' %}
                                 <div>
@@ -60,11 +60,11 @@
                     </ul>
                     <ul id="example3" class="col-lg-2 jaune zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'egyptien' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minijaune">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'egyptien' %}
                                 <div>
@@ -83,11 +83,11 @@
                     </ul>
                     <ul id="example4" class="col-lg-2 vert zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'nordique' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minigris">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'nordique' %}
                                 <div>
@@ -106,11 +106,11 @@
                     </ul>
                     <ul id="example5" class="col-lg-2 gris zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'azteque' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minivert">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'azteque' %}
                                 <div>
