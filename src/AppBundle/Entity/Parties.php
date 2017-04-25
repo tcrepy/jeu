@@ -49,6 +49,12 @@ class Parties
      */
     private $partieJoueur2Score;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="resultat", type="string", nullable=true)
+     */
+    private $resultat;
 
     /**
      * Get id
@@ -317,5 +323,29 @@ class Parties
     public function getPartieTour()
     {
         return $this->partieTour;
+    }
+
+    /**
+     * Set resultat
+     *
+     * @param string $resultat
+     *
+     * @return Parties
+     */
+    public function setResultat($resultat)
+    {
+        $this->resultat = $resultat;
+
+        return $this;
+    }
+
+    /**
+     * Get resultat
+     *
+     * @return string
+     */
+    public function getResultat()
+    {
+        return $this->resultat;
     }
 }

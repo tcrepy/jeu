@@ -49,6 +49,12 @@ class Parties
      */
     private $partieJoueur2Score;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="resultat", type="string", nullable=true)
+     */
+    private $resultat;
 
     /**
      * Get id

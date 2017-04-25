@@ -3,6 +3,14 @@
 {% block body %}
     <p>Score de {{ parties[0].users1 }} : {{ parties[0].partieJoueur1Score }}</p>
     <p>Score du {{ parties[0].users2 }}: {{ parties[0].partieJoueur2Score }}</p>
+
+    {% if parties[0].resultat is not null %}
+        {% if parties[0].resultat == 'Egalité' %}
+            <p>Egalité</p>
+        {% else %}
+            <p>Le gagnant est : {{ parties[0].resultat }}</p>
+        {% endif %}
+    {% endif %}
     <!-- <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
 
     <h2>Tour de : {{ parties[0].partieTour }}</h2> -->
@@ -59,7 +67,7 @@
         <ul>
             <h3>Azteque :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'azteque' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '1' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '1' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
@@ -71,7 +79,7 @@
         <ul>
             <h3>Scandinave :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'scandinave' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '2' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '2' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
@@ -82,7 +90,7 @@
         <ul>
             <h3>Egyptien :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'egyptien' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
@@ -93,7 +101,7 @@
         <ul>
             <h3>Romains :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'romain' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '4' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '4' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
@@ -104,7 +112,7 @@
         <ul>
             <h3>Grec :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'grecque' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '5' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '5' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}
@@ -119,7 +127,7 @@
         <ul>
             <h3>Azteque :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == 'azteque' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '1' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '1' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
@@ -128,7 +136,7 @@
         <ul>
             <h3>Scandinave :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == 'scandinave' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '2' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '2' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
@@ -146,7 +154,7 @@
         <ul>
             <h3>Romains :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == 'romain' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '4' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '4' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
@@ -155,7 +163,7 @@
         <ul>
             <h3>Grec :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == 'grecque' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '5' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '5' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
@@ -167,7 +175,7 @@
         <ul>
             <h3>Azteque :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'azteque' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '1' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '1' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
@@ -176,7 +184,7 @@
         <ul>
             <h3>Scandinave :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'scandinave' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '2' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '2' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
@@ -185,7 +193,7 @@
         <ul>
             <h3>Egyptien :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'egyptien' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '3' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '3' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
@@ -194,7 +202,7 @@
         <ul>
             <h3>Romains :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'romain' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '4' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '4' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>
@@ -203,7 +211,7 @@
         <ul>
             <h3>Grec :</h3>
             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'grecque' %}
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '5' %}#}
+                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == '5' %}#}
 
                 <li>{{ carte.modeles.modeleNom }} - {{ carte.modeles.modeleCategorie }}
                     - {{ carte.modeles.modeleExtra }} - {{ carte.modeles.modeleValeur }}</li>

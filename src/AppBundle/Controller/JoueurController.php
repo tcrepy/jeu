@@ -19,6 +19,38 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class JoueurController extends Controller
 {
+    function finPartie($partieid)
+    {
+        $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
+        $joueur1 = $partie->getUsers1();
+        $joueur2 = $partie->getUsers2();
+        $carte = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['parties' => $partieid]);
+        $cartePioche = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['parties' => $partieid, 'carteSituation' => 'pioche']);
+        $em = $this->getDoctrine()->getManager();
+
+        $nbCarte = count($cartePioche);
+
+        if ($nbCarte == 1) {
+
+            $scorej1 = $partie->getPartieJoueur1Score();
+            $scorej2 = $partie->getPartieJoueur2Score();
+
+            if ($scorej1 > $scorej2) {
+                $partie->setResultat($joueur1);
+            } elseif ($scorej2 > $scorej1) {
+                $partie->setResultat($joueur2);
+            } else {
+                $partie->setResultat('Egalité');
+            }
+
+            foreach ($carte as $val) {
+                $em->remove($val);
+            }
+        }
+
+        $em->flush();
+
+    }
 
     /**
      * @Route("/", name="joueur_homepage")
@@ -135,6 +167,7 @@ class JoueurController extends Controller
         $em = $this->getDoctrine()->getManager();
         $cartesPioche->setCarteSituation('mainJ1');
         $em->flush();
+        $this->finPartie($partieid);
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
 
@@ -148,6 +181,27 @@ class JoueurController extends Controller
         $em = $this->getDoctrine()->getManager();
         $cartesPioche->setCarteSituation('mainJ2');
         $em->flush();
+        $this->finPartie($partieid);
+        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
+    }
+
+    /**
+     * @param Parties $partieid
+     * @Route("/piocher/{partieid}", name="piocher")
+     */
+    public function piocherAction($partieid)
+    {
+        $cartesPioche = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['carteSituation' => 'pioche', 'parties' => $partieid]);
+        $partie = $this->getDoctrine()->getRepository('AppBundle:Parties')->find($partieid);
+        $em = $this->getDoctrine()->getManager();
+
+        if ($partie->getPartieTour() == $partie->getUsers1()){
+            $cartesPioche->setCarteSituation('mainJ1');
+        } else {
+            $cartesPioche->setCarteSituation('mainJ2');
+        }
+        $em->flush();
+        $this->finPartie($partieid);
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
 
@@ -222,13 +276,13 @@ class JoueurController extends Controller
 
                 $multiplicateur = 1;
 
-                if ($carteAJouer->getModeles()->getModeleExtra() == 1){
+                if ($carteAJouer->getModeles()->getModeleExtra() == 1) {
                     $multiplicateur++;
                 }
                 //on active une catégorie : -20
                 //on ajoute la valeur de la carte
                 $score += $carteAJouer->getModeles()->getModeleValeur() - 20;
-                $score *=  $multiplicateur;
+                $score *= $multiplicateur;
 
 
                 $partie->setPartieJoueur1Score($score);
@@ -296,13 +350,13 @@ class JoueurController extends Controller
 
                 $multiplicateur = 1;
 
-                if ($carteAJouer->getModeles()->getModeleExtra() == 1){
+                if ($carteAJouer->getModeles()->getModeleExtra() == 1) {
                     $multiplicateur++;
                 }
                 //on active une catégorie : -20
                 //on ajoute la valeur de la carte
                 $score += $carteAJouer->getModeles()->getModeleValeur() - 20;
-                $score *=  $multiplicateur;
+                $score *= $multiplicateur;
 
                 $partie->setPartieJoueur2Score($score);
                 $partie->setPartieTour($partie->getUsers1());
@@ -311,9 +365,6 @@ class JoueurController extends Controller
                 $em->flush();
             }
         }
-
-//TODO::faire une verification de fin de parite, et rediriger vers une fonction fin de partie
-
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
     }
 
@@ -374,10 +425,5 @@ class JoueurController extends Controller
         }
         $em->flush();
         return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
-    }
-
-    function finPartie($partieid)
-    {
-
     }
 }
