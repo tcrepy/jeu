@@ -367,17 +367,18 @@ class JoueurController extends Controller
             $carteADefausser->setCarteSituation('defausse');
             $carteADefausser->setCarteOrdre($ordre);
             if ($partie->getPartieTour() == $partie->getUsers1()) {
-                $partie->setPartieTour($partie->getUsers2());
+                $partie->setJ1CarteJouer('1');
             } else {
-                $partie->setPartieTour($partie->getUsers1());
+                $partie->setJ2CarteJouer('1');
+
             }
         } else {
             $carteADefausser->setCarteSituation('defausse');
             $carteADefausser->setCarteOrdre(1);
             if ($partie->getPartieTour() == $partie->getUsers1()) {
-                $partie->setPartieTour($partie->getUsers2());
+                $partie->setJ1CarteJouer('1');
             } else {
-                $partie->setPartieTour($partie->getUsers1());
+                $partie->setJ1CarteJouer('1');
             }
         }
 
