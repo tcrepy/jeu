@@ -3,32 +3,46 @@
 {% block body %}
     <h1>Espace joueur : {{ user.username }}</h1>
     <h2>Mes parties en cours</h2>
+                <table class="table">
+                <thead>
+                <tr>
+                    <th>N° de la partie</th>
+                    <th>Vous jouez contre</th>
+                    <th>Vos points</th>
+                    <th>Points du joueur 2</th>
+                    <th>Rejoindre cette partie</th>
+                </tr>
+                    {% set i = 0 %}
+                    {% for parties in user.parties %}
+                    {% for partie in parties %}
+                    {% if partie is not empty %}
+                <tr>
+                <td>{{ partie.id }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="{{ path('afficher_partie', {'id': partie.id}) }}">Rejoindre</a> - tour de : {{ partie.partieTour }}</td>
+                {% set i = i + 1 %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
 
+    {% if i == 0 %}
+        Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>
+    {% endif %}
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    </table>
     <div>
         <ul>
-            {% set i = 0 %}
-            {% for parties in user.parties %}
-                {% for partie in parties %}
-                    {% if partie is not empty %}
-                        <li>Partie avec : <a href="{{ path('afficher_partie', {'id': partie.id}) }}">
-                                {% if partie.users1.username != user.username %}
-                                    {{ partie.users1.username }}
-                                {% else %}
-                                    {{ partie.users2.username }}
-                                {% endif %}
 
-                            </a> - tour de : {{ partie.partieTour }}</li>
-                        {% set i = i + 1 %}
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-
-            {% if i == 0 %}
-                Aucune partie en cours. <a href="{{ path('joueur_parties_add') }}">Créer une partie</a>
-            {% endif %}
         </ul>
     </div>
 
 
-    <a href="{{ path('joueur_homepage') }}">Retour</a>
+    <a class="retour" href="{{ path('joueur_homepage') }}">Retour</a>
 {% endblock %}
