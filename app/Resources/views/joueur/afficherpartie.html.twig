@@ -3,7 +3,6 @@
 {% block body %}
 
     <!-- <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
-
     <h2>Tour de : {{ parties[0].partieTour }}</h2> -->
 
     <div>
@@ -12,8 +11,10 @@
         <div id="dropper" class="zonejeu col-lg-offset-2 col-lg-8 col-md-8">
             <img class="plateau col-lg-10 col-md-10" src="{{ asset('assets/img/plateau.png') }}"
                  draggable="false"/>
-            <p class="nomscorej1">{{ parties[0].users1 }}</p><div class="scorej1">{{ parties[0].partieJoueur1Score }}</div>
-            <p class="nomscorej2">{{ parties[0].users2 }}</p><div class="scorej2">{{ parties[0].partieJoueur2Score }}</div>
+            <p class="nomscorej1">{{ parties[0].users1 }}</p>
+            <div class="scorej1">{{ parties[0].partieJoueur1Score }}</div>
+            <p class="nomscorej2">{{ parties[0].users2 }}</p>
+            <div class="scorej2">{{ parties[0].partieJoueur2Score }}</div>
             <div class="zones">
                 <ul id="example1" class="col-lg-2 bleu zone sortable">
                     {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '3' %}
