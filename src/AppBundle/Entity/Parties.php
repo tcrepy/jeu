@@ -57,6 +57,20 @@ class Parties
     private $resultat;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="j1_carte_jouer", type="string", nullable=true)
+     */
+    private $j1CarteJouer;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="j2_carte_jouer", type="string", nullable=true)
+     */
+    private $j2CarteJouer;
+
+    /**
      * Get id
      *
      * @return int
@@ -347,5 +361,53 @@ class Parties
     public function getResultat()
     {
         return $this->resultat;
+    }
+
+    /**
+     * Set j1CarteJouer
+     *
+     * @param string $j1CarteJouer
+     *
+     * @return Parties
+     */
+    public function setJ1CarteJouer($j1CarteJouer)
+    {
+        $this->j1CarteJouer = $j1CarteJouer;
+
+        return $this;
+    }
+
+    /**
+     * Get j1CarteJouer
+     *
+     * @return string
+     */
+    public function getJ1CarteJouer()
+    {
+        return $this->j1CarteJouer;
+    }
+
+    /**
+     * Set j2CarteJouer
+     *
+     * @param string $j2CarteJouer
+     *
+     * @return Parties
+     */
+    public function setJ2CarteJouer($j2CarteJouer)
+    {
+        $this->j2CarteJouer = $j2CarteJouer;
+
+        return $this;
+    }
+
+    /**
+     * Get j2CarteJouer
+     *
+     * @return string
+     */
+    public function getJ2CarteJouer()
+    {
+        return $this->j2CarteJouer;
     }
 }

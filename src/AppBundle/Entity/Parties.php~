@@ -57,6 +57,20 @@ class Parties
     private $resultat;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="j1_carte_jouer", type="string", nullable=true)
+     */
+    private $j1CarteJouer;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="j2_carte_jouer", type="string", nullable=true)
+     */
+    private $j2CarteJouer;
+
+    /**
      * Get id
      *
      * @return int
@@ -323,5 +337,29 @@ class Parties
     public function getPartieTour()
     {
         return $this->partieTour;
+    }
+
+    /**
+     * Set resultat
+     *
+     * @param string $resultat
+     *
+     * @return Parties
+     */
+    public function setResultat($resultat)
+    {
+        $this->resultat = $resultat;
+
+        return $this;
+    }
+
+    /**
+     * Get resultat
+     *
+     * @return string
+     */
+    public function getResultat()
+    {
+        return $this->resultat;
     }
 }
