@@ -17,13 +17,10 @@
             <div class="scorej2">{{ parties[0].partieJoueur2Score }}</div>
             <div class="zones">
                 <ul id="example1" class="col-lg-2 bleu zone sortable">
-<<<<<<< HEAD
                     {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '3' %}
                         <li class="licartej1">
-=======
                     {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == 'grecque' %}
                         <li>
->>>>>>> 2af2667df7844ea0324c9e59b6b573e2e77db4b3
                             <img class="carteimg"
                                  src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                         </li>
@@ -127,13 +124,8 @@
                     </div>
                 </ul>
                 <ul id="example4" class="col-lg-2 vert zone sortable">
-<<<<<<< HEAD
-                    {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '4' %}
-                        <li class="licartej1">
-=======
                     {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == 'scandinave' %}
-                        <li>
->>>>>>> 2af2667df7844ea0324c9e59b6b573e2e77db4b3
+                        <li class="licartej1">
                             <img class="carteimg"
                                  src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                         </li>
