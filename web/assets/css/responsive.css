@@ -1,0 +1,71 @@
+#dropper {
+  position: relative;
+}
+.zones {
+  top: 0%;
+  height: 100%;
+}
+.zone {
+  height: 60%;
+}
+.lescartes {
+  margin-top: 0%;
+  bottom: 2%;
+  text-align: center;
+  width: 100%;
+  padding-left: 0px;
+}
+.cartes .main .ui-sortable-handle {
+  float: none;
+  text-align: center;
+}
+.cartes.col-lg-offset-2.col-lg-8.col-md-8.col-xs-8.col-sm-8 {
+  width: 65%;
+  margin-left: 17%;
+  text-align: center;
+  padding-left: 0px;
+}
+
+
+
+.carteimg {
+  float: none;
+  height: auto;
+  max-width: 100%;
+}
+.container-fluid.containerzonejeu.col-lg-12.col-md-12 {
+  width: 100%;
+}
+@media (min-width:100px){
+  #dropper {
+  width: 100%;
+  }}
+
+@media (min-width:1100px){
+  #dropper {
+  margin-left: 16%
+    
+  }}
+#dropper {
+  max-width: 900px;
+
+    
+     
+}
+
+.main.ui-sortable {
+  margin-left: 0px;
+}
+.carteimg:hover {
+  animation: none;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.75);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.75);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.75);
+  transition: all 200ms ease-in;
+  transform: scale(1.75);
+  z-index: 2;
+  filter: none;
+}

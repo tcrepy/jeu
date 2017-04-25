@@ -21,14 +21,16 @@
                             {% endfor %}
                         </li>
                         <div class="minibleu">
-                            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '1' %}
+                            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}
                                 <div>
-                                    <img class="carteimg"
-                                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                                     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">
+                                            <img class="cartedefbleu"
+                                                 src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">
+                                            <img class="cartedefbleu"
+                                                 src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% endif %}
                                 </div>
                             {% endfor %}
@@ -42,14 +44,16 @@
                             {% endfor %}
                         </li>
                         <div class="minirouge">
-                            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '1' %}
+                            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '5' %}
                                 <div>
-                                    <img class="carteimg"
-                                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                                     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">
+                                            <img class="cartedefrouge"
+                                                 src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">
+                                            <img class="cartedefrouge"
+                                                 src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% endif %}
                                 </div>
                             {% endfor %}
@@ -63,15 +67,16 @@
                             {% endfor %}
                         </li>
                         <div class="minijaune">
-                            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}
-
+                            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '2' %}
                                 <div>
-                                    <img class="carteimg"
-                                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                                     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">
+                                            <img class="cartedefjaune"
+                                                 src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">
+                                            <img class="cartedefjaune"
+                                                 src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% endif %}
                                 </div>
                             {% endfor %}
@@ -85,14 +90,16 @@
                             {% endfor %}
                         </li>
                         <div class="minigris">
-                            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '1' %}
+                            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '4' %}
                                 <div>
-                                    <img class="carteimg"
-                                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                                     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}"><img
+                                                    class="cartedefgris"
+                                                    src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}"><img
+                                                    class="cartedefgris"
+                                                    src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% endif %}
                                 </div>
                             {% endfor %}
@@ -108,12 +115,14 @@
                         <div class="minivert">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '1' %}
                                 <div>
-                                    <img class="carteimg"
-                                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                                     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">
+                                            <img class="cartedefvert"
+                                                 src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
+                                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">
+                                            <img class="cartedefvert"
+                                                 src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% endif %}
                                 </div>
                             {% endfor %}
@@ -175,82 +184,4 @@
             });
         });
     </script>
-
-    <div>
-        <h2>Défausse</h2>
-
-        <ul>
-            <h3>Azteque :</h3>
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'azteque' %}#}
-
-        </ul>
-        <ul>
-            <h3>Scandinave :</h3>
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'scandinave' %}#}
-            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '2' %}
-
-                <li>
-                    <img class="carteimg"
-                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                    {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
-                    {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
-                    {% endif %}
-
-                </li>
-            {% endfor %}
-        </ul>
-        <ul>
-            <h3>Egyptien :</h3>
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'egyptien' %}#}
-            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}
-
-                <li>
-                    <img class="carteimg"
-                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                    {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
-                    {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
-                    {% endif %}
-
-                </li>
-            {% endfor %}
-        </ul>
-        <ul>
-            <h3>Romains :</h3>
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'romain' %}#}
-            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '4' %}
-
-                <li>
-                    <img class="carteimg"
-                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                    {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
-                    {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
-                    {% endif %}
-
-                </li>
-            {% endfor %}
-        </ul>
-        <ul>
-            <h3>Grec :</h3>
-            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == 'grecque' %}#}
-            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '5' %}
-
-                <li>
-                    <img class="carteimg"
-                         src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                    {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
-                    {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                        <a href="{{ path('recupererDefausse', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Récuperer</a>
-                    {% endif %}
-
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
 {% endblock %}
