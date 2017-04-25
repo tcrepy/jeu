@@ -57,6 +57,20 @@ class Parties
     private $resultat;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="j1_carte_jouer", type="string", nullable=true)
+     */
+    private $j1CarteJouer;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="j2_carte_jouer", type="string", nullable=true)
+     */
+    private $j2CarteJouer;
+
+    /**
      * Get id
      *
      * @return int
