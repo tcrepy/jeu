@@ -130,11 +130,63 @@ body {
 	filter : drop-shadow(0px 0px 15px rgba(0, 0, 0, .5));
 }
 .carteimg {
-	filter    : drop-shadow(0px 0px 3px rgba(0, 0, 0, .5));
-	float     : none;
-	height    : auto;
-	max-width : 100%;
-	width     : 95px;
+	filter : drop-shadow(0px 0px 3px rgba(0, 0, 0, .5));
+	float  : none;
+	height : auto;
+	width  : 95px;
+}
+.carteimgj2 {
+	filter : drop-shadow(0px 0px 3px rgba(0, 0, 0, .5));
+	float  : none;
+	height : auto;
+	width  : 95px;
+}
+.zone .licartej2:nth-child(2) {
+	margin-left : 10%;
+	bottom      : 1%;
+}
+.zone li:nth-child(3) {
+	margin-left : 20%;
+	bottom  : 2%;
+}
+.zone li:nth-child(4) {
+	margin-left : 30%;
+	bottom  : 3%;
+}
+.zone li:nth-child(5) {
+	margin-left : 40%;
+	bottom  : 4%;
+}
+.zone li:nth-child(6) {
+	margin-left : 50%;
+	bottom  : 5%;
+}
+.zone li:nth-child(7) {
+	margin-left : 60%;
+	bottom  : 6%;
+}
+.zone li:nth-child(8) {
+	margin-left : 60%;
+	bottom  : 15%;
+}
+.zone li:nth-child(9) {
+	margin-left : 50%;
+	bottom  : 16%;
+}
+.zone li:nth-child(10) {
+	margin-left : 40%;
+	bottom  : 17%;
+}
+.zone li:nth-child(11) {
+	margin-left : 30%;
+	bottom  : 18%;
+}
+.zone li:nth-child(12) {
+	margin-left : 20%;
+	bottom  : 19%;
+}
+.licartej2 {
+	bottom : 0;
 }
 .tchat {
 	background        : url(../img/fond_tchat.png);
@@ -312,7 +364,6 @@ ul.example li.placeholder:before {
 	position          : absolute;
 	height            : 6.5vw;
 	-webkit-transform : rotate(90deg); -moz-transform : rotate(90deg); -ms-transform : rotate(90deg); -o-transform : rotate(90deg); transform : rotate(90deg);
-	animation         : pulse 2s infinite;
 }
 @keyframes pulse {
 	0% {
@@ -453,11 +504,29 @@ li {
 .container-fluid.containerzonejeu.col-lg-12.col-md-12 {
 	width : 100%;
 }
-.scorej1 {
+.nomscorej1 {
 	position    : absolute;
 	padding     : 15px;
 	left        : 20%;
+	top         : 10%;
+	font-size   : 20px;
+	font-family : 'Romain', sans-serif;
+	color       : black;
+}
+.nomscorej2 {
+	position    : absolute;
+	padding     : 15px;
+	right       : 20%;
 	top         : 9.5%;
+	font-size   : 20px;
+	font-family : 'Romain', sans-serif;
+	color       : black;
+}
+.scorej1 {
+	position    : absolute;
+	padding     : 15px;
+	left        : 3%;
+	top         : 10%;
 	font-size   : 20px;
 	font-family : 'Romain', sans-serif;
 	color       : black;
@@ -465,8 +534,8 @@ li {
 .scorej2 {
 	position    : absolute;
 	padding     : 15px;
-	right       : 20%;
-	top         : 9.5%;
+	right       : 3%;
+	top         : 10%;
 	font-size   : 20px;
 	font-family : 'Romain', sans-serif;
 	color       : black;

@@ -324,4 +324,28 @@ class Parties
     {
         return $this->partieTour;
     }
+
+    /**
+     * Set resultat
+     *
+     * @param string $resultat
+     *
+     * @return Parties
+     */
+    public function setResultat($resultat)
+    {
+        $this->resultat = $resultat;
+
+        return $this;
+    }
+
+    /**
+     * Get resultat
+     *
+     * @return string
+     */
+    public function getResultat()
+    {
+        return $this->resultat;
+    }
 }
