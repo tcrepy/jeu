@@ -257,7 +257,7 @@ class JoueurController extends Controller
                 } else {
                     //on active une catégorie : -20
                     //on ajoute la valeur de la carte
-                    $score += $carteAJouer->getModeles()->getModeleValeur;
+                    $score += $carteAJouer->getModeles()->getModeleValeur();
                     $score += -20;
                 }
 
@@ -333,7 +333,7 @@ class JoueurController extends Controller
                 } else {
                     //on active une catégorie : -20
                     //on ajoute la valeur de la carte
-                    $score += $carteAJouer->getModeles()->getModeleValeur;
+                    $score += $carteAJouer->getModeles()->getModeleValeur();
                     $score += -20;
                 }
 
