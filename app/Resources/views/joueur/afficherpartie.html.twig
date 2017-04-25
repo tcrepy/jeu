@@ -12,14 +12,16 @@
             <div id="dropper" class="zonejeu col-lg-offset-2 col-lg-8 col-md-8">
                 <img class="plateau col-lg-10 col-md-10" src="{{ asset('assets/img/plateau.png') }}"
                      draggable="false"/>
+                <p class="scorej1">{{ parties[0].users1 }} {{ parties[0].partieJoueur1Score }}</p>
+                <p class="scorej2">{{ parties[0].users2 }} {{ parties[0].partieJoueur2Score }}</p>
                 <div class="zones">
                     <ul id="example1" class="col-lg-2 bleu zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == '3' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minibleu">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}
                                 <div>
@@ -38,11 +40,11 @@
                     </ul>
                     <ul id="example2" class="col-lg-2 rouge zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == '5' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minirouge">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '5' %}
                                 <div>
@@ -61,11 +63,11 @@
                     </ul>
                     <ul id="example3" class="col-lg-2 jaune zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == '2' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minijaune">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '2' %}
                                 <div>
@@ -84,11 +86,11 @@
                     </ul>
                     <ul id="example4" class="col-lg-2 vert zone sortable">
                         {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateau' and carte.modeles.modeleCategorie == '4' %}
-                        <li>
-                            <img class="carteimg"
-                                 src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
-                            {% endfor %}
-                        </li>
+                            <li>
+                                <img class="carteimg"
+                                     src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                            </li>
+                        {% endfor %}
                         <div class="minigris">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '4' %}
                                 <div>
@@ -142,8 +144,8 @@
                                         <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
                                     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
                                         <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
+                                        -
                                     {% endif %}
-                                    -
                                     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
                                         <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
                                     {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
