@@ -191,7 +191,10 @@ class JoueurController extends Controller
         $jouer = $this->getDoctrine()->getRepository('AppBundle:Parties')->findOneBy(['id' => $partieid]);
         $categorie = $cartejouer->getModeles()->getModeleCategorie();
         $valeur = $cartejouer->getModeles()->getModeleValeur();
+
+
         if ($jouer->getPartieTour() == $jouer->getUsers1()){
+
             $cartesplateau = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findBy(['carteSituation' => 'plateauj1', 'parties' => $partieid]);
             $score = $jouer->getPartieJoueur1Score();
             if (!empty($cartesplateau)) {
