@@ -17,7 +17,7 @@
             <div class="zones">
                 <ul id="example1" class="col-lg-2 bleu zone sortable">
                     {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '3' %}
-                        <li>
+                        <li class="licartej1">
                             <img class="carteimg"
                                  src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                         </li>
@@ -50,7 +50,7 @@
                 </ul>
                 <ul id="example2" class="col-lg-2 rouge zone sortable">
                     {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '5' %}
-                        <li>
+                        <li class="licartej1">
                             <img class="carteimg"
                                  src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                         </li>
@@ -81,7 +81,7 @@
                 </ul>
                 <ul id="example3" class="col-lg-2 jaune zone sortable">
                     {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '2' %}
-                        <li>
+                        <li class="licartej1">
                             <img class="carteimg"
                                  src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                         </li>
@@ -112,7 +112,7 @@
                 </ul>
                 <ul id="example4" class="col-lg-2 vert zone sortable">
                     {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == '4' %}
-                        <li>
+                        <li class="licartej1">
                             <img class="carteimg"
                                  src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                         </li>
