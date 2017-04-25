@@ -112,20 +112,20 @@
                     </div>
                 </ul>
                 <ul id="example4" class="col-lg-2 vert zone sortable">
-                    {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == 'scandinavazteque' %}
+                    {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj1' and carte.modeles.modeleCategorie == 'scandinave' %}
                         <li>
                             <img class="carteimg"
                                  src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                         </li>
                     {% endfor %}
-                    {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'scandinavazteque' %}
+                    {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'plateauj2' and carte.modeles.modeleCategorie == 'scandinave' %}
                         <li class="licartej2">
                             <img class="carteimgj2"
                                  src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                         </li>
                     {% endfor %}
                     <div class="minigris">
-                        {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'scandinavazteque' %}
+                        {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'scandinave' %}
                             <div>
                                 <img class="cartedefgris"
                                      src="{{ asset('assets/img/cartes/mini/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
