@@ -159,34 +159,6 @@ class JoueurController extends Controller
 
     /**
      * @param Parties $partieid
-     * @Route("/piocherj1/{partieid}", name="piocherj1")
-     */
-    public function piocherj1Action($partieid)
-    {
-        $cartesPioche = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['carteSituation' => 'pioche', 'parties' => $partieid]);
-        $em = $this->getDoctrine()->getManager();
-        $cartesPioche->setCarteSituation('mainJ1');
-        $em->flush();
-        $this->finPartie($partieid);
-        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
-    }
-
-    /**
-     * @param Parties $partieid
-     * @Route("/piocherj2/{partieid}", name="piocherj2")
-     */
-    public function piocherj2Action($partieid)
-    {
-        $cartesPioche = $this->getDoctrine()->getRepository('AppBundle:Cartes')->findOneBy(['carteSituation' => 'pioche', 'parties' => $partieid]);
-        $em = $this->getDoctrine()->getManager();
-        $cartesPioche->setCarteSituation('mainJ2');
-        $em->flush();
-        $this->finPartie($partieid);
-        return $this->redirectToRoute('afficher_partie', ['id' => $partieid]);
-    }
-
-    /**
-     * @param Parties $partieid
      * @Route("/piocher/{partieid}", name="piocher")
      */
     public function piocherAction($partieid)

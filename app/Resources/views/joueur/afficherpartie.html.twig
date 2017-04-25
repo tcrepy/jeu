@@ -24,7 +24,7 @@
                         <div class="minibleu">
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == 'grecque' %}
 
-                            {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}#}
+                                {#{% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'defausse' and carte.modeles.modeleCategorie == '3' %}#}
 
                                 <div>
                                     {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
@@ -166,21 +166,13 @@
             </div>
         </div>
         {% if i < 8 %}
-            <div class="pioche">
-                {% if parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                    {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'pioche' %}
-                        <a href="{{ path('piocherj1', {'partieid': parties[0].id}) }}">
-                            <img class="cartepioche" src="{{ asset('assets/img/cartes/dos.png') }}"/>
-                        </a>
-                    {% endfor %}
-                {% elseif parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                    {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'pioche' %}
-                        <a href="{{ path('piocherj1', {'partieid': parties[0].id}) }}">
-                            <img class="cartepioche" src="{{ asset('assets/img/cartes/dos.png') }}"/>
-                        </a>
-                    {% endfor %}
-                {% endif %}
-            </div>
+        <div class="pioche">
+            {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'pioche' %}
+                <a href="{{ path('piocher', {'partieid': parties[0].id}) }}">
+                    <img class="cartepioche" src="{{ asset('assets/img/cartes/dos.png') }}"/>
+                </a>
+            {% endfor %}
+        </div>
         {% endif %}
     </div>
     <script>
