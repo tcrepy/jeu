@@ -19,8 +19,8 @@
                 <tr>
                 <td>{{ partie.id }}</td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ partie.partieJoueur1Score }}</td>
+                <td>{{ partie.partieJoueur2Score }}</td>
                 <td>
                     <a href="{{ path('afficher_partie', {'id': partie.id}) }}">Rejoindre</a> - tour de : {{ partie.partieTour }}</td>
                 {% set i = i + 1 %}
