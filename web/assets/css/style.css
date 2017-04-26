@@ -9,11 +9,11 @@ body {
 }
 /****************************NAVBAR*********************************/
 .navbar {
-	background    : url(../img/fond_menu.png);
-	background-position :  100% 100%;
-	height        : 65px;
-	border        : 0;
-	border-radius : 0;
+	background          : url(../img/fond_menu.png);
+	background-position : 100% 100%;
+	height              : 65px;
+	border              : 0;
+	border-radius       : 0;
 }
 .navbar-nav {
 	font-family : 'Romain', sans-serif;
@@ -26,7 +26,7 @@ body {
 	color : white;
 }
 .navleft > li {
-	padding: 7.5px 3vw 7.5px 3vw;
+	padding      : 7.5px 3vw 7.5px 3vw;
 	border-left  : solid 3px #9e9e9f;
 	border-right : solid 0;
 }
@@ -35,7 +35,7 @@ body {
 	border-right : solid 3px #9e9e9f;
 }
 .navright > li {
-	padding: 7.5px 3vw 7.5px 3vw;
+	padding      : 7.5px 3vw 7.5px 3vw;
 	border-left  : solid 3px #9e9e9f;
 	border-right : solid 3px #9e9e9f;
 }
@@ -54,7 +54,7 @@ body {
 
 @media screen and (max-width : 1550px) {
 	.navleft > li {
-		padding: 7.5px 3vw 7.5px 3vw;
+		padding      : 7.5px 3vw 7.5px 3vw;
 		border-left  : solid 3px #9e9e9f;
 		border-right : solid 0;
 	}
@@ -63,7 +63,7 @@ body {
 		border-right : solid 3px #9e9e9f;
 	}
 	.navright > li {
-		padding: 7.5px 3vw 7.5px 3vw;
+		padding      : 7.5px 3vw 7.5px 3vw;
 		border-left  : solid 3px #9e9e9f;
 		border-right : solid 3px #9e9e9f;
 	}
@@ -95,13 +95,13 @@ body {
 		border           : solid 3px #e2c62c;
 	}
 	.tchat {
-		background        : url(../img/fond_tchat.png), no-repeat;
-		height            : 68%;
-		position          : absolute;
-		width             : 33%;
-		right             : 0;
-		bottom            : 60px;
-		padding           : 0
+		background : url(../img/fond_tchat.png), no-repeat;
+		height     : 68%;
+		position   : absolute;
+		width      : 33%;
+		right      : 0;
+		bottom     : 60px;
+		padding    : 0
 	}
 }
 /************ Pour les tablettes  ***********************/
@@ -553,4 +553,54 @@ li {
 }
 .modal-content {
 	background : url(../img/background.png);
+}
+.classement {
+	font-size     : 30px;
+	font-family   : Romain, sans-serif;
+	font-weight   : 500;
+	margin-top    : 25px;
+	margin-bottom : 25px;
+}
+.classementligne {
+	font-size     : 25px;
+	margin-bottom : 10px;
+}
+.classementligne p:nth-of-type(1) {
+	color : #EFD807;
+}
+.classementligne p:nth-of-type(1):after {
+	content           : '';
+	background        : url(../img/premier.png);
+	background-repeat : no-repeat;
+	width             : 50px;
+	height            : 50px;
+	position          : absolute;
+	left              : -50px;
+	top               : 4px;
+}
+.classementligne p:nth-child(2) {
+	color : #C0C0C0;
+}
+.classementligne p:nth-of-type(2):after {
+	content           : '';
+	background        : url(../img/deuxieme.png);
+	background-repeat : no-repeat;
+	width             : 50px;
+	height            : 50px;
+	position          : absolute;
+	left              : -50px;
+	top               : 4px;
+}
+.classementligne p:nth-child(3) {
+	color : #cd7f32;
+}
+.classementligne p:nth-of-type(3):after {
+	content           : '';
+	background        : url(../img/troisieme.png);
+	background-repeat : no-repeat;
+	width             : 50px;
+	height            : 50px;
+	position          : absolute;
+	left              : -50px;
+	top               : 4px;
 }
