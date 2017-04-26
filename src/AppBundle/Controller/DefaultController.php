@@ -31,4 +31,20 @@ class DefaultController extends Controller
 
         return $this->render('AppBundle:Default:classement.html.twig', ['classement' => $classement]);
     }
+
+    /**
+     * @Route("/regle", name="regle")
+     */
+    public function regleAction()
+    {
+        return $this->render('AppBundle:regle.html.twig');
+    }
+
+    /**
+     * @Route("/tutoriel", name="tutoriel")
+     */
+    public function tutorielAction()
+    {
+        return $this->render('AppBundle:tutoriel.html.twig');
+    }
 }
