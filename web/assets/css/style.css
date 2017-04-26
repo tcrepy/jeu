@@ -17,7 +17,7 @@ body {
 }
 .navbar-nav {
 	font-family : 'Romain', sans-serif;
-	font-size   : 20px;
+	font-size   : 1.2vw;
 }
 .active {
 	background-color : transparent;
@@ -26,7 +26,7 @@ body {
 	color : white;
 }
 .navleft > li {
-	padding      : 7.5px 3vw 7.5px 3vw;
+	padding      : 7.5px 1vw 7.5px 1vw;
 	border-left  : solid 3px #9e9e9f;
 	border-right : solid 0;
 }
@@ -35,7 +35,7 @@ body {
 	border-right : solid 3px #9e9e9f;
 }
 .navright > li {
-	padding      : 7.5px 3vw 7.5px 3vw;
+	padding      : 7.5px 1vw 7.5px 1vw;
 	border-left  : solid 3px #9e9e9f;
 	border-right : solid 3px #9e9e9f;
 }
@@ -54,7 +54,7 @@ body {
 
 @media screen and (max-width : 1550px) {
 	.navleft > li {
-		padding      : 7.5px 3vw 7.5px 3vw;
+		padding      : 7.5px 1vw 7.5px 1vw;
 		border-left  : solid 3px #9e9e9f;
 		border-right : solid 0;
 	}
@@ -63,7 +63,7 @@ body {
 		border-right : solid 3px #9e9e9f;
 	}
 	.navright > li {
-		padding      : 7.5px 3vw 7.5px 3vw;
+		padding      : 7.5px 1vw 7.5px 1vw;
 		border-left  : solid 3px #9e9e9f;
 		border-right : solid 3px #9e9e9f;
 	}
@@ -109,19 +109,40 @@ body {
 @media screen and (max-width : 1250px) {
 	.navbar-nav {
 		font-family : 'Romain', sans-serif;
-		font-size   : 16px;
+		font-size   : 1.2vw;
 	}
 }
 @media screen and (max-width : 1085px) {
 	.navbar-nav {
 		font-family : 'Romain', sans-serif;
-		font-size   : 1.4vw;
+		font-size   : 1vw;
 	}
 	.navleft {
 		padding-left : 1vh;
 	}
 	.navright {
 		padding-right : 1vh;
+	}
+
+}
+@media screen and (max-width : 800px) {
+	.navbar-nav {
+		font-family : 'Romain', sans-serif;
+		font-size   : 3vw;
+	}
+	.navleft {
+		padding-left : 1vh;
+	}
+	.navright {
+		padding-right : 1vh;
+	}
+	.navbar-collapse {
+		background-image : url(../img/fond_menu.png);
+		z-index          : 1000;
+		position         : absolute;
+		width            : 100%;
+		background-color : gray;
+		font-size        : 1.5vw;
 	}
 
 }
@@ -635,10 +656,11 @@ p .enlever:nth-child(3) {
 	text-align     : left;
 }
 .messagechat {
-	color      : black;
-	float      : left;
-	font-size  : 15px;
-	text-align : left;
+	color       : black;
+	float       : left;
+	font-size   : 15px;
+	text-align  : left;
+	font-family : Roboto, sans-serif;
 }
 #posterchat {
 	margin-top : 3%;
