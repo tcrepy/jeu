@@ -1,0 +1,4 @@
+{% for message in messages %}
+    <p class="pseudochat col-lg-12 col-sm-12 col-xs-12">{{ message.users.username }} - {{ message.chatDate }}</p><br/>
+    <p class="messagechat col-lg-12 col-sm-12 col-xs-12">{{ message.chatMessage }} </p><br/><br/>
+{% endfor %}

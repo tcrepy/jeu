@@ -1,5 +1,11 @@
 {% extends 'base_dev.html.twig' %}
 
+{% block script %}
+    {{ parent() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script> $old = jQuery.noConflict();</script>
+{% endblock %}
+
 {% block body %}
 
     <!-- <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
@@ -183,21 +189,24 @@
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ1' %}
                                 {% set t = t + 1 %}
                                 <li class="where">
-                                    <a href="javascript:visibilite('{{ carte.id }}');"><img class="carteimg" data-toggle="modal" data-target="#exampleModal"
-                                         src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
+                                    <a href="javascript:visibilite('{{ carte.id }}');"><img class="carteimg"
+                                                                                            data-toggle="modal"
+                                                                                            data-target="#exampleModal"
+                                                                                            src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% if parties[0].j1CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                                    <div class="carte-boutons" id="{{ carte.id }}" style="display: none;">
-                                        <a class="boutons-jouer"  href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
-                                        <a class="boutons-defausser" href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
-                                    </div>
+                                        <div class="carte-boutons" id="{{ carte.id }}" style="display: none;">
+                                            <a class="boutons-jouer"
+                                               href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
+                                            <a class="boutons-defausser"
+                                               href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                        </div>
                                     {% endif %}
                                     <script>
-                                        var divPrecedent=document.getElementById('{{ carte.id }}');
-                                        function visibilite(divId)
-                                        {
-                                            divPrecedent.style.display='none';
-                                            divPrecedent=document.getElementById(divId);
-                                            divPrecedent.style.display='';
+                                        var divPrecedent = document.getElementById('{{ carte.id }}');
+                                        function visibilite(divId) {
+                                            divPrecedent.style.display = 'none';
+                                            divPrecedent = document.getElementById(divId);
+                                            divPrecedent.style.display = '';
                                         }
                                     </script>
                                 </li><br/>
@@ -207,21 +216,24 @@
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ2' %}
                                 {% set t = t + 1 %}
                                 <li class="where">
-                                    <a href="javascript:visibilite('{{ carte.id }}');"><img class="carteimg" data-toggle="modal" data-target="#exampleModal"
-                                         src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
+                                    <a href="javascript:visibilite('{{ carte.id }}');"><img class="carteimg"
+                                                                                            data-toggle="modal"
+                                                                                            data-target="#exampleModal"
+                                                                                            src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% if parties[0].j2CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                                    <div class="carte-boutons" id="{{ carte.id }}" style="display: none;">
-                                        <a class="boutons-jouer"  href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
-                                        <a class="boutons-defausser" href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
-                                    </div>
+                                        <div class="carte-boutons" id="{{ carte.id }}" style="display: none;">
+                                            <a class="boutons-jouer"
+                                               href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
+                                            <a class="boutons-defausser"
+                                               href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                        </div>
                                     {% endif %}
                                     <script>
-                                        var divPrecedent=document.getElementById('{{ carte.id }}');
-                                        function visibilite(divId)
-                                        {
-                                            divPrecedent.style.display='none';
-                                            divPrecedent=document.getElementById(divId);
-                                            divPrecedent.style.display='';
+                                        var divPrecedent = document.getElementById('{{ carte.id }}');
+                                        function visibilite(divId) {
+                                            divPrecedent.style.display = 'none';
+                                            divPrecedent = document.getElementById(divId);
+                                            divPrecedent.style.display = '';
                                         }
                                     </script>
                                 </li><br/>
@@ -240,20 +252,42 @@
             </a>
         </div>
     {% endif %}
-
-
     <script type="text/javascript">
-
         $(document).ready(function () {
-            //hide the all of the element with class msg_body
             $("#commentaires").hide();
-            //toggle the componenet with class msg_body
-            $("#affichagecommentaire").click(function () {
+            $("#affichagecommentaire").dblclick(function () {
                 $(this).next("#commentaires").slideToggle(600);
             });
         });
     </script>
 
-    <div id="affichagecommentaire" style="cursor: pointer;">Le chat</div>
+    <div id="affichagecommentaire" style="cursor: pointer;">
+        <form id="posterchat">
+            <input type="text" name="message" id="message">
+            <input type="submit">
+        </form>
+    </div>
     <div id="commentaires" class="tchat col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1"></div>
+
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                $old("#commentaires").load("{{ path('lireChat', {id: parties[0].id}) }}");
+//                var elem = document.getElementById('chat');
+//                elem.scrollTop = elem.scrollHeight;
+            }, 1500);
+            $('#posterchat').on('submit', function (e) {
+                e.preventDefault(); // J'empêche le comportement par défaut du navigateur, c-à-d de soumettre le formulaire
+                var $this = $(this); // L'objet jQuery du formulaire
+
+                // Envoi de la requête HTTP en mode asynchrone
+                $old.ajax({
+                    url: "{{ path('posterChat', {'parties': parties[0].id}) }}", // Le nom du fichier indiqué dans le formulaire
+                    type: "post", // La méthode indiquée dans le formulaire (get ou post)
+                    data: $this.serialize(), // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
+                });
+                $("#message").val('');
+            });
+        });
+    </script>
 {% endblock %}

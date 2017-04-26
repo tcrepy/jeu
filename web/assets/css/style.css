@@ -617,3 +617,29 @@ p .enlever:nth-child(2) {
 p .enlever:nth-child(3) {
 	display : none;
 }
+.fermer {
+	background-color : red;
+	width            : 55px;
+	height           : 55px;
+	cursor           : pointer;
+	float            : right;
+}
+#commentaires {
+	overflow-y : scroll;
+}
+.pseudochat {
+	float          : left;
+	text-transform : capitalize;
+	font-size      : 18px;
+	color          : #6E6E6E;
+	text-align     : left;
+}
+.messagechat {
+	color      : black;
+	float      : left;
+	font-size  : 15px;
+	text-align : left;
+}
+#posterchat {
+	margin-top : 3%;
+}

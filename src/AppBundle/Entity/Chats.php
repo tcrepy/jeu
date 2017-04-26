@@ -42,9 +42,9 @@ class Chats
     private $chatMessage;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="chat_date", type="datetime")
+     * @ORM\Column(name="chat_date", type="string")
      */
     private $chatDate;
 

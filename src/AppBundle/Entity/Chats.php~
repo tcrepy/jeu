@@ -42,9 +42,9 @@ class Chats
     private $chatMessage;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="chat_date", type="datetime")
+     * @ORM\Column(name="chat_date", type="string")
      */
     private $chatDate;
 
@@ -156,5 +156,19 @@ class Chats
     public function getParties()
     {
         return $this->parties;
+    }
+
+    /**
+     * Set users
+     *
+     * @param \AppBundle\Entity\Users $users
+     *
+     * @return Chats
+     */
+    public function setUsers(\AppBundle\Entity\Users $users = null)
+    {
+        $this->users = $users;
+
+        return $this;
     }
 }
