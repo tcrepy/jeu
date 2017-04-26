@@ -9,10 +9,11 @@ body {
 }
 /****************************NAVBAR*********************************/
 .navbar {
-	background    : url(../img/fond_menu.png);
-	height        : 83px;
-	border        : 0;
-	border-radius : 0;
+	background          : url(../img/fond_menu.png);
+	background-position : 100% 100%;
+	height              : 65px;
+	border              : 0;
+	border-radius       : 0;
 }
 .navbar-nav {
 	font-family : 'Romain', sans-serif;
@@ -25,7 +26,7 @@ body {
 	color : white;
 }
 .navleft > li {
-	padding      : 15px 4vw 15px 4vw;
+	padding      : 7.5px 3vw 7.5px 3vw;
 	border-left  : solid 3px #9e9e9f;
 	border-right : solid 0;
 }
@@ -34,7 +35,7 @@ body {
 	border-right : solid 3px #9e9e9f;
 }
 .navright > li {
-	padding      : 15px 1vw 15px 1vw;
+	padding      : 7.5px 3vw 7.5px 3vw;
 	border-left  : solid 3px #9e9e9f;
 	border-right : solid 3px #9e9e9f;
 }
@@ -53,7 +54,7 @@ body {
 
 @media screen and (max-width : 1550px) {
 	.navleft > li {
-		padding      : 15px 2vw 15px 2vw;
+		padding      : 7.5px 3vw 7.5px 3vw;
 		border-left  : solid 3px #9e9e9f;
 		border-right : solid 0;
 	}
@@ -62,7 +63,7 @@ body {
 		border-right : solid 3px #9e9e9f;
 	}
 	.navright > li {
-		padding      : 15px 1vw 15px 1vw;
+		padding      : 7.5px 3vw 7.5px 3vw;
 		border-left  : solid 3px #9e9e9f;
 		border-right : solid 3px #9e9e9f;
 	}
@@ -94,14 +95,13 @@ body {
 		border           : solid 3px #e2c62c;
 	}
 	.tchat {
-		background        : url(../img/fond_tchat.png);
-		background-repeat : no-repeat;
-		height            : 68%;
-		position          : absolute;
-		width             : 33%;
-		right             : 0;
-		bottom            : 60px;
-		padding           : 0
+		background : url(../img/fond_tchat.png), no-repeat;
+		height     : 68%;
+		position   : absolute;
+		width      : 33%;
+		right      : 0;
+		bottom     : 60px;
+		padding    : 0
 	}
 }
 /************ Pour les tablettes  ***********************/
@@ -277,13 +277,13 @@ body {
 .main .carteimg:hover {
 	animation          : none;
 	-webkit-transition : all 200ms ease-in;
-	-webkit-transform  : scale(1.75);
+	-webkit-transform  : scale(1.30);
 	-ms-transition     : all 200ms ease-in;
-	-ms-transform      : scale(1.75);
+	-ms-transform      : scale(1.30);
 	-moz-transition    : all 200ms ease-in;
-	-moz-transform     : scale(1.75);
+	-moz-transform     : scale(1.30);
 	transition         : all 200ms ease-in;
-	transform          : scale(1.75);
+	transform          : scale(1.30);
 	transform-origin   : 50% 95%;
 	z-index            : 2;
 	filter             : none;
@@ -431,7 +431,11 @@ label {
 	transform  : translateY(-50%);
 }
 .table {
-	color : #FFF;
+	color      : #FFF;
+	text-align : center;
+}
+.th {
+	text-align : center;
 }
 .retour {
 	color       : #FFF;
@@ -512,7 +516,7 @@ li {
 	padding     : 15px;
 	left        : 20%;
 	top         : 10%;
-	font-size   : 20px;
+	font-size   : 1.2vw;
 	font-family : 'Romain', sans-serif;
 	color       : black;
 }
@@ -521,7 +525,7 @@ li {
 	padding     : 15px;
 	right       : 20%;
 	top         : 9.5%;
-	font-size   : 20px;
+	font-size   : 1.2vw;
 	font-family : 'Romain', sans-serif;
 	color       : black;
 }
@@ -530,7 +534,7 @@ li {
 	padding     : 15px;
 	left        : 3%;
 	top         : 10%;
-	font-size   : 20px;
+	font-size   : 1.2vw;
 	font-family : 'Romain', sans-serif;
 	color       : black;
 }
@@ -539,7 +543,64 @@ li {
 	padding     : 15px;
 	right       : 3%;
 	top         : 10%;
-	font-size   : 20px;
+	font-size   : 1.2vw;
 	font-family : 'Romain', sans-serif;
 	color       : black;
+}
+.fos_user_profile_edit {
+	margin-top : 28%;
+	transform  : translateY(-100%);
+}
+.modal-content {
+	background : url(../img/background.png);
+}
+.classement {
+	font-size     : 30px;
+	font-family   : Romain, sans-serif;
+	font-weight   : 500;
+	margin-top    : 25px;
+	margin-bottom : 25px;
+}
+.classementligne {
+	font-size     : 25px;
+	margin-bottom : 10px;
+}
+.classementligne p:nth-of-type(1) {
+	color : #EFD807;
+}
+.classementligne p:nth-of-type(1):after {
+	content           : '';
+	background        : url(../img/premier.png);
+	background-repeat : no-repeat;
+	width             : 50px;
+	height            : 50px;
+	position          : absolute;
+	left              : -50px;
+	top               : 4px;
+}
+.classementligne p:nth-child(2) {
+	color : #C0C0C0;
+}
+.classementligne p:nth-of-type(2):after {
+	content           : '';
+	background        : url(../img/deuxieme.png);
+	background-repeat : no-repeat;
+	width             : 50px;
+	height            : 50px;
+	position          : absolute;
+	left              : -50px;
+	top               : 4px;
+}
+.classementligne p:nth-child(3) {
+	color : #cd7f32;
+}
+.classementligne p:nth-of-type(3):after {
+	content           : '';
+	background        : url(../img/troisieme.png);
+	background-repeat : no-repeat;
+	width             : 50px;
+	height            : 50px;
+	position          : absolute;
+	left              : -50px;
+	top               : 4px;
 }

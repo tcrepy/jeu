@@ -220,14 +220,4 @@
             </a>
         </div>
     {% endif %}
-    <script>
-        $(function () {
-            $("ul.main").sortable({
-                connectWith: ".jaune, .bleu, .rouge, .gris, .vert",
-            });
-            $("ul.zone").sortable({
-                connectWith: ".main",
-            });
-        });
-    </script>
 {% endblock %}

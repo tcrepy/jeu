@@ -5,6 +5,10 @@
     <h2>Créer une nouvelle partie</h2>
 
     <table class="table">
+        <tr>
+            <th>Pseudonyme</th>
+            <th>Commencer une partie</th>
+        </tr>
         {% for joueur in joueurs if joueur.username != user.username %}
             <tr>
                 <td>{{ joueur.username }}</td>
