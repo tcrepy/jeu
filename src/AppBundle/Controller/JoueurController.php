@@ -203,9 +203,11 @@ class JoueurController extends Controller
                             $etejouer = 1;
                         }
                     } else {
+                        //si les categories sont differentes
                         $remplis++;
                     }
                 }
+                //si rempli == nombre de carte sur le plateau => il y a aucune carte de meme categorie
                 if ($remplis == count($cartesplateau) || $etejouer == 1) {
                     $em = $this->getDoctrine()->getManager();
                     $cartejouer->setCarteSituation('plateauj1');
