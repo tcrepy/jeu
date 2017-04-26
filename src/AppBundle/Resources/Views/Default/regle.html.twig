@@ -1,0 +1,216 @@
+{% extends 'base_dev.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navleft">
+                            <li class="left"><a href="#">Tutoriel</a></li>
+                            <li><a href="#">Règles</a></li>
+                            <li class="active"><a href="/jeu/">Jouer<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="right"><a href="#">Classement</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right navright">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"> jcvd <span
+                                            class="caret"></span></a>
+                                <ul id="menu" class="dropdown-menu">
+                                    <li><a href="/jeu/joueur/parties/">Mes parties</a></li>
+                                    <li><a href="/jeu/joueur/parties/add">Nouvelle Partie</a></li>
+                                    <li><a href="/jeu/profile/edit">Editer le profil</a></li>
+                                    <li>
+                                        <a href="/jeu/logout"> Déconnexion </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $(".dropdown").hover(
+                        function () {
+                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("fast");
+                            $(this).toggleClass('open');
+                        },
+                        function () {
+                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("fast");
+                            $(this).toggleClass('open');
+                        }
+                );
+            });
+        </script>
+
+
+    </div>
+    <div class="container">
+        <div class="col-md-12">
+            <h1>NOTRE COMBAT, NOS REGLES</h1>
+            <div class="center">
+                <p>Pour vaincre des Dieux vous allez devoir combattre comme des Dieux.</p>
+                <p> Et un Dieu ne se bat pas qu’avec ses armes, il y a un code à respecter :</p>
+                <br><br>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Votre Objectif :</h2>
+                    <p>Vous allez devoir rassembler le plus de Dieux sous votre commandement et les placer à leur place
+                        en fonction de leur origine et par ordre croissant. </p>
+                    <br>
+                    <p>Certains Dieux sont dotés d’une puissance supérieure qui n’est plus à prouver, ces Dieux sont
+                        marqués d’un X et vous permettrons de décupler la puissance de votre armée par 2, 3 ou même
+                        4! </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <h2>Votre tour d’action : </h2>
+                    <p>Chaque mortel qui s’affronte commencent avec 8 Dieux représentés par des cartes.<br><br>
+                        Les tours sont simples, même pour des êtres aussi insignifiants :
+                    <ul>
+                        <li>1. Un mortel joue une carte de Dieu.</li>
+                        <li>2. Le même mortel prend un autre Dieu dans la réserve ou dans la case de rejet de Dieux.
+                        </li>
+                    </ul>
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Ou placer un Dieu :</h2>
+                    <p>Vous n’avez que deux choix pour poser un Dieu :
+
+                    <ul>
+                        <li>· Le mettre dans son temple respectif ou il y demeurera jusqu’à la fin du combat et grossira
+                            la puissance de votre armée.
+                        </li>
+                        <li>· Si vous pensez que ce microbe ne mérite pas d’être dans vos rangs, vous pouvez vous en
+                            débarasser dans la case de rejet de Dieux correspondante.
+                        </li>
+                    </ul>
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <h2>Placer votre Dieu :</h2>
+                    <p>Vous devez placer vos Dieux dans leur temple, les Dieux supérieurs doivent être placés en
+                        premiers et les Dieux inferieur dans l’ordre croissant. Cependant ils ne sont pas obligés de se
+                        suivre ; le Dieu 7 peut être mis après le Dieu 5 mais le 6 ne pourra plus être placé.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Vous debarrasser d’un Dieu :</h2>
+                    <p> Si un Dieu ne vous convient pas, vous pouvez vous en débarrasser en le jetant dans la case de
+                        rejet de Dieux de son temple.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <h2>Prendre un nouveau Dieu :</h2>
+                    <p>Une fois votre Dieu placé vous devez en reprendre un nouveau : </p>
+                    <ul>
+                        <li>· Depuis la réserve Divine.</li>
+                        <li>· Dans une case de rejet de Dieux.</li>
+                    </ul>
+
+
+                    <p>Cependant vous ne pouvez pas récupérer un Dieu dont vous vous êtes débarrassé durant votre
+                        tour.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2> Les dieux superieurs :</h2>
+                    <p>Ces Dieux sont marqués d’un X car leur puissance dépasse l’entendement. Par Groupe de Dieux il y
+                        a 3 Dieux supérieurs. Ces Dieux doivent être placés avant les Dieux inferieurs. Grace à leur
+                        incommensurable force ils peuvent doubler, tripler ou quadrupler la puissance de votre armée
+                        (Pour 1, 2 ou 3 Dieux supérieurs).
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <h2>La fin du combat : </h2>
+                    <p>Le combat prend fin quand un des deux mortels prend le dernier Dieu en réserve.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Le calcul de puissance :</h2>
+                    <p>Chaque temple possédant au moins une carte consomme 20 points de puissance, on ajoute à cela la
+                        puissance des Dieux inferieurs. Pour chaque temple, la puissance est multipliée par le nombre de
+                        Dieux supérieurs se trouvant dans ce temple. </p>
+                    <br>
+                    <p>
+                        Le score de puissance final est le total des points des 5 temples. Ce score de puissance peut
+                        être négatif… Si vous êtes un piètre chef de guerre.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <h2>Exemple de calcul de puissance : </h2>
+                    <p>Même si ce calcul simple peut-être compris par un nourrisson, nous n’oublions pas que vous n’êtes
+                        qu'un misérable mortel, dans un dernier sursaut de bonté nous daignons vous donner un exemple :
+                    </p>
+                    <br>
+                    <p>
+                        Supposons qu’un mortel ait joué 2 Dieux supérieurs et trois Dieux inferieur (5, 8 et 9) dans un
+                        même temple, le mortel gagnerait 22 points de puissance avec ces cartes. Cependant l’activation
+                        d’un temple demande 20 points de puissance donc 22-20 = 2. De plus, il a placé sur le champ de
+                        bataille 2 dieux supérieur, son score est donc triplé : 2*3=6.
+                    </p>
+                    <p>Il aura donc un total de 6 point de puissance, ce qui est misérable et risible. Ce score est donc
+                        cumulé au quatre autres temples. L’addition des scores donnera donc le score de puissance final.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Un dernier conseil divin :</h2>
+                    <p>Un temple vide n’a aucun impact sur le combat, vous n’êtes donc pas obligé d’assigner un Dieu à
+                        chaque temple.
+                        <br><br>
+                        Un Dieu agit vite mais sagement, faire des sacrifices peu changer le cours de la bataille…
+                        <br><br>Chaque groupe de Divinité se constitue de :
+
+                    <ul>
+                        <li>· Un unique Dieu inferieur allant de la puissance 2 à 10.</li>
+                        <li>· Trois cartes de Dieux supérieurs marqué de la puissance X.</li>
+                    </ul>
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {% enblock %}
