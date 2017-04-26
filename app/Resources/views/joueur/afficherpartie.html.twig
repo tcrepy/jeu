@@ -241,9 +241,9 @@
 
     </div>
 
-    <div class="form_chat" id="poster_chat">
-        <form action="{{ path('posterChat', {'parties': parties[0].id}) }}" method="post">
-            <input type="text" name="message">
+    <div class="form_chat">
+        <form id="posterchat">
+            <input type="text" name="message" id="message">
             <input type="submit">
         </form>
     </div>
@@ -256,13 +256,12 @@
             }, 1500);
             $('#posterchat').on('submit', function (e) {
                 e.preventDefault(); // J'empêche le comportement par défaut du navigateur, c-à-d de soumettre le formulaire
-
                 var $this = $(this); // L'objet jQuery du formulaire
 
                 // Envoi de la requête HTTP en mode asynchrone
                 $old.ajax({
-                    url: $this.attr('action'), // Le nom du fichier indiqué dans le formulaire
-                    type: $this.attr('method'), // La méthode indiquée dans le formulaire (get ou post)
+                    url: "{{ path('posterChat', {'parties': parties[0].id}) }}", // Le nom du fichier indiqué dans le formulaire
+                    type: "post", // La méthode indiquée dans le formulaire (get ou post)
                     data: $this.serialize(), // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
                 });
                 $("#message").val('');

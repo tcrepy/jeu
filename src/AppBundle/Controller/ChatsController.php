@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class ChatsController extends Controller
@@ -45,6 +46,7 @@ class ChatsController extends Controller
 
         $em->persist($chat);
         $em->flush();
+        return new Response();
     }
 
 }
