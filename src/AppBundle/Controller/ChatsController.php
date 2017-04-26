@@ -21,8 +21,7 @@ class ChatsController extends Controller
     public function lireAction(Parties $id)
     {
         $message = $this->getDoctrine()->getRepository('AppBundle:Chats')->findBy(['parties' => $id]);
-        var_dump($message);
-        return $message;
+        return $this->render('chats/afficherChat.html.twig', ['messages' => $message]);
     }
 
     /**
@@ -32,21 +31,20 @@ class ChatsController extends Controller
      **/
     public function posterAction(Request $request, Parties $parties)
     {
-        $userId = $this->getUsers()->getId();
+        $user = $this->getUser();
         $messageReq = $request->request->all();
         $message = $messageReq['message'];
 
         $em = $this->getDoctrine()->getManager();
 
         $chat = new Chats();
-        $chat->setParties($parties->getId());
+        $chat->setParties($parties);
         $chat->setChatMessage($message);
-        $chat->setUsers($userId);
-        $chat->setChatDate("Y-m-d H:i:s");
+        $chat->setUsers($user);
+        $chat->setChatDate(date("Y-m-d H:i:s"));
 
         $em->persist($chat);
-//        $em->flush();
-        var_dump($chat);
+        $em->flush();
     }
 
 }
