@@ -22,8 +22,14 @@ class Chats
     private $id;
 
     /**
-     * Many Chats have many Users
-     * @ORM\ManyToMany(targetEntity="Users", mappedBy="chats")
+     * Many Chats have one Parties
+     * @ORM\ManyToOne(targetEntity="Parties")
+     */
+    private $parties;
+
+    /**
+     * Many Chats have one Users
+     * @ORM\ManyToOne(targetEntity="Users")
      */
 
     private $users;
@@ -109,20 +115,6 @@ class Chats
     }
 
     /**
-     * Add user
-     *
-     * @param \AppBundle\Entity\Users $user
-     *
-     * @return Chats
-     */
-    public function addUser(\AppBundle\Entity\Users $user)
-    {
-        $this->users[] = $user;
-
-        return $this;
-    }
-
-    /**
      * Remove user
      *
      * @param \AppBundle\Entity\Users $user
@@ -140,5 +132,29 @@ class Chats
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set parties
+     *
+     * @param \AppBundle\Entity\Parties $parties
+     *
+     * @return Chats
+     */
+    public function setParties(\AppBundle\Entity\Parties $parties = null)
+    {
+        $this->parties = $parties;
+
+        return $this;
+    }
+
+    /**
+     * Get parties
+     *
+     * @return \AppBundle\Entity\Parties
+     */
+    public function getParties()
+    {
+        return $this->parties;
     }
 }

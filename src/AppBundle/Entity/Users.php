@@ -33,14 +33,6 @@ class Users extends BaseUser
 
     private $parties;
 
-    /**
-    * Many Users have Many Chats.
-    * @ORM\ManyToMany(targetEntity="Chats", inversedBy="users")
-    * @ORM\JoinTable(name="users_chats")
-    */
-
-    private $chats;
-
 
     /**
      * @var int
