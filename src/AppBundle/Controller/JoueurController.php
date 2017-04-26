@@ -37,10 +37,12 @@ class JoueurController extends Controller
 
             if ($scorej1 > $scorej2) {
                 $partie->setResultat($joueur1);
-                $joueur1->setScore($partie->getPartieJoueur1Score());
+                $user = $this->getDoctrine()->getRepository('AppBundle:Users')->find($joueur1);
+                $user->setScore($partie->getPartieJoueur1Score());
             } elseif ($scorej2 > $scorej1) {
                 $partie->setResultat($joueur2);
-                $joueur2->setScore($partie->getPartieJoueur2Score());
+                $user = $this->getDoctrine()->getRepository('AppBundle:Users')->find($joueur2);
+                $user->setScore($partie->getPartieJoueur2Score());
             } else {
                 $partie->setResultat('Egalité');
             }
