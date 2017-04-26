@@ -604,3 +604,16 @@ li {
 	left              : -50px;
 	top               : 4px;
 }
+.enlever {
+	font-weight : 100;
+	display     : inline;
+}
+p .enlever:nth-child(1) {
+	display : none;
+}
+p .enlever:nth-child(2) {
+	display : none;
+}
+p .enlever:nth-child(3) {
+	display : none;
+}

@@ -183,7 +183,7 @@
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ1' %}
                                 {% set t = t + 1 %}
                                 <li class="where">
-                                    <img class="carteimg"
+                                    <img class="carteimg" data-toggle="modal" data-target="#exampleModal"
                                          src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                                     {% if parties[0].j1CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users1 == user.username %}
                                         <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
@@ -197,7 +197,7 @@
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ2' %}
                                 {% set t = t + 1 %}
                                 <li class="where">
-                                    <img class="carteimg"
+                                    <img class="carteimg" data-toggle="modal" data-target="#exampleModal"
                                          src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
                                     {% if parties[0].j2CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users2 == user.username %}
                                         <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
@@ -208,6 +208,27 @@
                             {% endfor %}
                         {% endif %}
                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
