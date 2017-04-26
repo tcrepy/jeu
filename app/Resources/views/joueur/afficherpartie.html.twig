@@ -183,13 +183,23 @@
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ1' %}
                                 {% set t = t + 1 %}
                                 <li class="where">
-                                    <img class="carteimg" data-toggle="modal" data-target="#exampleModal"
-                                         src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                                    <a href="javascript:visibilite('{{ carte.id }}');"><img class="carteimg" data-toggle="modal" data-target="#exampleModal"
+                                         src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% if parties[0].j1CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                                        <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
-                                        -
-                                        <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                    <div class="carte-boutons" id="{{ carte.id }}" style="display: none;">
+                                        <a class="boutons-jouer"  href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
+                                        <a class="boutons-defausser" href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                    </div>
                                     {% endif %}
+                                    <script>
+                                        var divPrecedent=document.getElementById('{{ carte.id }}');
+                                        function visibilite(divId)
+                                        {
+                                            divPrecedent.style.display='none';
+                                            divPrecedent=document.getElementById(divId);
+                                            divPrecedent.style.display='';
+                                        }
+                                    </script>
                                 </li><br/>
                             {% endfor %}
                         {% elseif parties[0].users2 == user.username %}
@@ -197,38 +207,27 @@
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ2' %}
                                 {% set t = t + 1 %}
                                 <li class="where">
-                                    <img class="carteimg" data-toggle="modal" data-target="#exampleModal"
-                                         src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                                    <a href="javascript:visibilite('{{ carte.id }}');"><img class="carteimg" data-toggle="modal" data-target="#exampleModal"
+                                         src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% if parties[0].j2CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                                        <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
-                                        -
-                                        <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                    <div class="carte-boutons" id="{{ carte.id }}" style="display: none;">
+                                        <a class="boutons-jouer"  href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
+                                        <a class="boutons-defausser" href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                    </div>
                                     {% endif %}
+                                    <script>
+                                        var divPrecedent=document.getElementById('{{ carte.id }}');
+                                        function visibilite(divId)
+                                        {
+                                            divPrecedent.style.display='none';
+                                            divPrecedent=document.getElementById(divId);
+                                            divPrecedent.style.display='';
+                                        }
+                                    </script>
                                 </li><br/>
                             {% endfor %}
                         {% endif %}
                     </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -241,4 +240,20 @@
             </a>
         </div>
     {% endif %}
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //hide the all of the element with class msg_body
+            $("#commentaires").hide();
+            //toggle the componenet with class msg_body
+            $("#affichagecommentaire").click(function () {
+                $(this).next("#commentaires").slideToggle(600);
+            });
+        });
+    </script>
+
+    <div id="affichagecommentaire" style="cursor: pointer;">Le chat</div>
+    <div id="commentaires" class="tchat col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1"></div>
 {% endblock %}
