@@ -16,7 +16,6 @@
     <link rel="stylesheet" type="text/css" href={{ asset('assets/css/style.css') }}>
 {% endblock %}
 
-{# block scripts head #}
 {% block script %}
     <script src="{{ asset('assets/js/jquery-3.1.1.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
@@ -26,6 +25,8 @@
     <script src="{{ asset('assets/js/jquery.fittext.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.lazylinepainter-1.7.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-2.1.1.min.js') }}"></script>
+    <script src="{{ asset('assets/sortable/sortable.js') }}"></script>
+    <script src="{{ asset('assets/sortable/jquery-ui.js') }}"></script>
 {% endblock %}
 
 {% block favicon %}
@@ -51,10 +52,65 @@
 {% block title %}{% endblock %}
 
 {% block body %}
+    <div class="container-fluid containerzonejeu col-lg-12 col-md-12">
+        <div id="dropper" class="zonejeu col-lg-offset-2 col-lg-8 col-md-8">
+            <img class="plateau col-lg-10 col-md-10" src="{{ asset('assets/img/plateau.png') }}" draggable="false"/>
+            <div class="zones">
+                <ul id="example1" class="col-lg-2 bleu zone sortable"></ul>
+                <ul id="example2" class="col-lg-2 rouge zone sortable"></ul>
+                <ul id="example3" class="col-lg-2 jaune zone sortable"></ul>
+                <ul id="example4" class="col-lg-2 vert zone sortable"></ul>
+                <ul id="example5" class="col-lg-2 gris zone sortable"></ul>
+            </div>
+            <div class="lescartes col-lg-12 col-md-12 col-xs-12">
+                <div class="cartes col-lg-offset-2 col-lg-8 col-md-8 col-xs-8 col-sm-8">
+                    <ul class='main'>
+                        <li class="where"><img draggable="true" id="1" class="carteimg"
+                                               src="{{ asset('assets/img/cartes/egyptiens/0.png') }}"/></li>
+                        <li class="where"><img draggable="true" id="2" class="carteimg"
+                                               src="{{ asset('assets/img/cartes/egyptiens/1.png') }}"/></li>
+                        <li class="where"><img draggable="true" id="3" class="carteimg"
+                                               src="{{ asset('assets/img/cartes/egyptiens/2.png') }}"/></li>
+                        <li class="where"><img draggable="true" id="4" class="carteimg"
+                                               src="{{ asset('assets/img/cartes/egyptiens/3.png') }}"/></li>
+                        <li class="where"><img draggable="true" id="5" class="carteimg"
+                                               src="{{ asset('assets/img/cartes/egyptiens/4.png') }}"/></li>
+                        <li class="where"><img draggable="true" id="6" class="carteimg"
+                                               src="{{ asset('assets/img/cartes/egyptiens/5.png') }}"/></li>
+                        <li class="where"><img draggable="true" id="7" class="carteimg"
+                                               src="{{ asset('assets/img/cartes/egyptiens/6.png') }}"/></li>
+                        <li class="where"><img draggable="true" id="8" class="carteimg"
+                                               src="{{ asset('assets/img/cartes/egyptiens/7.png') }}"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
 
-        <div class="zonejeu"><h1>Zone de jeu</h1></div>
-        <div class="tchat"><h1>Tchat</h1></div>
-        <footer><h1>Footer</h1></footer>
+            $(document).ready(function () {
+                //hide the all of the element with class msg_body
+                $("#commentaires").hide();
+                //toggle the componenet with class msg_body
+                $("#affichagecommentaire").click(function () {
+                    $(this).next("#commentaires").slideToggle(600);
+                });
+            });
+        </script>
+    </div>
+
+    <div id="affichagecommentaire" style="cursor: pointer;">Le chat</div>
+    <div id="commentaires" class="tchat col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1"></div>
+
+    <script>
+        $(function () {
+            $("ul.main").sortable({
+                connectWith: ".jaune, .bleu, .rouge, .gris, .vert",
+            });
+            $("ul.zone").sortable({
+                connectWith: ".main",
+            });
+        });
+    </script>
     </div>
 {% endblock %}
 

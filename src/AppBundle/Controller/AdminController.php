@@ -15,7 +15,7 @@ class AdminController extends BaseAdminController
         $this->get('fos_user.user_manager')->updateUser($user, false);
     }
 
-    public function preUpdateUsersEntity($user)
+    public function preUpdateUserEntity($user)
     {
         $this->get('fos_user.user_manager')->updateUser($user, false);
     }

@@ -1,0 +1,16 @@
+.center {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}
+
+body{
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+}
