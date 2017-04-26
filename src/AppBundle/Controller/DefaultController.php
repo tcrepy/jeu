@@ -37,7 +37,7 @@ class DefaultController extends Controller
      */
     public function regleAction()
     {
-        return $this->render('AppBundle:regle.html.twig');
+        return $this->render('AppBundle:Default:regle.html.twig');
     }
 
     /**
@@ -45,6 +45,6 @@ class DefaultController extends Controller
      */
     public function tutorielAction()
     {
-        return $this->render('AppBundle:tutoriel.html.twig');
+        return $this->render('AppBundle:Default:tutoriel.html.twig');
     }
 }
