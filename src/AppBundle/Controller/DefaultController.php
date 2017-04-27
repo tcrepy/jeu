@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/test", name="index")
      */
     public function indexAction()
     {
@@ -41,7 +41,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/tutoriel", name="tutoriel")
+     * @Route("/", name="tutoriel")
      */
     public function tutorielAction()
     {
