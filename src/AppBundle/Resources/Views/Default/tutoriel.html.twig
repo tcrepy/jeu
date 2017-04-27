@@ -1,5 +1,110 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    <div class="espaceGuide"></div>
+    <div id="guiderapide">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-8">
 
+                    <div id="plateauGuide">
+                        <img src="{{ asset ('assets/img/plateau2.png') }}" class="whiteColor wow zoomIn" width="100%"
+                             height="100%">
+                        <ul class="dosGuide">
+                            <li><img class="dosimg wow zoomIn" src="{{ asset ('assets/img/cartes/dos2.png') }}" alt="">
+                            </li>
+
+                        </ul>
+                        <p>
+                                        <span class="score1Guide wow slideInLeft">
+                                             0 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;   Joueur 1
+                                        </span>
+
+
+                            <span class="score2Guide wow slideInRight">
+                                             Joueur 2 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  0
+                                        </span>
+
+                        </p>
+                        <ul class="cartesGuide">
+                            <li>
+                                <img class="carteimgGuide wow zoomIn"
+                                     src="{{ asset ('assets/img/cartes/nordiques/11.png') }}" alt="">
+                            </li>
+                            <li>
+                                <img class="carteimgGuide wow zoomIn"
+                                     src="{{ asset ('assets/img/cartes/egyptiens/3.png') }}" alt="">
+                            </li>
+                            <li>
+                                <img class="carteimgGuide wow zoomIn"
+                                     src="{{ asset ('assets/img/cartes/romains/7.png') }}" alt=""></li>
+                            <li>
+                                <img class="carteimgGuide wow zoomIn" src="{{ asset ('assets/img/cartes/grec/8.png') }}"
+                                     alt=""></li>
+                            <li>
+                                <img class="carteimgGuide wow zoomIn"
+                                     src="{{ asset ('assets/img/cartes/azteques/11.png') }}" alt="">
+                            </li>
+                            <li>
+                                <img class="carteimgGuide wow zoomIn"
+                                     src="{{ asset ('assets/img/cartes/nordiques/2.png') }}" alt="">
+                            </li>
+                            <li>
+                                <img class="carteimgGuide wow zoomIn"
+                                     src="{{ asset ('assets/img/cartes/egyptiens/5.png') }}" alt="">
+                            </li>
+                            <li>
+                                <img class="carteimgGuide wow zoomIn"
+                                     src="{{ asset ('assets/img/cartes/romains/6.png') }}" alt=""></li>
+                        </ul>
+                    </div>
+                    <div id="guide1" data-wow-delay="1s" class="wow zoomIn">
+                        <img class="numGuide1" src="{{ asset ('assets/img/guide/guide1/1.png') }}" alt="">
+                        <p>Il s'agit de votre main. Cliquez sur "jouer" ou "défausser" en dessous de la carte choisie
+                            pour la placer sur le plateau ou dans la défausse.</p>
+                        <img class="flecheGuide1" src="{{ asset ('assets/img/guide/guide1/f1.png') }}" alt="">
+
+                    </div>
+                    <div id="guide2" data-wow-delay="3s" class="wow zoomIn">
+                        <img class="numGuide2" src="{{ asset ('assets/img/guide/guide2/2.png') }}" alt="">
+                        <p>Les cartes que vous aurez décidé de jouer se trouveront à cet endroit. Les cartes que vous
+                            aurez décidées de défausser se trouveront dans le carré central correspondant au Dieu
+                            choisi.</p>
+                        <img class="flecheGuide2" src="{{ asset ('assets/img/guide/guide2/f2.png') }}" alt="">
+
+                    </div>
+                    <div id="guide3" data-wow-delay="5s" class="wow zoomIn">
+                        <img class="numGuide3" src="{{ asset ('assets/img/guide/guide3/3.png') }}" alt="">
+                        <p>Après avoir joué ou défaussé une carte, vous avez le choix entre piocher une nouvelle carte
+                            ou en prendre une défaussée par votre adversaire.</p>
+                        <img class="flecheGuide3" src="{{ asset ('assets/img/guide/guide3/f3.png') }}" alt="">
+
+                    </div>
+                    <div id="guide4" data-wow-delay="7s" class="wow zoomIn">
+                        <img class="numGuide4" src="{{ asset ('assets/img/guide/guide4/4.png') }}" alt="">
+                        <p>Il s’agit ici de votre score en temps réel. Vous pouvez consulter les détails de calcul de
+                            score dans l’onglet “règles” du site.</p>
+                        <img class="flecheGuide4" src="{{ asset ('assets/img/guide/guide4/f4.png') }}" alt="">
+
+                    </div>
+                    <div id="guide5" data-wow-delay="9s" class="wow zoomIn">
+                        <img class="numGuide5" src="{{ asset ('assets/img/guide/guide5/5.png') }}" alt="">
+                        <p>Il s’agit ici du score de votre adversaire. Attention à ce qu’il ne dépasse pas le votre
+                            !</p>
+                        <img class="flecheGuide5" src="{{ asset ('assets/img/guide/guide5/f5.png') }}" alt="">
+
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+                new WOW().init();
+            }
+        );
+    </script>
 {% endblock %}

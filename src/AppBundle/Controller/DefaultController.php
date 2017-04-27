@@ -47,4 +47,12 @@ class DefaultController extends Controller
     {
         return $this->render('AppBundle:Default:tutoriel.html.twig');
     }
+
+    /**
+     * @Route("/encyclopedie", name="encyclopedie")
+     */
+    public function encycloAction()
+    {
+        return $this->render('AppBundle:Default:encyclopedie.html.twig');
+    }
 }

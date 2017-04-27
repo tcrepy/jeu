@@ -8,6 +8,18 @@
 
 {% block body %}
 
+    {% if parties[0].resultat is not null %}
+        <p class="gagnant">{{ parties[0].resultat }} a remporté cette partie </p>
+        <div class="fondnoir"></div>
+        {% if parties[0].resultat == user.username %}
+            <div class="victoire">Victoire</div>
+        {% elseif parties[0].resultat == 'Egalité' %}
+            <div class="egalite">Egalité</div>
+        {% else %}
+            <div class="defaite">Défaite</div>
+        {% endif %}
+        <a class="rejouer" href="{{ path('joueur_parties_add') }}">Chercher un nouveau joueur</a>
+    {% endif %}
     <!-- <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
     <h2>Tour de : {{ parties[0].partieTour }}</h2> -->
 
@@ -189,13 +201,26 @@
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ1' %}
                                 {% set t = t + 1 %}
                                 <li class="where">
-                                    <img class="carteimg" data-toggle="modal" data-target="#exampleModal"
-                                         src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                                    <a href="javascript:visibilite('{{ carte.id }}');"><img class="carteimg"
+                                                                                            data-toggle="modal"
+                                                                                            data-target="#exampleModal"
+                                                                                            src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% if parties[0].j1CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users1 == user.username %}
-                                        <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
-                                        -
-                                        <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                        <div class="carte-boutons" id="{{ carte.id }}" style="display: none;">
+                                            <a class="boutons-jouer"
+                                               href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
+                                            <a class="boutons-defausser"
+                                               href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                        </div>
                                     {% endif %}
+                                    <script>
+                                        var divPrecedent = document.getElementById('{{ carte.id }}');
+                                        function visibilite(divId) {
+                                            divPrecedent.style.display = 'none';
+                                            divPrecedent = document.getElementById(divId);
+                                            divPrecedent.style.display = '';
+                                        }
+                                    </script>
                                 </li><br/>
                             {% endfor %}
                         {% elseif parties[0].users2 == user.username %}
@@ -203,38 +228,30 @@
                             {% for carte in cartes if carte.parties.id == parties[0].id and carte.carteSituation == 'mainJ2' %}
                                 {% set t = t + 1 %}
                                 <li class="where">
-                                    <img class="carteimg" data-toggle="modal" data-target="#exampleModal"
-                                         src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/>
+                                    <a href="javascript:visibilite('{{ carte.id }}');"><img class="carteimg"
+                                                                                            data-toggle="modal"
+                                                                                            data-target="#exampleModal"
+                                                                                            src="{{ asset('assets/img/cartes/' ~ carte.modeles.modeleImage ~ '.png') }}"/></a>
                                     {% if parties[0].j2CarteJouer == 0 and parties[0].partieTour == user.username and parties[0].users2 == user.username %}
-                                        <a href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
-                                        -
-                                        <a href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                        <div class="carte-boutons" id="{{ carte.id }}" style="display: none;">
+                                            <a class="boutons-jouer"
+                                               href="{{ path('jouerCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Jouer</a>
+                                            <a class="boutons-defausser"
+                                               href="{{ path('defausserCarte', {'partieid': parties[0].id, 'carteid': carte.id}) }}">Défausser</a>
+                                        </div>
                                     {% endif %}
+                                    <script>
+                                        var divPrecedent = document.getElementById('{{ carte.id }}');
+                                        function visibilite(divId) {
+                                            divPrecedent.style.display = 'none';
+                                            divPrecedent = document.getElementById(divId);
+                                            divPrecedent.style.display = '';
+                                        }
+                                    </script>
                                 </li><br/>
                             {% endfor %}
                         {% endif %}
                     </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -247,31 +264,27 @@
             </a>
         </div>
     {% endif %}
-    <script>
-        $(function () {
-            $("ul.main").sortable({
-                connectWith: ".jaune, .bleu, .rouge, .gris, .vert",
-            });
-            $("ul.zone").sortable({
-                connectWith: ".main",
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#commentaires").hide();
+            $("#affichagecommentaire").dblclick(function () {
+                $(this).next("#commentaires").slideToggle(600);
             });
         });
     </script>
 
-    <div id="chat">
-
-    </div>
-
-    <div class="form_chat">
+    <div id="affichagecommentaire" style="cursor: pointer;">
         <form id="posterchat">
             <input type="text" name="message" id="message">
             <input type="submit">
         </form>
     </div>
+    <div id="commentaires" class="tchat col-lg-3 col-md-3 col-lg-offset-1 col-md-offset-1"></div>
+
     <script>
         $(document).ready(function () {
             setInterval(function () {
-                $old("#chat").load("{{ path('lireChat', {id: parties[0].id}) }}");
+                $old("#commentaires").load("{{ path('lireChat', {id: parties[0].id}) }}");
 //                var elem = document.getElementById('chat');
 //                elem.scrollTop = elem.scrollHeight;
             }, 1500);
