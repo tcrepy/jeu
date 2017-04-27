@@ -8,7 +8,10 @@
 
 {% block body %}
 
-
+    {% if parties[0].resultat is not null %}
+        {{ parties[0].resultat }}
+        <div class="victoire">Victoire</div>
+    {% endif %}
     <!-- <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
     <h2>Tour de : {{ parties[0].partieTour }}</h2> -->
 
