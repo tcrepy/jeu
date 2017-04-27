@@ -81,7 +81,7 @@ body {
 	width     : 25%;
 	top       : 60%;
 	left      : -25%;
-	font-size : 1vw;
+	font-size : 15px;
 }
 .flecheGuide1 {
 	width    : 100%;
@@ -93,7 +93,7 @@ body {
 	width     : 25%;
 	top       : 65%;
 	right     : -35%;
-	font-size : 1vw;
+	font-size : 15px;
 }
 #guide2 p {
 	max-height : 60px
@@ -108,7 +108,7 @@ body {
 	width     : 60%;
 	top       : -25%;
 	left      : -5%;
-	font-size : 1vw;
+	font-size : 15px;
 }
 .flecheGuide3 {
 	width    : 50%;
@@ -120,7 +120,7 @@ body {
 	width     : 25%;
 	top       : 2%;
 	right     : -35%;
-	font-size : 1vw;
+	font-size : 15px;
 }
 .flecheGuide4 {
 	width    : 90%;
@@ -132,7 +132,7 @@ body {
 	width     : 25%;
 	top       : 15%;
 	left      : -25%;
-	font-size : 1vw;
+	font-size : 15px;
 }
 #guide5 p {
 	max-height : 60px
