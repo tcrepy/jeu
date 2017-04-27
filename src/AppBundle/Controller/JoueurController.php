@@ -330,7 +330,7 @@ class JoueurController extends Controller
             if ($partie->getPartieTour() == $partie->getUsers1()) {
                 $partie->setJ1CarteJouer('1');
             } else {
-                $partie->setJ1CarteJouer('1');
+                $partie->setJ2CarteJouer('1');
             }
         }
 
