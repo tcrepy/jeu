@@ -9,8 +9,16 @@
 {% block body %}
 
     {% if parties[0].resultat is not null %}
-        {{ parties[0].resultat }}
-        <div class="victoire">Victoire</div>
+        <p class="gagnant">{{ parties[0].resultat }} a remporté cette partie </p>
+        <div class="fondnoir"></div>
+        {% if parties[0].resultat == user.username %}
+            <div class="victoire">Victoire</div>
+        {% elseif parties[0].resultat == 'Egalité' %}
+            <div class="egalite">Egalité</div>
+        {% else %}
+            <div class="defaite">Défaite</div>
+        {% endif %}
+        <a class="rejouer" href="{{ path('joueur_parties_add') }}">Chercher un nouveau joueur</a>
     {% endif %}
     <!-- <h1>Partie entre {{ parties[0].users1 }} et {{ parties[0].users2 }}</h1>
     <h2>Tour de : {{ parties[0].partieTour }}</h2> -->
